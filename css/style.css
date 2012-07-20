@@ -1,0 +1,300 @@
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+ html, body, div, span, applet, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ a, abbr, acronym, address, big, cite, code,
+ del, dfn, em, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var,
+ b, u, i, center,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td,
+ article, aside, canvas, details, embed, 
+ figure, figcaption, footer, header, hgroup, 
+ menu, contact, output, ruby, section, summary,
+ time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,  footer, header, hgroup, menu, contact, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+::-moz-selection { background: #c93333; color: #fff; text-shadow: none; }
+::selection { background: #c93333; color: #fff; text-shadow: none; }
+
+
+/* Font-face */
+@font-face{
+  font-family: Antipasto_regular;
+  src: url('../fonts/Antipasto_regular.otf');
+}
+
+
+/* Styles */
+body { 
+  font-family: "PT Sans", Helvetica, Arial, Sans-Serif;
+  background-color: #f0f0f0; 
+  /*background-color: #2a313a; */
+  background-image: url('../images/px_by_Gre3g.png');
+}
+h1 { 
+  color: #4a4a4a;  
+}
+p{
+  margin: 20px;
+}
+.wrapper{
+  padding-top: 5.4%;
+}
+.container{
+  width: 813px;
+  margin-left: auto;
+  margin-right: auto;
+  /*overflow: hidden;*/
+  /*background-image: url('../images/grid.png');*/
+}
+.header{
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  border: 2px solid black;
+  border-bottom: none;
+  background:  #2f2f2f;
+  color: white;
+  padding: 15px 0;
+}
+.heading {
+  text-align: center;
+  width: 230px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 56px;
+  font-family: "Alfa Slab One";
+  text-shadow: 1px 1px 0px black, 2px 2px 0px #476871, 3px 3px 0px #476871
+}
+
+.content-wrapper{
+  border: 2px solid black;
+  padding: 10px 3px 10px 3px;
+  background: white;
+}
+
+.left-column{
+  float:left;
+  width: 35%;
+  margin: 11px 0px 11px 25px;
+}
+#afatar{
+  border-color:  #2f2f2f;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.right-column{
+  float:right;
+  width: 60%;
+  margin: 0px 10px 4px 5px;
+}
+.name{
+  text-rendering: geometricprecision;
+  text-align: left;
+  font-size: 50px;
+  margin: 0px 20px ;
+  font-family: Antipasto_regular;
+}
+#bio{
+  float: right;
+  margin: 10px 20px 12px 22px;
+  text-align: justify;
+}
+
+.footer{
+  border-radius:0 0 5px 5px;
+  -moz-border-radius:0 0 5px 5px;
+  -webkit-border-radius:0 0 5px 5px;
+  border: 2px solid black;
+  border-top: none;
+  background-color: #2f2f2f;
+  padding: 13px 25px 13px 25px;
+  font-size:16px;
+}
+.resume-pill{
+ padding: 8px 12px;
+ margin: 2px;
+ color:white;
+ line-height: 14px;
+ display: block;
+ text-decoration: none;
+ -webkit-border-radius: 4px;
+ -moz-border-radius: 4px;
+ border-radius: 4px;   
+ float: right;
+ border:  black 1.5px dashed;
+}
+.resume-pill:hover{
+  color: black;
+  background-color: white;
+  border:  #2f2f2f 1px dashed;
+}
+
+.contact{
+  list-style: none;
+  padding: 0;
+}
+.contact-pills > li {
+  float: left;
+}
+.contact-pills > li > pre {
+  padding: 8px 12px 8px 1px;
+  margin: 2px 0px 2px 2px;
+  color: white;
+  line-height: 14px;
+  display: block;   
+}
+.contact-pills > li > a {
+  padding: 8px 12px;
+  margin: 2px;
+  color:white;
+  line-height: 14px;
+  display: block;
+  text-decoration: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.contact-pills > li > a:hover {
+  color: black;
+  background-color: white;
+  /*background-color: #0088cc;*/
+}
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after { clear: both; }​
+.clearfix { zoom: 1; }
+
+
+/*  Shaking Animation by Joss - http://www.cssreset.com */
+@-webkit-keyframes spaceboots {
+  0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+  10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+  30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+  40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+  50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+  70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+  80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+  90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+  100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+@-moz-keyframes spaceboots {
+  0% { -moz-transform: translate(2px, 1px) rotate(0deg); }
+  10% { -moz-transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { -moz-transform: translate(-3px, 0px) rotate(1deg); }
+  30% { -moz-transform: translate(0px, 2px) rotate(0deg); }
+  40% { -moz-transform: translate(1px, -1px) rotate(1deg); }
+  50% { -moz-transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { -moz-transform: translate(-3px, 1px) rotate(0deg); }
+  70% { -moz-transform: translate(2px, 1px) rotate(-1deg); }
+  80% { -moz-transform: translate(-1px, -1px) rotate(1deg); }
+  90% { -moz-transform: translate(2px, 2px) rotate(0deg); }
+  100% { -moz-transform: translate(1px, -2px) rotate(-1deg); }
+}
+@-o-keyframes spaceboots {
+  0% { -o-transform: translate(2px, 1px) rotate(0deg); }
+  10% { -o-transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { -o-transform: translate(-3px, 0px) rotate(1deg); }
+  30% { -o-transform: translate(0px, 2px) rotate(0deg); }
+  40% { -o-transform: translate(1px, -1px) rotate(1deg); }
+  50% { -o-transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { -o-transform: translate(-3px, 1px) rotate(0deg); }
+  70% { -o-transform: translate(2px, 1px) rotate(-1deg); }
+  80% { -o-transform: translate(-1px, -1px) rotate(1deg); }
+  90% { -o-transform: translate(2px, 2px) rotate(0deg); }
+  100% { -o-transform: translate(1px, -2px) rotate(-1deg); }
+}
+/*        End of shaking animation      */
+
+/*      Beating animation       */
+@-webkit-keyframes beating {
+  0% { -webkit-transform: scale(1); }
+  50% { -webkit-transform: scale(0.95); }
+  100% { -webkit-transform: scale(1); }
+}
+@-moz-keyframes beating {
+  0% { -moz-transform: scale(1); }
+  50% { -moz-transform: scale(0.95); }
+  100% { -moz-transform: scale(1); }
+}
+@-o-keyframes beating {
+  0% { -o-transform: scale(1); }
+  50% { -o-transform: scale(0.95); }
+  100% { -o-transform: scale(1); }
+}
+/*      End of beating animation        */
+
+.heading:hover, .heading:focus {
+  -webkit-animation-name: beating;
+  -webkit-animation-duration: 250ms;
+  -webkit-transform-origin:50% 50%;
+  -webkit-animation-iteration-count: 2;
+  -webkit-animation-timing-function: linear;
+
+  -moz-animation-name: beating;
+  -moz-animation-duration: 250ms;
+  -moz-transform-origin:50% 50%;
+  -moz-animation-iteration-count: 2;
+  -moz-animation-timing-function: linear;
+
+  -o-animation-name: beating;
+  -o-animation-duration: 250ms;
+  -o-transform-origin:50% 50%;
+  -o-animation-iteration-count: 2;
+  -o-animation-timing-function: linear;
+
+/*  -webkit-animation-name: spaceboots;
+    -webkit-animation-duration: 1s;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+
+    -moz-animation-name: spaceboots;
+    -moz-animation-duration: 1s;
+    -moz-transform-origin:50% 50%;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+
+    -o-animation-name: spaceboots;
+    -o-animation-duration: 1s;
+    -o-transform-origin:50% 50%;
+    -o-animation-iteration-count: infinite;
+    -o-animation-timing-function: linear;*/
+  }
