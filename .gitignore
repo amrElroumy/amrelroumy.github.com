@@ -1,0 +1,7 @@
+.git
+.hg
+.svn
+
+*.hyde_deps
+*.pyc
+*.pyo
