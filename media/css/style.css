@@ -595,7 +595,9 @@ pre{
   padding: 10px 10px 10px 10px;
   margin-top: 20px;
   background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
   border: 1px solid black;
 }
 .dsq-brlink{
