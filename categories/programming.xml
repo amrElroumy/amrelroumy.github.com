@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Amr Elroumy's Blog (programming)</title><link>http://amrelroumy.github.com</link><description>Science, Code, Personal Encounters &amp; and other random stuff</description><lastBuildDate>Fri, 05 Apr 2013 09:24:57 GMT</lastBuildDate><generator>nikola</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Singleton Pattern</title><link>http://amrelroumy.github.com/posts/20110801singleton-pattern.html</link><description>&lt;h3&gt;Pattern Name&lt;/h3&gt;
+&lt;p&gt;Singleton Pattern&lt;/p&gt;
+&lt;h3&gt;Classification&lt;/h3&gt;
+&lt;p&gt;Creational Pattern&lt;/p&gt;
+&lt;h3&gt;Intent&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ensure a class only has one instance, and offer a global point of access to that instance.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Motivation&lt;/h3&gt;
+&lt;p&gt;In many situations you&amp;#8217;d find yourself in need of ensuring that a certain class can only be instantiated once and is accessible in various parts of a system.    &lt;br&gt;
+Example for such situations is:&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Database access&lt;/li&gt;
+&lt;li&gt;Logging&lt;/li&gt;
+&lt;li&gt;Communication&lt;/li&gt;
+&lt;li&gt;Printer spooling&lt;/li&gt;
+&lt;li&gt;File systems&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;The singleton pattern provides us with two properties:&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;It ensures a class is only instantiated once. &lt;/li&gt;
+&lt;li&gt;It provides a global access point to that class. &lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;&lt;strong&gt;Note &lt;/strong&gt;
+Singletons are meant to be used sparingly, so if you find yourself using them everywhere you might want to take another look at your design.&lt;/p&gt;
+&lt;h3&gt;Applicability&lt;/h3&gt;
+&lt;p&gt;Use The &lt;strong&gt;Singleton pattern&lt;/strong&gt; when you want your classes to provide you with only one instance that is globally accessible to the code from an access point.&lt;/p&gt;
+&lt;h3&gt;Structure&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Singleton" src="/2011/08/singleton28.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Participants&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;SingletonClass:&lt;/strong&gt; This class provide global access to only a single instance of it by doing the following:  &lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;It hides its constructor to prevent any external classes from creating new instances. &lt;/li&gt;
+&lt;li&gt;It declares the static method &lt;em&gt;GetInstance()&lt;/em&gt; that provides access to the single instance that is held in the private variable: &lt;strong&gt;instance&lt;/strong&gt;. &lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;Consequences&lt;/h3&gt;
+&lt;p&gt;Like any pattern, the singleton pattern has its tradeoffs (according to its implementation) and if it is used while being unaware of these tradeoffs can produce unwanted results.&lt;/p&gt;
+&lt;h4&gt;Criticisms&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;First criticism:&lt;/strong&gt; Using it is considered a breach to one of the OOD Principles: The &lt;strong&gt;Single Responsibility Principle&lt;/strong&gt;, which states that: &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Every object should have a single responsibility, and that this responsibility should be entirely encapsulated by the class.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Thus, the class shouldn&amp;#8217;t care less for being a &lt;strong&gt;Singleton &lt;/strong&gt;or not, as it&amp;#8217;s only concern should be doing its business responsibility. But when using &lt;strong&gt;Singleton&lt;/strong&gt;, the class is responsible for two things here:&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Its original business responsibility.&lt;/li&gt;
+&lt;li&gt;Managing the instantiation of its objects.&lt;/li&gt;
+&lt;/ul&gt;&lt;hr&gt;&lt;p&gt;&lt;strong&gt;Second criticism:&lt;/strong&gt; We all know that having global variables in our code, produces code smells. But, isn&amp;#8217;t this what the &lt;strong&gt;Singleton Pattern &lt;/strong&gt;does? It makes an instance of the class accessible globally. There disadvantages of using global variables that apply when we use Singletons without proper care because of the similarity in their nature. &lt;/p&gt;
+&lt;p&gt;Some of these disadvantages are:&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Implicit &lt;a href="http://en.wikipedia.org/wiki/Coupling_(computer_programming)"&gt;coupling&lt;/a&gt; - &lt;/strong&gt;Many programmers unconsciously would tightly couple the class that uses the &lt;strong&gt;Singleton Pattern &lt;/strong&gt;with the rest of their code, because it&amp;#8217;s globally accessible. When this is done, the overuse of this pattern could converge into becoming an anti-pattern.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Namespace pollution - &lt;/strong&gt;Namespace pollution&lt;strong&gt; &lt;/strong&gt;can occur when we abuse &lt;strong&gt;Singleton Pattern&lt;/strong&gt;, though it is a bit unlikely if the pattern is used wisely.&lt;/li&gt;
+&lt;li&gt;Multithreading issues can occur when more than one thread the &lt;em&gt;GetInstance()&lt;/em&gt; method is invoked for the first time. This will result in instantiating many instance at the same time. That&amp;#8217;s why it is important to make sure that our code is thread safe by using &lt;strong&gt;Synchronization&lt;/strong&gt; (sometimes discouraged because of its performance footprint), &lt;strong&gt;&lt;a href="http://en.wikipedia.org/wiki/Lazy_instantiation"&gt;Lazy Instantiation&lt;/a&gt;&lt;/strong&gt; using &lt;strong&gt;double-checked locking&lt;/strong&gt;, or &lt;strong&gt;Early Instantiation&lt;/strong&gt;.&lt;strong&gt; &lt;/strong&gt;Choosing the implementation to use depends mainly on your needs and the available resources.&lt;/li&gt;
+&lt;li&gt;Unit-testing programs that contain singleton objects can become annoying because the &lt;strong&gt;Singleton&lt;/strong&gt; objects have a persistent state throughout the program. Leading to the following: &lt;/li&gt;
+&lt;li&gt;It makes it hard to replicate the tests for later testing or even having a clean environment for testing. &lt;/li&gt;
+&lt;li&gt;It takes away one thing that makes unit testing effective which is having tests that are independent on each other.&lt;/li&gt;
+&lt;li&gt;Also many developers prefer making dependencies between classes obvious through method signatures, rather than having the &lt;strong&gt;Singleton&lt;/strong&gt; object hidden in the code, lurking for the right moment to come and bite you in the back. Some might argue that passing that object through all this methods induces tight coupling, but on the contrary this way of exchanging objects allows you to write to an interface that can be easily extended without having to change a single line in your old code. &lt;strong&gt;Thus you&amp;#8217;re coupling to an interface not to an implementation.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;hr&gt;&lt;p&gt;If we want to overcome the mentioned shortcomings, we could separate the singleton part from the actual object, allowing for the object itself to be used normally if needed. Perhaps we can use a Factory or a builder that would encapsulate the object creation and maintain having only one instance created of this class, while leaving the class responsible only for its business responsibility. &lt;/p&gt;
+&lt;p&gt;J. B. Rainsberger argued in his article &amp;#8220;&lt;a href="http://www.ibm.com/developerworks/webservices/library/co-single/index.html#h3"&gt;Use your Singletons wisely&lt;/a&gt;&amp;#8221; that classes should not be responsible for the singleton part of the code:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Suppose an application needs only one instance of a class and the application configures that class at startup: Why should the class itself be responsible for being a singleton? It seems quite logical for the application to take on this responsibility, since the application requires this kind of behavior. The application, not the component, should be the singleton. The application then makes an instance of the component available for any application-specific code to use. When an application uses several such components, it can aggregate them into what we have called a toolbox.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Implementation&lt;/h3&gt;
+&lt;h4&gt;Na&amp;#239;ve implementation&lt;/h4&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Singleton&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;Singleton&lt;/span&gt; &lt;span class="n"&gt;_instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;Singleton&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Singleton&lt;/span&gt; &lt;span class="nf"&gt;GetInstance&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Singleton&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5&gt;&lt;strong&gt;Disadvantages of this implementation:&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;It is not thread safe as in some situations, separate threads can invoke the GetInstance for the first time simultaneously. So when both of them reaches the statement &lt;code&gt;if (_instance == null)&lt;/code&gt; it will be evaluated as true, thus both threads will see that it is valid to instantiate a new object. To avoid this issue, we have to write thread-safe code .&lt;/p&gt;
+&lt;h4&gt;Thread-safe Singleton using &lt;strong&gt;a simple Lazy Instantiation&lt;/strong&gt;&lt;/h4&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;sealed&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Singleton&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="k"&gt;readonly&lt;/span&gt; &lt;span class="n"&gt;Singleton&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Singleton&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;Singleton&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;Singleton&lt;/span&gt; &lt;span class="n"&gt;Instance&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;get&lt;/span&gt;
+        &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Having the &lt;strong&gt;Singleton &lt;/strong&gt;instance referenced by a private static member variable, gives us an advantage: the actual instantiation of the &lt;strong&gt;Singleton&lt;/strong&gt; object doesn&amp;#8217;t occur until the class is referenced by a call to the Instance property. Thus, this solution provides us with a form of Lazy Instantiation.&lt;/p&gt;
+&lt;h4&gt;Thread-safe Singleton using &lt;strong&gt;Double-Checked Locking&lt;/strong&gt;&lt;/h4&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;System&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;sealed&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Singleton&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;volatile&lt;/span&gt; &lt;span class="n"&gt;Singleton&lt;/span&gt; &lt;span class="n"&gt;_instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="k"&gt;readonly&lt;/span&gt; &lt;span class="kt"&gt;object&lt;/span&gt; &lt;span class="n"&gt;Lock&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;Singleton&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;Singleton&lt;/span&gt; &lt;span class="n"&gt;Instance&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;get&lt;/span&gt;
+        &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="k"&gt;lock&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Lock&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                        &lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Singleton&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+                &lt;span class="p"&gt;}&lt;/span&gt;
+            &lt;span class="p"&gt;}&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5&gt;This specific implementation of Double-Checked locking can be factored into:&lt;/h5&gt;
+&lt;p&gt;When working in a multi-threaded environment, we risk running into issues that arise from resource-sharing between multiple threads, like deadlocks and race conditions (&lt;a href="http://stackoverflow.com/questions/34510/what-is-a-race-condition"&gt;What is a race condition?&lt;/a&gt;). This implementation of the &lt;strong&gt;Singleton Pattern &lt;/strong&gt;however saves us from all this drama. &lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Using &lt;strong&gt;volatile&lt;/strong&gt; keyword.&lt;/li&gt;
+&lt;li&gt;Using the &lt;strong&gt;lock &lt;/strong&gt;statement to accomplish thread synchronization.&lt;/li&gt;
+&lt;li&gt;Using &lt;strong&gt;double-checked locking&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;The use of the &lt;strong&gt;volatile&lt;/strong&gt; keyword on the &lt;strong&gt;instance &lt;/strong&gt;member variable allows us to avoid the unexpected and unpredictable results in multi-threaded programs that access fields without synchronization and using the lock statement to synchronize access. The &lt;strong&gt;volatile &lt;/strong&gt;keyword indicates that a certain field can be modified by multiple threads, avoiding the compiler optimizations that assume access by a single thread. This ensures that the most up-to-date value is present in the field at all times.  &lt;/p&gt;
+&lt;p&gt;For more details on the volatile keyword and volatile fields check the following references:
+&lt;em&gt; &lt;a href="http://msdn.microsoft.com/en-us/library/x13ttww7.aspx"&gt;volatile (C# Reference) [MSDN Library]&lt;/a&gt;
+&lt;/em&gt; &lt;a href="http://msdn.microsoft.com/en-us/library/aa645755(v=vs.71).aspx"&gt;Volatile fields [MSDN Library]&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;&lt;p&gt;Having data shared between threads is the best recipe for obscure errors and complexity when working in a multithreaded environment. A way of solving this problem is using locks in order to stop more than one thread from working on the same data at the same time.  &lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;lock&lt;/strong&gt; keyword marks a statement block as a critical section by obtaining the mutual-exclusion lock for a given object, executing a statement, and then releasing the lock (source: &lt;a href="http://msdn.microsoft.com/en-us/library/c5kehkcz(v=VS.100).aspx"&gt;lock Statement [MSDN Library]&lt;/a&gt;). The idea is to ensure that a thread can&amp;#8217;t enter a critical area in the code, when another thread is still executing it. If two threads encounter a lock, one thread waits(blocks) until the lock becomes available.  &lt;/p&gt;
+&lt;p&gt;So, in layman&amp;#8217;s terms we can say that the mutual-exclusion lock acts as a simple door lock. You enter a room, you lock the door behind you and when you finish your business, you unlock the door and come out of the room, only then can somebody else enter. If anybody tries to enter the room while you are still in there, he has to wait.&lt;/p&gt;
+&lt;h4&gt;Important Notes&lt;/h4&gt;
+&lt;ul&gt;&lt;li&gt;It&amp;#8217;s a matter of good practice to avoid locking on a public type or an object that is accessible to other classes, because this risks running into performance issues and even deadlocks. Instead, we should use values of objects that are specifically made for the sole purpose of locking. These objects are commonly declared as &lt;strong&gt;private &lt;/strong&gt;or &lt;strong&gt;private static&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;It&amp;#8217;s also worth knowing that when using mutual-exclusion locks, the blocked thread doesn&amp;#8217;t consume any CPU resources unlike other locks like the &lt;a href="http://en.wikipedia.org/wiki/Spinlock"&gt;Spinlock&lt;/a&gt;, nevertheless each has its advantages and usages.&lt;/li&gt;
+&lt;/ul&gt;&lt;hr&gt;&lt;p&gt;You might ask yourself why can&amp;#8217;t I just simply use the lock this way:&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="k"&gt;get&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;lock&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Lock&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Singleton&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;instead of the implemented one:&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="k"&gt;get&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;lock&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Lock&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="n"&gt;_instance&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Singleton&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The problem with the first implementation is that it hinders the performance of the application because of the constant locking every time an instance is requested. Unlike the &lt;strong&gt;double-checked locking&lt;/strong&gt; implementation, which makes sure that a &lt;strong&gt;lock &lt;/strong&gt;is actually necessary and that there is no available instance.&lt;/p&gt;
+&lt;h3&gt;Related Patterns&lt;/h3&gt;
+&lt;p&gt;Abstract Factory , Builder , and Prototype.&lt;/p&gt;
+&lt;h4&gt;References&lt;/h4&gt;
+&lt;ul&gt;&lt;li&gt;&lt;a href="http://en.wikipedia.org/wiki/Design_Patterns"&gt;Design Patterns: Elements of Reusable Object-Oriented Software&lt;/a&gt; &amp;#8211; The Gang of Four (GoF): &lt;a href="http://en.wikipedia.org/wiki/Erich_Gamma"&gt;Erich Gamma&lt;/a&gt;, Richard Helm, &lt;a href="http://en.wikipedia.org/wiki/Ralph_Johnson_(computer_scientist)"&gt;Ralph Johnson&lt;/a&gt;, &lt;a href="http://en.wikipedia.org/wiki/John_Vlissides"&gt;John M. Vlissides&lt;/a&gt;. &lt;/li&gt;
+&lt;li&gt;&lt;a href="http://oreilly.com/catalog/9780596007126"&gt;Head First Design Patterns&lt;/a&gt; &amp;#8211; &lt;a href="http://www.oreillynet.com/pub/au/2003"&gt;Eric T Freeman&lt;/a&gt;, &lt;a href="http://www.oreillynet.com/pub/au/2002"&gt;Elisabeth Robson&lt;/a&gt;, &lt;a href="http://www.oreillynet.com/pub/au/1085"&gt;Bert Bates&lt;/a&gt;, &lt;a href="http://www.oreillynet.com/pub/au/1084"&gt;Kathy Sierra&lt;/a&gt;. &lt;/li&gt;
+&lt;li&gt;&lt;a href="http://blogs.msdn.com/b/scottdensmore/archive/2004/05/25/140827.aspx"&gt;Why Singletons are Evil&lt;/a&gt; - &lt;a href="http://blogs.msdn.com/b/scottdensmore/"&gt;Scott Densmore&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://csharpindepth.com/Articles/General/Singleton.aspx"&gt;Implementing the Singleton Pattern in C# - C# in Depth&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><guid>http://amrelroumy.github.com/posts/20110801singleton-pattern.html</guid><pubDate>Mon, 01 Aug 2011 02:08:56 GMT</pubDate></item><item><title>Factory Method</title><link>http://amrelroumy.github.com/posts/20110720factory-method.html</link><description>&lt;h3&gt;Pattern Name&lt;/h3&gt;
+&lt;p&gt;Factory Method&lt;/p&gt;
+&lt;h3&gt;Classification&lt;/h3&gt;
+&lt;p&gt;Creational Pattern&lt;/p&gt;
+&lt;h3&gt;Intent&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Define an interface for creating an object, but let subclasses decide which class to instantiate. &lt;strong&gt;Factory Method&lt;/strong&gt; lets a class defer instantiation to subclasses.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Also known as&lt;/h3&gt;
+&lt;p&gt;Virtual Constructor&lt;/p&gt;
+&lt;h3&gt;Motivation&lt;/h3&gt;
+&lt;p&gt;When we program to an implementation we risk making our code &lt;strong&gt;more fragile and less flexible&lt;/strong&gt;. When we handle the instantiation of concrete classes explicitly, this is exactly what we are doing&amp;#8230; By doing this, we subject our code to the severe impacts of change. One of these consequences is that we force ourselves to modify already existing code when we want to change the object creation routines or add new concrete classes, thus, breaching one of the &lt;strong&gt;OOD&lt;/strong&gt; principles:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#8220;Your code should be open for extension but closed for modifications.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A common thing to do when we have a part of the code that is likely to change is to:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#8220;Identify the aspects that vary and separate them from what stays the same.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is why we are needed to &lt;strong&gt;encapsulate&lt;/strong&gt; the object creation and &lt;strong&gt;isolate&lt;/strong&gt; it from the rest of the code, ensuring that any change in the object creation will remain transparent to the rest of the code. And here comes the role of the &lt;strong&gt;Factory Method pattern&lt;/strong&gt;, as it handles the object creation and encapsulates it in a subclass. Thus, the client depends on the subclasses to handle all the object creation, so it doesn&amp;#8217;t really know the kind of concrete product that is actually created and its code depends on an abstract product. &lt;/p&gt;
+&lt;h4&gt;Notes:&lt;/h4&gt;
+&lt;ul&gt;&lt;li&gt;Factory Patterns in general focus on encapsulating the instantiation of concrete types; abstracting the product creation process, so that the type of the concrete product can be determined in the runtime.&lt;/li&gt;
+&lt;li&gt;There are two types of &lt;strong&gt;Factory Method&lt;/strong&gt;:&lt;ul&gt;&lt;li&gt;Parameterized: This can make more than one object based on the parameters passed to it.&lt;/li&gt;
+&lt;li&gt;Not parameterized: This can make only one object&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;When using parameterized Factory Methods it is important to make sure that the parameters are &amp;#8220;type safe&amp;#8221; and ensure that errors in parameters are caught at compile time; to prevent runtime errors. E.g. we could use enumerators.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Factory Method&lt;/strong&gt; is similar to the &lt;strong&gt;Abstract Factory&lt;/strong&gt; in that the methods of the &lt;strong&gt;Abstract factory&lt;/strong&gt; can be implemented as &lt;strong&gt;Factory Methods&lt;/strong&gt;. The main difference is that while abstract factory deals with an entire family of products, the &lt;strong&gt;Factory Method&lt;/strong&gt; is only worried about a single product. Also &lt;strong&gt;Factory Methods&lt;/strong&gt; use inheritance to get the concrete object as they delegate object creation to subclasses which implement the &lt;strong&gt;Factory Method&lt;/strong&gt;, while &lt;strong&gt;Abstract Factory&lt;/strong&gt; uses object composition.&lt;/li&gt;
+&lt;/ul&gt;&lt;h2&gt;Applicability&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Use the &lt;strong&gt;Factory Method&lt;/strong&gt; pattern when:   &lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;a class can&amp;#8217;t anticipate the class of objects it must create. &lt;/li&gt;
+&lt;li&gt;a class wants its subclasses to specify the objects it creates. &lt;/li&gt;
+&lt;li&gt;classes delegate responsibility to one of several helper subclasses, and you want to localize the knowledge of which helper subclass is the delegate.
+&lt;cite&gt;(source: GoF&amp;#8217;s Book)&lt;/cite&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;h4&gt;Important Note:&lt;/h4&gt;
+&lt;p&gt;Factories can only be used with a family of classes. If these classes doesn&amp;#8217;t extend the same base or interface, then we can&amp;#8217;t use factories with them.&lt;/p&gt;
+&lt;h3&gt;Structure&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Factory_Method" src="http://amrelroumy.files.wordpress.com/2011/07/factory_method2.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Participants&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;CreatorBase:&lt;/strong&gt; If we don&amp;#8217;t need to extend the creator and have different creators the whole factory can be implemented here. Otherwise, this base is either an interface or an abstract class; depending on the situation and if we want to add specify some simple functionality that the concrete creators inherit.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ConcreteCreator:&lt;/strong&gt; It inherits the &lt;strong&gt;CreatorBase&lt;/strong&gt; class. It either uses the &lt;strong&gt;FactoryMethod&lt;/strong&gt; as it is if it is implemented fully in the base class, or it overrides it with the suitable object creation code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ProductBase:&lt;/strong&gt; This abstract class defines the type of products that the &lt;strong&gt;FactoryMethod &lt;/strong&gt;can create.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ConcreteProduct:&lt;/strong&gt; The actual object that is created by the &lt;strong&gt;FactoryMethod&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;Consequences&lt;/h3&gt;
+&lt;h5&gt;Advantages:&lt;/h5&gt;
+&lt;ul&gt;&lt;li&gt;It enforces loose coupling between the Creator and the product. This is good, because it&amp;#8217;ll allow us to add new products or change old ones without affecting our code or having to change it to fit into the new design as the code only deals with the product&amp;#8217;s interface.&lt;/li&gt;
+&lt;li&gt;It allows us to encapsulate all the object creation procedures and use of constructors, leaving the object type and creation to be determined at the runtime instead of being hardwired in the code.&lt;/li&gt;
+&lt;li&gt;Using this pattern reinforces the principle of programming to an interface instead of an implementation, as we separate the object instantiation from the creators and are putting them in separate objects.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Provides hooks for subclasses.&lt;/em&gt; Creating objects inside a class with a factory method is always more flexible than creating an object directly. Factory Method gives subclasses a hook for providing an extended version of an object. (Source: GoF&amp;#8217;s book)&lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;Implementation&lt;/h3&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="k"&gt;abstract&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ProductBase&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ConcreteProductA&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ProductBase&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ConcreteProductB&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ProductBase&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;abstract&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;CreatorBase&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;enum&lt;/span&gt; &lt;span class="n"&gt;ProductType&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;TypeA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;TypeB&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;abstract&lt;/span&gt; &lt;span class="n"&gt;ProductBase&lt;/span&gt; &lt;span class="nf"&gt;FactoryMethod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ProductType&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ConcreteCreator&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;CreatorBase&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;override&lt;/span&gt; &lt;span class="n"&gt;ProductBase&lt;/span&gt; &lt;span class="nf"&gt;FactoryMethod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ProductType&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="n"&gt;ProductType&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TypeA&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nf"&gt;ConcreteProductA&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="n"&gt;ProductType&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TypeB&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nf"&gt;ConcreteProductB&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="k"&gt;throw&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nf"&gt;ArgumentException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#8220;&lt;/span&gt;&lt;span class="n"&gt;Invalid&lt;/span&gt; &lt;span class="n"&gt;argument&lt;/span&gt;&lt;span class="err"&gt;&amp;#8221;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ToString&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;References&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;&lt;a href="http://en.wikipedia.org/wiki/Design_Patterns"&gt;Design Patterns: Elements of Reusable Object-Oriented Software&lt;/a&gt; &amp;#8211; The Gang of Four (GoF): &lt;a href="http://en.wikipedia.org/wiki/Erich_Gamma"&gt;Erich Gamma&lt;/a&gt;, Richard Helm, &lt;a href="http://en.wikipedia.org/wiki/Ralph_Johnson_(computer_scientist)"&gt;Ralph Johnson&lt;/a&gt;, &lt;a href="http://en.wikipedia.org/wiki/John_Vlissides"&gt;John M. Vlissides&lt;/a&gt;. &lt;/li&gt;
+&lt;li&gt;&lt;a href="http://oreilly.com/catalog/9780596007126"&gt;Head First Design Patterns&lt;/a&gt; - &lt;a href="http://www.oreillynet.com/pub/au/2003"&gt;Eric T Freeman&lt;/a&gt;, &lt;a href="http://www.oreillynet.com/pub/au/2002"&gt;Elisabeth Robson&lt;/a&gt;, &lt;a href="http://www.oreillynet.com/pub/au/1085"&gt;Bert Bates&lt;/a&gt;, &lt;a href="http://www.oreillynet.com/pub/au/1084"&gt;Kathy Sierra&lt;/a&gt;. &lt;/li&gt;
+&lt;/ul&gt;</description><guid>http://amrelroumy.github.com/posts/20110720factory-method.html</guid><pubDate>Wed, 20 Jul 2011 07:49:55 GMT</pubDate></item><item><title>Decorator Pattern</title><link>http://amrelroumy.github.com/posts/decorator-pattern.html</link><description>&lt;h2&gt;Pattern Name&lt;/h2&gt;
+&lt;p&gt;Decorator Pattern&lt;/p&gt;
+&lt;h2&gt;Classification&lt;/h2&gt;
+&lt;p&gt;Structural Pattern&lt;/p&gt;
+&lt;h2&gt;Intent&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Decorator Pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Also known as&lt;/h2&gt;
+&lt;p&gt;Wrapper&lt;/p&gt;
+&lt;h2&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;You might find yourself while working on a project and in the need of adding/modifying responsibilities or behaviors to objects of a certain type. One way of approaching this problem is that we extend this type using inheritance and add the new behavior to it in its children. But what would happen when we want to add more than one responsibility for some objects while keeping others with only a single new responsibility? Then, we would have to implement all the combinations of these responsibilities and ending up with what can be called as a &lt;strong&gt;class explosion&lt;/strong&gt;; as you&amp;#8217;ll end up with a lot of classes, more time to debug and a lot of those long &amp;amp; lonely nights of maintenance.&lt;/p&gt;
+&lt;p&gt;An answer to this problem would be to &lt;strong&gt;extend&lt;/strong&gt; &lt;strong&gt;the behavior without using inheritance&lt;/strong&gt;. This can be achieved by using &lt;strong&gt;composition&lt;/strong&gt; to wrap the components by the decorator and add new behavior/properties or modify already existing ones in the runtime. Using this approach we can avoid having to use inheritance and constrain ourselves with static (compile-time) extending to the objects and use instead &lt;strong&gt;dynamic (runtime)&lt;/strong&gt; extending of those specific objects. Also it allows us to add the needed behavior according to the specific conditions that occur during the runtime; meaning that objects of the same type can end up being decorated differently and that the same object can be wrapped in more than one decorator.&lt;/p&gt;
+&lt;h4&gt;Design principles behind this pattern:&lt;/h4&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Open-Closed Principle&lt;/strong&gt; from SOLID Principles Classes should be &lt;strong&gt;open&lt;/strong&gt; &lt;strong&gt;for extension&lt;/strong&gt;, but &lt;strong&gt;closed for modification&lt;/strong&gt;. One reason why this principle is important is that it prevents us from introducing bugs into code that has already been tested and debugged.&lt;/li&gt;
+&lt;/ul&gt;&lt;h4&gt;Important Notes:&lt;/h4&gt;
+&lt;ul&gt;&lt;li&gt;The decorator pattern is used to extend behavior of objects during the runtime not classes.&lt;/li&gt;
+&lt;li&gt;You can&amp;#8217;t apply the &lt;strong&gt;Open-Closed Principle&lt;/strong&gt; to every part of your design, because it&amp;#8217;ll add complexity to the code and it&amp;#8217;ll take time and effort. You need to identify&amp;#8212;comes with experience&amp;#8212;the parts of the code that are most likely to change and apply the principle on them.&lt;/li&gt;
+&lt;li&gt;Using decorators with code that relies on the component&amp;#8217;s &lt;strong&gt;concrete&lt;/strong&gt; type will break that code. But if we only use them with code that depends on the &lt;strong&gt;abstract&lt;/strong&gt; component&amp;#8217;s type, then the decorators will remain &lt;strong&gt;transparent&lt;/strong&gt; to the client of the component.&lt;/li&gt;
+&lt;/ul&gt;&lt;h2&gt;Applicability (from GoF&amp;#8217;s Book)&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;To add responsibilities to individual objects dynamically and transparently, that is, without affecting other objects. &lt;/li&gt;
+&lt;li&gt;For responsibilities that can be withdrawn. &lt;/li&gt;
+&lt;li&gt;When extension by subclassing is impractical. Sometimes a large number of independent extensions are possible and would produce an explosion of subclasses to support every combination. Or a class definition may be hidden or otherwise unavailable for subclassing. &lt;/li&gt;
+&lt;/ul&gt;&lt;h2&gt;Structure&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Decorator Pattern Structure" src="http://amrelroumy.files.wordpress.com/2011/07/decorator_pattern1.png"&gt;&lt;/p&gt;
+&lt;p&gt;You might ask yourself if the decorator pattern teaches us to favor composition over inheritance, then why does the &lt;strong&gt;DecoratorBase&lt;/strong&gt; class extends the Object&amp;#8217;s super class? The answer is that the decorator is extending this class to gain the same interface as the object it will wrap, not to gain the behavior. Thus we extend the base class to get the interface but we&amp;#8217;re getting the behavior through composition of decorators with the base components as other decorators.&lt;/p&gt;
+&lt;h2&gt;Participants&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;ComponentBase: &lt;/strong&gt;Defines the basic behaviors/properties that would be implemented by the components that will be decorated. If we don&amp;#8217;t want to define any actual functionality in it, you can use an interface instead of an abstract class.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DecoratorBase: &lt;/strong&gt;It is the abstract class for all the decorators. It inherits the basic interface of the components from the &lt;strong&gt;ConcreteBase&lt;/strong&gt;, to allow the decorators to be used in place of the components. You&amp;#8217;ll notice that it adds a constructor that accepts a &lt;strong&gt;Component&lt;/strong&gt; of type &lt;strong&gt;ComponentBase; &lt;/strong&gt;this is the Component to be wrapped.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ConcreteComponent: &lt;/strong&gt;The actual components that will be wrapped.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ConcreteDecoratorA/&lt;/strong&gt;&lt;strong&gt;ConcreteDecoratorA: &lt;/strong&gt;The decorators that wrap Components. They can introduce new behavior/properties like &lt;strong&gt;ConcreteDecoratorA &lt;/strong&gt;or modify already existing ones like &lt;strong&gt;ConcretDecoratorB&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;h2&gt;Properties of decorators:&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;They have the same supertype as the objects they decorate.&lt;/li&gt;
+&lt;li&gt;You can use one or more decorators to wrap an object.&lt;/li&gt;
+&lt;li&gt;The decorator adds its own behavior either before and/or after delegating to the object it decorates to do the rest of the job.&lt;/li&gt;
+&lt;li&gt;Objects can be decorated at runtime.&lt;/li&gt;
+&lt;/ul&gt;&lt;h2&gt;Consequences&lt;/h2&gt;
+&lt;h4&gt;Advantages of using the decorator pattern:&lt;/h4&gt;
+&lt;ul&gt;&lt;li&gt;It allows us to add new behavior to existing code without the need to modify it (Following the Open-Closed Principle) or without having to use inheritance, thus avoiding inheritance&amp;#8217;s rigidity and adding more flexibility to the code.&lt;/li&gt;
+&lt;li&gt;Avoids having classes with complicated and complex responsibilities high up in the class hierarchy. Instead we use simple classes that are customizable and whose responsibilities can be added during the runtime.&lt;/li&gt;
+&lt;/ul&gt;&lt;h4&gt;One of the shortcomings of using the Decorator Pattern:&lt;/h4&gt;
+&lt;ul&gt;&lt;li&gt;Using this pattern in your design, you&amp;#8217;ll end up with a relatively large number of small objects that differ in the way they are assembled. This can be overwhelming to a developer trying to use the Decorator-based API, but is easy to those who understand them and are familiar with this design pattern.&lt;/li&gt;
+&lt;li&gt;Using this pattern can complicate the process of instantiating objects, that&amp;#8217;s why this pattern is used alongside the Factory and Builder patterns&lt;/li&gt;
+&lt;/ul&gt;&lt;h2&gt;Implementation&lt;/h2&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;abstract&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ComponentBase&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;abstract&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Operation&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ConcreteComponent&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ComponentBase&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;override&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Operation&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="c1"&gt;// Implementation of component's behavior&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;abstract&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;DecoratorBase&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ComponentBase&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="n"&gt;ComponentBase&lt;/span&gt; &lt;span class="n"&gt;_componentObject&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// The one to be extended&lt;/span&gt;
+
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;DecoratorBase&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ComponentBase&lt;/span&gt; &lt;span class="n"&gt;componentObject&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+       &lt;span class="n"&gt;_componentObject&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;componentObject&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;override&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Operation&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+       &lt;span class="n"&gt;_componentObject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Operation&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ConcreteDecorator&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;DecoratorBase&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;ConcreteDecorator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ComponentBase&lt;/span&gt; &lt;span class="n"&gt;componentObject&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;base&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;componentObject&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;override&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Operation&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+       &lt;span class="c1"&gt;// Implementation of new behavior&lt;/span&gt;
+       &lt;span class="k"&gt;base&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Operation&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+       &lt;span class="c1"&gt;// Implementation of new behavior&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Related Patterns (from GoF&amp;#8217;s book)&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Adapter&lt;/strong&gt; : A decorator is different from an adapter in that a decorator only changes an object&amp;#8217;s responsibilities, not its interface; an adapter will give an object a completely new interface.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Composite&lt;/strong&gt; : A decorator can be viewed as a degenerate composite with only one component. However, a decorator adds additional responsibilities&amp;#8212;it isn&amp;#8217;t intended for object aggregation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Strategy &lt;/strong&gt;: A decorator lets you change the skin of an object; a strategy lets you change the guts. These are two alternative ways of changing an object.&lt;/li&gt;
+&lt;/ul&gt;</description><guid>http://amrelroumy.github.com/posts/decorator-pattern.html</guid><pubDate>Sat, 09 Jul 2011 01:39:24 GMT</pubDate></item><item><title>Strategy Pattern</title><link>http://amrelroumy.github.com/posts/20110701strategy-pattern.html</link><description>&lt;h3&gt;Pattern Name&lt;/h3&gt;
+&lt;p&gt;Strategy Pattern&lt;/p&gt;
+&lt;h3&gt;Classification&lt;/h3&gt;
+&lt;p&gt;Behavioral Pattern&lt;/p&gt;
+&lt;h3&gt;Intent&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Define a family of algorithms/behaviors, encapsulate each one and make them interchangeable. The Strategy pattern lets the algorithm vary independently from the clients that use it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Also known as&lt;/h3&gt;
+&lt;p&gt;Policy pattern&lt;/p&gt;
+&lt;h3&gt;Motivation&lt;/h3&gt;
+&lt;p&gt;In some situations, we might find ourselves working with classes that only differ in their behavior. If we use inheritance, we&amp;#8217;ll have to override the behavior every time we want to derive a class and want to change the algorithm, but when we want to remove special behaviors we would override them with empty methods because the algorithms are hardwired in the classes. Such rigidity in the implementation breaks an important OO principle, which is flexibility.&lt;/p&gt;
+&lt;p&gt;Also another approach would be providing an interface for each algorithm, this way only classes that should have this algorithm can implement it; thus, solving some of the first approach&amp;#8217;s shortcomings. But it will have its own disadvantages like duplicate code . Also, by applying this approach, we can kiss code reuse goodbye since we&amp;#8217;ll have to write the algorithm in each class. Consequently, the slightest change in the implementation will require us to go over all the classes and change them too. These shortcomings would create and ideal &amp;#8220;Maintenance Nightmare&amp;#8221;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;We can conclude some of the restrictions that prevent us from using any of the previously mentioned approaches, include:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Clients vary in complexity&lt;/strong&gt;; some can be very simple to the point they are have one behavior only, while others might be complicated to support multiple behaviors.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If the algorithms are hardwired in the clients, it will be &lt;strong&gt;&lt;em&gt;hard to implement&lt;/em&gt;&lt;/strong&gt; new ones or &lt;strong&gt;&lt;em&gt;modify&lt;/em&gt;&lt;/strong&gt; the ones that already exist.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;The design principles behind the pattern&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;Identify the aspects of our application that might vary and is suspected to change in the future and &lt;strong&gt;separate (encapsulate)&lt;/strong&gt; them from the rest of the code. This way when they are changed, the rest of the code won&amp;#8217;t be affected.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Program To an interface not to an implementation&lt;/strong&gt;; the idea here is to exploit polymorphism by programming to a supertype so that the actual runtime object isn&amp;#8217;t hardwired into the code. This way, behaviors and clients are loosely coupled and clients can use behaviors interchangeably.&lt;/li&gt;
+&lt;/ul&gt;&lt;hr&gt;&lt;h3&gt;Applicability (from GoF&amp;#8217;s book)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Use the Strategy pattern when:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Many related classes differ only in their behavior. Strategies provide a way to configure a class with one of many behaviors.&lt;/li&gt;
+&lt;li&gt;You need different variants of an algorithm. For example, you might define algorithms reflecting different space/time trade-offs. Strategies can be used when these variants are implemented as a class hierarchy of algorithms [HO87].&lt;/li&gt;
+&lt;li&gt;An algorithm uses data that clients shouldn&amp;#8217;t know about. Use the Strategy pattern to avoid exposing complex, algorithm-specific data structures.&lt;/li&gt;
+&lt;li&gt;A class defines many behaviors, and these appear as multiple conditional statements in its operations. Instead of many conditionals, move related conditional branches into their own Strategy class.&lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;Structure&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Strategy_Pattern" src="/2011/07/strategy_pattern3.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Participants&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;IStrategy: &lt;/strong&gt;The interface common to all algorithms that the client uses to deal with the &lt;strong&gt;Strategies&lt;/strong&gt; (Concrete Algorithms). This interface represents the family of &lt;strong&gt;Strategies &lt;/strong&gt;that share something in common. This interface can be implemented as an abstract class if it has functionality to provide to its children.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Context/Client: &lt;/strong&gt;Uses the interchangeable algorithms through the &lt;strong&gt;IStrategy&lt;/strong&gt; interface. It declares a property of the &lt;strong&gt;IStrategy&lt;/strong&gt; type that holds one of the &lt;strong&gt;Strategies&lt;/strong&gt;. This property can be set to the required algorithm in the runtime.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Strategy A / Strategy B: &lt;/strong&gt;They implement the &lt;strong&gt;IStrategy &lt;/strong&gt;interface and represent the different implementations of the algorithm.&lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;Consequences&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;The strategy design pattern splits the behaviors of a class from the class itself, resulting in the following advantages:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;The algorithms/behaviors produced are reusable by other clients since they are no longer hardwired in our classes. &lt;/li&gt;
+&lt;li&gt;Clients can chose from various implementations of the same behavior. &lt;/li&gt;
+&lt;li&gt;New algorithms/behaviors can be added easily without the need to modify any existing code.  &lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;&lt;strong&gt;Yet, the strategy design pattern has some draw backs (from GoF&amp;#8217;s book):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Clients must be aware of different Strategies&lt;/strong&gt;. The pattern has a potential drawback in that a client must understand how Strategies differ before it can select the appropriate one. Clients might be exposed to implementation issues. Therefore you should use the Strategy pattern only when the variation in behavior is relevant to clients.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Communication overhead between Strategy and Context&lt;/strong&gt;. The Strategy interface is shared by all ConcreteStrategy classes whether the algorithms they implement are trivial or complex. Hence it&amp;#8217;s likely that some ConcreteStrategies won&amp;#8217;t use all the information passed to them through this interface; simple ConcreteStrategies may use none of it! That means there will be times when the context creates and initializes parameters that never get used. If this is an issue, then you&amp;#8217;ll need tighter coupling between Strategy and Context.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Increased number of objects&lt;/strong&gt;. Strategies increase the number of objects in an application.&lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;Implementation&lt;/h3&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;interface&lt;/span&gt; &lt;span class="n"&gt;IStrategy&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="kt"&gt;string&lt;/span&gt; &lt;span class="nf"&gt;ExecuteAlgorithm&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; 
+&lt;span class="p"&gt;}&lt;/span&gt; 
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ConcreteStrategyA&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;IStrategy&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;string&lt;/span&gt; &lt;span class="nf"&gt;ExecuteAlgorithm&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; 
+    &lt;span class="p"&gt;{&lt;/span&gt;
+         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;"This is Concrete Strategy A"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+    &lt;span class="p"&gt;}&lt;/span&gt; 
+&lt;span class="p"&gt;}&lt;/span&gt; 
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ConcreteStrategyB&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;IStrategy&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;string&lt;/span&gt; &lt;span class="nf"&gt;ExecuteAlgorithm&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; 
+    &lt;span class="p"&gt;{&lt;/span&gt; 
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;"This is Concrete Strategy B"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+    &lt;span class="p"&gt;}&lt;/span&gt; 
+&lt;span class="p"&gt;}&lt;/span&gt; 
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Client&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;IStrategy&lt;/span&gt; &lt;span class="n"&gt;Strategy&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; 
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;CallAlgorithm&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; 
+    &lt;span class="p"&gt;{&lt;/span&gt; 
+        &lt;span class="n"&gt;Console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;WriteLine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Strategy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ExecuteAlgorithm&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt; 
+    &lt;span class="p"&gt;}&lt;/span&gt; 
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Sample Code&lt;/h3&gt;
+&lt;p&gt;We are writing a game that contains different types of terrains(e.g. Marshes, Dessert, City &amp;amp; Coasts) and different types of characters (e.g. Warrior, Mage &amp;amp; Rogue). We want every character to pass the terrain with a relative speed to their type and difficulty of the terrain.  &lt;/p&gt;
+&lt;p&gt;We&amp;#8217;ll refer to the terrains difficulty with integers to keep things simple. Also, we&amp;#8217;ll add algorithms to calculate time taken which take in consideration the distance covered, terrain difficulty and character type.&lt;/p&gt;
+&lt;h4&gt;Class Diagram&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="Strategy_Pattern_Example" src="http://amrelroumy.files.wordpress.com/2011/07/strategy_pattern_example2.png"&gt;&lt;/p&gt;
+&lt;h4&gt;Timer&amp;#8217;s implementations&lt;/h4&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;interface&lt;/span&gt; &lt;span class="n"&gt;ITimer&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="nf"&gt;CalculateTimeTaken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;distance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;terrainRate&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
+&lt;span class="p"&gt;}&lt;/span&gt; 
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;RogueTimer&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ITimer&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="nf"&gt;CalculateTimeTaken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;distance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;terrainRate&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;timeTaken&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+        &lt;span class="c1"&gt;//Implementation of Timer &lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;timeTaken&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+    &lt;span class="p"&gt;}&lt;/span&gt; 
+&lt;span class="p"&gt;}&lt;/span&gt; 
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MageTimer&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ITimer&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="nf"&gt;CalculateTimeTaken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;distance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;terrainRate&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;timeTaken&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+        &lt;span class="c1"&gt;//Implementation of Timer &lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;timeTaken&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+    &lt;span class="p"&gt;}&lt;/span&gt; 
+&lt;span class="p"&gt;}&lt;/span&gt; 
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;WarriorTimer&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ITimer&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="nf"&gt;CalculateTimeTaken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;distance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;terrainRate&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+    &lt;span class="p"&gt;{&lt;/span&gt; 
+        &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;timeTaken&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+        &lt;span class="c1"&gt;//Implementation of Timer &lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;timeTaken&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+    &lt;span class="p"&gt;}&lt;/span&gt; 
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Characters&amp;#8217; implementations&lt;/h4&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;abstract&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Character&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;ITimer&lt;/span&gt; &lt;span class="n"&gt;Timer&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; 
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="n"&gt;Health&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;abstract&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;CalculateTimeTaken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;distance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;terrainRate&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
+&lt;span class="p"&gt;}&lt;/span&gt; 
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Warrior&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Character&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="n"&gt;Stamina&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="n"&gt;Strength&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;Warrior&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; 
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="c1"&gt;// Constructor code here &lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt; 
+
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;override&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="nf"&gt;CalculateTimeTaken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;distance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;terrainRate&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Timer&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CalculateTimeTaken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;distance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;terrainRate&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
+    &lt;span class="p"&gt;}&lt;/span&gt; 
+&lt;span class="p"&gt;}&lt;/span&gt; 
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Mage&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Character&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="n"&gt;Mana&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;     
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="n"&gt;WillPower&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;Mage&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; 
+    &lt;span class="p"&gt;{&lt;/span&gt;
+         &lt;span class="c1"&gt;// Constructor code here &lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt; 
+
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;override&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="nf"&gt;CalculateTimeTaken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;distance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;terrainRate&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+    &lt;span class="p"&gt;{&lt;/span&gt; 
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Timer&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CalculateTimeTaken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;distance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;terrainRate&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
+    &lt;span class="p"&gt;}&lt;/span&gt; 
+&lt;span class="p"&gt;}&lt;/span&gt; 
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Rogue&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Character&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="n"&gt;Dexterity&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="n"&gt;Constitution&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;Rogue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; 
+    &lt;span class="p"&gt;{&lt;/span&gt;
+         &lt;span class="c1"&gt;// Constructor code here &lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt; 
+
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;override&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="nf"&gt;CalculateTimeTaken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;distance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;terrainRate&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+    &lt;span class="p"&gt;{&lt;/span&gt; 
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Timer&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CalculateTimeTaken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;distance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;terrainRate&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
+    &lt;span class="p"&gt;}&lt;/span&gt; 
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Testing Code&lt;/h4&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="n"&gt;Warrior&lt;/span&gt; &lt;span class="n"&gt;warrior&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Warrior&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; 
+&lt;span class="n"&gt;Mage&lt;/span&gt; &lt;span class="n"&gt;mage&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Mage&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; 
+&lt;span class="n"&gt;Rogue&lt;/span&gt; &lt;span class="n"&gt;rogue&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Rogue&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; 
+
+&lt;span class="n"&gt;warrior&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Timer&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;WarriorTimer&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; 
+&lt;span class="n"&gt;mage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Timer&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;MageTimer&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; 
+&lt;span class="n"&gt;rogue&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Timer&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;RogueTimer&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; 
+
+&lt;span class="n"&gt;Console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Warrior's Time: "&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
+&lt;span class="n"&gt;Console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;WriteLine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;warrior&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CalculateTimeTaken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
+
+&lt;span class="n"&gt;Console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;WriteLine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Mage's Time: "&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
+&lt;span class="n"&gt;Console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;WriteLine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CalculateTimeTaken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
+
+&lt;span class="n"&gt;Console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;WriteLine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Rogue's Time: "&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
+&lt;span class="n"&gt;Console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;WriteLine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rogue&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CalculateTimeTaken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Related Patterns&lt;/h3&gt;
+&lt;p&gt;Flyweight Pattern&lt;/p&gt;</description><guid>http://amrelroumy.github.com/posts/20110701strategy-pattern.html</guid><pubDate>Fri, 01 Jul 2011 13:23:58 GMT</pubDate></item><item><title>Introduction to Design Patterns</title><link>http://amrelroumy.github.com/posts/20110628introduction-to-design-patterns.html</link><description>&lt;h2&gt;What are Design Patterns?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#8220;Each pattern describes a problem which occurs over and over in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice.&amp;#8221;&lt;cite&gt;&lt;a href="http://en.wikipedia.org/wiki/Christopher_Alexander"&gt;Christopher Alexander&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So we can simply say, that some of the design related problems that we encounter while developing software are solved by someone else. These solutions allow us to solve our own problems and take advantage of other developer&amp;#8217;s experience and wisdom.Design patterns are descriptions of communicating objects and classes that are customized to solve a general design problem in a particular context.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important note: &lt;/strong&gt; Design patterns are considered guidelines; they are powerful tools that aid developers, but they should never be regarded as rules/specifications that software should follow. That&amp;#8217;s why it is important to understand these patterns well and know the proper situations where we could use them. Otherwise, the usage of incorrect patterns might result in unnecessary complications or maintainability issues. To avoid such inconveniences, we should always go with the simplest solution that does the job and introduce patterns only when needed.&lt;/p&gt;
+&lt;h2&gt;What are Anti-Patterns?&lt;/h2&gt;
+&lt;p&gt;In a way we could say that anti-patterns tell us how to go from a problem to a bad solution. Using anti-patterns in practice, leads to counterproductive results or ineffective solutions to the problems that might face us.&lt;/p&gt;
+&lt;h2&gt;Describing Design Patterns&lt;/h2&gt;
+&lt;h3&gt;A pattern has four essential elements:&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;A unique pattern &lt;strong&gt;name&lt;/strong&gt; to help us in identifying and referring to the pattern.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Problem&lt;/strong&gt; scenario.&lt;/li&gt;
+&lt;li&gt;The proposed &lt;strong&gt;solution&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consequences/tradeoffs&lt;/strong&gt; of applying this pattern.&lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;Documentation (Design Patterns Catalog)&lt;/h3&gt;
+&lt;p&gt;The documentation for a design pattern describes the context, where the pattern is used, the forces within the context that the pattern seeks to resolve, and the suggested solution. There is no single, standard format for documenting design patterns. Rather, many different formats have been used by different pattern authors. One example of a commonly used documentation format is the one used by &amp;#8220;Gang of Four&amp;#8221; in their book &lt;a href="http://en.wikipedia.org/wiki/Design_Patterns"&gt;Design Patterns&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It is as follows:   &lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Pattern Name and Classification:&lt;/strong&gt; A descriptive and unique name that helps in identifying and referring to the pattern.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Intent:&lt;/strong&gt; A description of the goal behind the pattern and the reason for using it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Also Known As:&lt;/strong&gt; Other names for the pattern. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Motivation (Forces):&lt;/strong&gt; A scenario consisting of a problem and a context in which this pattern can be used. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Applicability:&lt;/strong&gt; Situations in which this pattern is usable; the context for the pattern. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Structure:&lt;/strong&gt; A graphical representation of the pattern. Class diagrams and Interaction diagrams may be used for this purpose. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Participants:&lt;/strong&gt; A listing of the classes and objects used in the pattern and their roles in the design. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Collaboration:&lt;/strong&gt; A description of how classes and objects used in the pattern interact with each other. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consequences:&lt;/strong&gt; A description of the results, side effects, and tradeoffs caused by using the pattern. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Implementation:&lt;/strong&gt; A description of an implementation of the pattern; the solution part of the pattern. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sample Code:&lt;/strong&gt; An illustration of how the pattern can be used in a programming language. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Known Uses:&lt;/strong&gt; Examples of real usages of the pattern. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Related Patterns:&lt;/strong&gt; Other patterns that have some relationship with the pattern; discussion of the differences between the pattern and similar patterns. &lt;/li&gt;
+&lt;/ul&gt;&lt;h2&gt;Design Patterns&amp;#8217; Classifications&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;Creational Patterns&lt;/li&gt;
+&lt;li&gt;Structural Patterns &lt;/li&gt;
+&lt;li&gt;Behavioral Patterns &lt;/li&gt;
+&lt;/ul&gt;</description><guid>http://amrelroumy.github.com/posts/20110628introduction-to-design-patterns.html</guid><pubDate>Tue, 28 Jun 2011 19:27:21 GMT</pubDate></item></channel></rss>
