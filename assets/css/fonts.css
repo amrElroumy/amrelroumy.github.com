@@ -1,1 +1,7 @@
-@import url('//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic');/*!
+@font-face {
+  font-family: 'Alfa Slab One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Alfa Slab One'), local('AlfaSlabOne-Regular'), url(http://themes.googleusercontent.com/static/fonts/alfaslabone/v2/Qx6FPcitRwTC_k88tLPc-fn8qdNnd5eCmWXua5W-n7c.woff) format('woff');
+}
+@import url('http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic');

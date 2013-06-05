@@ -1,0 +1,272 @@
+/* Style for Vertical Menu */
+
+@font-face {
+	font-family: 'icoMoon';
+	src:url('../font/icoMoon.eot');
+	src:url('../font/icoMoon.eot?#iefix') format('embedded-opentype'),
+	url('../font/icoMoon.woff') format('woff'),
+	url('../font/icoMoon.ttf') format('truetype'),
+	url('../font/icoMoon.svg#icoMoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.vertical-menu {
+	position: fixed;
+	/*overflow: hidden;*/
+	top: 0;
+	left: 0;
+	height: 100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background: #f6f6f6;
+	border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+.vertical-menu li a {
+	display: block;
+	text-indent: -500em;
+	height: 5em;
+	width: 5em;
+	line-height: 5em;
+	text-align: center;
+	color: #999;
+	position: relative;
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+	-webkit-transition: background 0.1s ease-in-out;
+	-moz-transition: background 0.1s ease-in-out;
+	transition: background 0.1s ease-in-out;
+}
+
+.vertical-menu li a:hover,
+.vertical-menu > li:first-child a{
+	background: #47a3da;
+	color: #fff;
+}
+
+/* class for current item */
+.vertical-menu li.cbp-vicurrent a {
+	background: #fff;
+	color: #47a3da;
+}
+
+.vertical-menu li a:before {
+	font-family: 'icoMoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	text-indent: 0em;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	font-size: 1.4em;
+	-webkit-font-smoothing: antialiased;
+}
+
+.vertical-menu li a.icon-logo:before {
+	content: "aE";
+	font-weight: normal;
+	font-size: 192%;
+	font-family: Ubuntu;
+}
+
+.icon-home:before {
+	content: "\e000";
+}
+.icon-cabinet:before {
+	content: "\e001";
+}
+.icon-feed:before {
+	content: "\e002";
+}
+.icon-tags:before {
+	content: "\e003";
+}
+.icon-arrow-left:before {
+	content: "\e004";
+}
+.icon-arrow-right:before {
+	content: "\e005";
+}
+.icon-envelope:before {
+	content: "\e006";
+}
+.icon-twitter:before {
+	content: "\e007";
+}
+.icon-linkedin:before {
+	content: "\e008";
+}
+.icon-github:before {
+	content: "\e009";
+}
+.icon-facebook:before {
+	content: "\e00a";
+}
+.icon-picture:before {
+	content: "\e00b";
+}
+.icon-camera:before {
+	content: "\e00c";
+}
+.icon-google-plus:before {
+	content: "\e00d";
+}
+.icon-stackoverflow:before {
+	content: "\e00e";
+}
+.icon-user:before {
+	content: "\e00f";
+}
+.icon-pencil:before {
+	content: "\e016";
+}
+.icon-pencil-2:before {
+	content: "\e017";
+}
+.icon-pencil-3:before {
+	content: "\e018";
+}
+.icon-pen-alt-fill:before {
+	content: "\e019";
+}
+
+/* Example for media query (depends on total height of menu) */
+@media screen and (max-height: 34.9375em) { 
+
+	.vertical-menu {
+		font-size: 70%;
+	}
+
+}
+
+ul ul.vertical-submenu {
+	display: none;
+	position: absolute;
+	left: 100%;
+	top: 25.5em;
+	width: 401%;
+	margin: 0;
+	padding: 3px;
+	border-radius: 0px;
+	background: #FFF;
+	box-shadow: #999 2px 2px 5px;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	transition:  all 0.2s;
+}
+
+ul.vertical-submenu li a {
+	text-indent: 0;
+	width: 100%;
+	padding: 0;
+	height: 25px;
+	line-height: 27px;
+	border-radius: none;
+	border-bottom: none;
+}
+ul.vertical-menu, ul.vertical-submenu {
+	list-style: none;
+}
+
+ul.vertical-menu li:hover ul{
+	display: block;
+}
+
+ul.vertical-menu li a {
+	text-decoration: none;
+}
+
+ul.vertical-menu ul li {
+	float: none; 
+	/*border-bottom: 1px solid rgba(0, 0, 0, 0.05);*/
+	position: relative;
+}
+
+
+
+@media screen and (max-height: 25.25em), screen and (max-width: 44.3125em) {
+
+	.vertical-menu {
+		font-size: 100%;
+		position: relative;
+		text-align: center;
+		padding: 0;
+		top: auto;
+	}
+
+	.vertical-menu > li {
+		display: block;
+		margin: 0;
+		border-bottom: 4px solid #3793ca;
+	}
+
+	.vertical-menu > li:first-child {
+		border-top: 4px solid #3793ca;
+	}
+
+	li.cbp-tm-show > a,
+	.no-touch .vertical-menu > li > a:hover,
+	.no-touch .vertical-menu > li > a:active {
+		color: #fff;
+		background: #02639d;
+	}
+
+	.vertical-submenu {
+		position: relative;
+		display: none;
+		width: 100%;
+	}
+
+	.vertical-submenu > li {
+		padding: 0;
+	}
+
+	.vertical-submenu > li > a {
+		padding: 0.6em 2.3em 0.6em 0.6em;
+		border: none;
+		border-bottom: 2px solid #6fbbe9;
+	}
+
+	.vertical-submenu:after {
+		display: none;
+	}
+
+	.vertical-menu .cbp-tm-show .vertical-submenu {
+		display: block;
+		width: 100%;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		bottom: auto;
+		top: auto;
+	}
+
+	.vertical-menu li a {
+		width: 100%;
+		margin: auto;
+		text-indent: 0px;
+		font-family: lato;
+	}
+
+	.vertical-menu a:before {
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		vertical-align: middle;
+		margin-right: 0.6em;
+		-webkit-font-smoothing: antialiased;
+		margin-left: -50px;
+		margin-top: 24px;
+	}
+	
+	li a.icon-pencil {
+		display: none;
+	}
+}
