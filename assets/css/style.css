@@ -70,6 +70,12 @@ blockquote p {
   padding: 5px 5px 5px 18px;
 }
 
+blockquote h1, blockquote h2, blockquote h3, blockquote h4, blockquote h5, blockquote h6 {
+  padding: 13px 5px 5px 8px;
+  margin-top: 0;
+  text-align: center;
+}
+
 blockquote cite:before {
   content: "\2014 \2009";
 }
