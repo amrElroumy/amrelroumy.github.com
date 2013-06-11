@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Amr Elroumy's Blog (programming)</title><link>http://amrelroumy.github.com</link><description>Science, Code, Personal Encounters &amp; and other random stuff</description><lastBuildDate>Tue, 11 Jun 2013 08:27:14 GMT</lastBuildDate><generator>nikola</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Singleton Pattern</title><link>http://amrelroumy.github.com/posts/2011/08/singleton-pattern.html</link><description>&lt;html&gt;&lt;body&gt;&lt;h3&gt;Pattern Name&lt;/h3&gt;
+<rss version="2.0"><channel><title>Amr Elroumy's Blog (programming)</title><link>http://amrelroumy.github.io</link><description>Science, Code, Personal Encounters &amp; and other random stuff</description><lastBuildDate>Tue, 11 Jun 2013 16:57:31 GMT</lastBuildDate><generator>nikola</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Singleton Pattern</title><link>http://amrelroumy.github.io/posts/2011/08/singleton-pattern.html</link><description>&lt;html&gt;&lt;body&gt;&lt;h3&gt;Pattern Name&lt;/h3&gt;
 &lt;p&gt;Singleton Pattern&lt;/p&gt;
 &lt;h3&gt;Classification&lt;/h3&gt;
 &lt;p&gt;Creational Pattern&lt;/p&gt;
@@ -173,7 +173,7 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 &lt;li&gt;&lt;a href="http://oreilly.com/catalog/9780596007126"&gt;Head First Design Patterns&lt;/a&gt; – &lt;a href="http://www.oreillynet.com/pub/au/2003"&gt;Eric T Freeman&lt;/a&gt;, &lt;a href="http://www.oreillynet.com/pub/au/2002"&gt;Elisabeth Robson&lt;/a&gt;, &lt;a href="http://www.oreillynet.com/pub/au/1085"&gt;Bert Bates&lt;/a&gt;, &lt;a href="http://www.oreillynet.com/pub/au/1084"&gt;Kathy Sierra&lt;/a&gt;. &lt;/li&gt;
 &lt;li&gt;&lt;a href="http://blogs.msdn.com/b/scottdensmore/archive/2004/05/25/140827.aspx"&gt;Why Singletons are Evil&lt;/a&gt; - &lt;a href="http://blogs.msdn.com/b/scottdensmore/"&gt;Scott Densmore&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://csharpindepth.com/Articles/General/Singleton.aspx"&gt;Implementing the Singleton Pattern in C# - C# in Depth&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</description><guid>http://amrelroumy.github.com/posts/2011/08/singleton-pattern.html</guid><pubDate>Mon, 01 Aug 2011 02:08:56 GMT</pubDate></item><item><title>Factory Method</title><link>http://amrelroumy.github.com/posts/2011/07/factory-method.html</link><description>&lt;html&gt;&lt;body&gt;&lt;h3&gt;Pattern Name&lt;/h3&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</description><guid>http://amrelroumy.github.io/posts/2011/08/singleton-pattern.html</guid><pubDate>Mon, 01 Aug 2011 02:08:56 GMT</pubDate></item><item><title>Factory Method</title><link>http://amrelroumy.github.io/posts/2011/07/factory-method.html</link><description>&lt;html&gt;&lt;body&gt;&lt;h3&gt;Pattern Name&lt;/h3&gt;
 &lt;p&gt;Factory Method&lt;/p&gt;
 &lt;h3&gt;Classification&lt;/h3&gt;
 &lt;p&gt;Creational Pattern&lt;/p&gt;
@@ -264,7 +264,7 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 &lt;h3&gt;References&lt;/h3&gt;
 &lt;ul&gt;&lt;li&gt;&lt;a href="http://en.wikipedia.org/wiki/Design_Patterns"&gt;Design Patterns: Elements of Reusable Object-Oriented Software&lt;/a&gt; – The Gang of Four (GoF): &lt;a href="http://en.wikipedia.org/wiki/Erich_Gamma"&gt;Erich Gamma&lt;/a&gt;, Richard Helm, &lt;a href="http://en.wikipedia.org/wiki/Ralph_Johnson_(computer_scientist)"&gt;Ralph Johnson&lt;/a&gt;, &lt;a href="http://en.wikipedia.org/wiki/John_Vlissides"&gt;John M. Vlissides&lt;/a&gt;. &lt;/li&gt;
 &lt;li&gt;&lt;a href="http://oreilly.com/catalog/9780596007126"&gt;Head First Design Patterns&lt;/a&gt; - &lt;a href="http://www.oreillynet.com/pub/au/2003"&gt;Eric T Freeman&lt;/a&gt;, &lt;a href="http://www.oreillynet.com/pub/au/2002"&gt;Elisabeth Robson&lt;/a&gt;, &lt;a href="http://www.oreillynet.com/pub/au/1085"&gt;Bert Bates&lt;/a&gt;, &lt;a href="http://www.oreillynet.com/pub/au/1084"&gt;Kathy Sierra&lt;/a&gt;. &lt;/li&gt;
-&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</description><guid>http://amrelroumy.github.com/posts/2011/07/factory-method.html</guid><pubDate>Wed, 20 Jul 2011 07:49:55 GMT</pubDate></item><item><title>Decorator Pattern</title><link>http://amrelroumy.github.com/posts/2011/07/decorator-pattern.html</link><description>&lt;html&gt;&lt;body&gt;&lt;h2&gt;Pattern Name&lt;/h2&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</description><guid>http://amrelroumy.github.io/posts/2011/07/factory-method.html</guid><pubDate>Wed, 20 Jul 2011 07:49:55 GMT</pubDate></item><item><title>Decorator Pattern</title><link>http://amrelroumy.github.io/posts/2011/07/decorator-pattern.html</link><description>&lt;html&gt;&lt;body&gt;&lt;h2&gt;Pattern Name&lt;/h2&gt;
 &lt;p&gt;Decorator Pattern&lt;/p&gt;
 &lt;h2&gt;Classification&lt;/h2&gt;
 &lt;p&gt;Structural Pattern&lt;/p&gt;
@@ -355,7 +355,7 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 &lt;ul&gt;&lt;li&gt;&lt;strong&gt;Adapter&lt;/strong&gt; : A decorator is different from an adapter in that a decorator only changes an object's responsibilities, not its interface; an adapter will give an object a completely new interface.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Composite&lt;/strong&gt; : A decorator can be viewed as a degenerate composite with only one component. However, a decorator adds additional responsibilities—it isn't intended for object aggregation.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Strategy &lt;/strong&gt;: A decorator lets you change the skin of an object; a strategy lets you change the guts. These are two alternative ways of changing an object.&lt;/li&gt;
-&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</description><guid>http://amrelroumy.github.com/posts/2011/07/decorator-pattern.html</guid><pubDate>Sat, 09 Jul 2011 01:39:24 GMT</pubDate></item><item><title>Strategy Pattern</title><link>http://amrelroumy.github.com/posts/2011/07/strategy-pattern.html</link><description>&lt;html&gt;&lt;body&gt;&lt;h3&gt;Pattern Name&lt;/h3&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</description><guid>http://amrelroumy.github.io/posts/2011/07/decorator-pattern.html</guid><pubDate>Sat, 09 Jul 2011 01:39:24 GMT</pubDate></item><item><title>Strategy Pattern</title><link>http://amrelroumy.github.io/posts/2011/07/strategy-pattern.html</link><description>&lt;html&gt;&lt;body&gt;&lt;h3&gt;Pattern Name&lt;/h3&gt;
 &lt;p&gt;Strategy Pattern&lt;/p&gt;
 &lt;h3&gt;Classification&lt;/h3&gt;
 &lt;p&gt;Behavioral Pattern&lt;/p&gt;
@@ -550,7 +550,7 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 
 
 &lt;h3&gt;Related Patterns&lt;/h3&gt;
-&lt;p&gt;Flyweight Pattern&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description><guid>http://amrelroumy.github.com/posts/2011/07/strategy-pattern.html</guid><pubDate>Fri, 01 Jul 2011 13:23:58 GMT</pubDate></item><item><title>Introduction to Design Patterns</title><link>http://amrelroumy.github.com/posts/2011/06/introduction-to-design-patterns.html</link><description>&lt;html&gt;&lt;body&gt;&lt;h2&gt;What are Design Patterns?&lt;/h2&gt;
+&lt;p&gt;Flyweight Pattern&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description><guid>http://amrelroumy.github.io/posts/2011/07/strategy-pattern.html</guid><pubDate>Fri, 01 Jul 2011 13:23:58 GMT</pubDate></item><item><title>Introduction to Design Patterns</title><link>http://amrelroumy.github.io/posts/2011/06/introduction-to-design-patterns.html</link><description>&lt;html&gt;&lt;body&gt;&lt;h2&gt;What are Design Patterns?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;“Each pattern describes a problem which occurs over and over in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice.”&lt;cite&gt;&lt;a href="http://en.wikipedia.org/wiki/Christopher_Alexander"&gt;Christopher Alexander&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -584,4 +584,4 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 &lt;ul&gt;&lt;li&gt;Creational Patterns&lt;/li&gt;
 &lt;li&gt;Structural Patterns &lt;/li&gt;
 &lt;li&gt;Behavioral Patterns &lt;/li&gt;
-&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</description><guid>http://amrelroumy.github.com/posts/2011/06/introduction-to-design-patterns.html</guid><pubDate>Tue, 28 Jun 2011 19:27:21 GMT</pubDate></item></channel></rss>
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</description><guid>http://amrelroumy.github.io/posts/2011/06/introduction-to-design-patterns.html</guid><pubDate>Tue, 28 Jun 2011 19:27:21 GMT</pubDate></item></channel></rss>
