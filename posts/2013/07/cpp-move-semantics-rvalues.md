@@ -25,7 +25,7 @@ StrVec populateStrVec()
 
 StrVec vs;
 
-// Copy the return value object to vt, then destroy return value object
+// Copy the return value object to vs, then destroy return value object
 // And if we have a (really) naive compiler, it could actually copy the 
 // sVector to a temp object which is then copied to the return object.
 // Both would be destroyed later on.
@@ -43,7 +43,7 @@ StrVec removeSubstr(const StrVec& sVector, const std::string& substring)
 	return sVector;
 }
 
-// Copy return value object to vt, then destroy return value object
+// Copy return value object to vs, then destroy return value object
 // And if we have a (really) naive compiler, it could actually copy the 
 // sVector to a temp object which is then copied to the return object.
 // Both would be destroyed later on.

@@ -155,7 +155,7 @@
 
 <span class="n">StrVec</span> <span class="n">vs</span><span class="p">;</span>
 
-<span class="c1">// Copy the return value object to vt, then destroy return value object</span>
+<span class="c1">// Copy the return value object to vs, then destroy return value object</span>
 <span class="c1">// And if we have a (really) naive compiler, it could actually copy the </span>
 <span class="c1">// sVector to a temp object which is then copied to the return object.</span>
 <span class="c1">// Both would be destroyed later on.</span>
@@ -173,7 +173,7 @@
     <span class="k">return</span> <span class="n">sVector</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="c1">// Copy return value object to vt, then destroy return value object</span>
+<span class="c1">// Copy return value object to vs, then destroy return value object</span>
 <span class="c1">// And if we have a (really) naive compiler, it could actually copy the </span>
 <span class="c1">// sVector to a temp object which is then copied to the return object.</span>
 <span class="c1">// Both would be destroyed later on.</span>
