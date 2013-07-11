@@ -1,25 +1,78 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="title" content="Introducing API design | Amr Elroumy's Blog"><meta name="description" content="None"><meta name="author" content="Amr Elroumy"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Introducing API design | Amr Elroumy's Blog</title><!-- Le favicon --><link rel="shortcut icon" href="../../../favicon.ico"><!-- Le styles --><link rel="stylesheet" href="../../../assets/css/bootstrap.css"><link rel="stylesheet" href="../../../assets/css/bootstrap-responsive.css"><!-- <link rel="stylesheet" href="/assets/css/colorbox.css"> --><!-- <link rel="stylesheet" href="/assets/css/slides.css"> --><link rel="stylesheet" href="../../../assets/css/fonts.css"><link rel="stylesheet" href="../../../assets/css/font-awesome.css"><link rel="stylesheet" href="../../../assets/css/pygments.css"><link rel="stylesheet" href="../../../assets/css/style.css"><link rel="stylesheet" href="../../../assets/css/component.css"><!-- Le HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="title" content="Introducing API design | Amr Elroumy's Blog">
+  <meta name="description" content="None">
+  <meta name="author" content="Amr Elroumy">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducing API design | Amr Elroumy's Blog</title>
+
+  <!-- Le favicon -->
+  <link rel="shortcut icon" href="../../../favicon.ico">
+
+  <!-- Le styles -->
+  <link rel="stylesheet" href="../../../assets/css/bootstrap.css">
+  <link rel="stylesheet" href="../../../assets/css/bootstrap-responsive.css">
+  <!-- <link rel="stylesheet" href="/assets/css/colorbox.css"> -->
+  <!-- <link rel="stylesheet" href="/assets/css/slides.css"> -->
+  <link rel="stylesheet" href="../../../assets/css/fonts.css">
+  <link rel="stylesheet" href="../../../assets/css/font-awesome.css">
+  <link rel="stylesheet" href="../../../assets/css/pygments.css">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../assets/css/component.css">
+
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-      <![endif]--><!-- Le fonts --><!-- <link href="http://fonts.googleapis.com/css?family=Aldrich|Lato:400,400italic" rel="stylesheet" type="text/css"> --><!-- <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|PT+Sans' rel='stylesheet' type='text/css'> --></head><body>
+      <![endif]-->
+      
+      <!-- Le fonts -->
+      
+      <!-- <link href="http://fonts.googleapis.com/css?family=Aldrich|Lato:400,400italic" rel="stylesheet" type="text/css"> -->
+      <!-- <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|PT+Sans' rel='stylesheet' type='text/css'> -->
+      
 
       
-      <ul id="vertical-menu" class="vertical-menu"><li><a href="../../../" class="icon-logo" title="Home">Home</a></li>
+      
+    </head>
+    <body>
+
+      
+      <ul id="vertical-menu" class="vertical-menu">
+    <li><a href="../../../" class="icon-logo" title="Home">Home</a></li>
     <li><a href="../../../about.html" class="icon-user" title="About Me">About Me</a></li>
     
     <li><a href="../../../archive.html" class="icon-cabinet" title="Archive">Archive</a></li>
     
     <li><a href="../../../categories/index.html" class="icon-tags" title="Tags">Tags</a></li>
     
+    <li>
+        <a href="http://feedburner.google.com/fb/a/mailverify?uri=AmrElroumysBlog&amp;loc=en_US" class="icon-envelope" title="Subscribe by Mail" onclick="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=AmrElroumysBlog&amp;loc=en_US', 'popupwindow', 'scrollbars=yes,width=660,height=600,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=no'); return false">Subscribe</a>
+    </li>
     <li><a href="../../../rss.xml" class="icon-feed" title="RSS Feed">RSS</a></li>
     
     <li><a href="#" class="icon-pencil" title="Blog Roll">Blog Roll</a>
-        <ul class="vertical-submenu"><li><a href="http://abdelrahmanogail.wordpress.com/" target="_blank">Abdelrahman Elogeel's Blog</a></li>
-            <li><a href="http://acmascis.org/blog" target="_blank">acmASCIS' Blog</a></li>
+        <ul class="vertical-submenu">
+            
+            <li><a href="http://abdelrahmanogail.wordpress.com/" target="_blank">Abdelrahman Elogeel's Blog</a></li>
+            
+            <li><a href="http://acmascis.org/blog/" target="_blank">acmASCIS' Blog</a></li>
+            
             <li><a href="http://anasmehassab.wordpress.com/" target="_blank">Anas Awad's T-Blog</a></li>
+            
+            <li><a href="http://ferasferas.wordpress.com/" target="_blank">Feras' Blog</a></li>
+            
             <li><a href="http://iamsamy.blogspot.com/" target="_blank">Mohamed Samy's thoughts</a></li>
+            
             <li><a href="http://mhesham.wordpress.com/" target="_blank">Muhammad Hesham's Blog</a></li>
-        </ul></li>
-</ul><!-- Blog Continer --><div class="container-fluid" id="container">
+            
+        </ul>
+    </li>
+</ul>
+      <!-- Blog Continer -->
+      <div class="container-fluid" id="container">
         <!-- Blog navbar Bar -->
         
         <div class="header" style="margin-bottom: 16px;">
@@ -60,7 +113,8 @@
     <div class="postbox">
     <h1><a class="post-title" href="#">Introducing API design</a></h1>
     
-    <hr><small>
+    <hr>
+    <small>
         Posted: June 05, 2013  |  
 
         
@@ -68,13 +122,14 @@
         
             More posts about
             
-                <a href="../../../categories/software-development.html"><span class="badge badge-info">Software Development</span></a>
+                <a href="../../../categories/Software%20Development.html"><span class="badge badge-info">Software Development</span></a>
             
-                <a href="../../../categories/api-development.html"><span class="badge badge-info">API Development</span></a>
+                <a href="../../../categories/API%20Development.html"><span class="badge badge-info">API Development</span></a>
             
         
     </small>
-    <hr><p><img alt="APIs Everywhere" src="../../../2013/06/apis-everywhere.jpg"></p>
+    <hr>
+    <p><img alt="APIs Everywhere" src="../../../2013/06/apis-everywhere.jpg"></p>
 <h3>What is an API?</h3>
 <p>API stands for Application Programming Interface. It is like a Graphical User Interface but instead of being used by end users, it is designed to be used by developers. APIs define reusable building blocks that can be used later for building other modular software upon. They can range from simple functions to full-blown libraries.</p>
 <p>The primary reason for creating APIs is to hide implementation details while exposing logical interfaces for using them, in order to give us much liberty to change the implementation details later on without affecting any existing clients.  </p>
@@ -82,36 +137,47 @@
 <p>Other famous APIs that most of us use in our coding are:</p>
 <!-- TEASER_END -->
 
-<ul><li>Standard Template Library in C++ or its equivalents for other languages</li>
+<ul>
+<li>Standard Template Library in C++ or its equivalents for other languages</li>
 <li>XNA - A game engine developed by Microsoft</li>
 <li>OpenGL - Library for Computer Graphics</li>
 <li>OpenCV - Library for Computer Vision</li>
 <li>OpenMP and MPI - Libraries for parallelization of code</li>
 <li>Programming Languages; even programming languages can be considered APIs for functionality provided by an operating system or a virtual machine.</li>
 <li>Consequently operating systems are considered low-level programming interfaces for the underlying hardware architecture like interacting with the file system, processes, threads, devices and many other functionalities. E.g. Win32 API - Microsoft's Windows API which is a collection of C functions, constants and data types that enable developers to program applications that run on the Windows Platform.</li>
-</ul><p>So as you see, you can be writing an API for your own development, to be used by engineers internally in your organization, or for developers using a service provided by your organization.</p>
+</ul>
+<p>So as you see, you can be writing an API for your own development, to be used by engineers internally in your organization, or for developers using a service provided by your organization.</p>
 <h3>Why is an API important?</h3>
 <p>Using APIs adds more robustness to the code by:</p>
-<ul><li><strong>Hiding implementation details</strong> giving you more flexibility to make implementation changes in the future without affecting your users.</li>
+<ul>
+<li><strong>Hiding implementation details</strong> giving you more flexibility to make implementation changes in the future without affecting your users.</li>
 <li><strong>Increasing the longevity of the system</strong> as it avoids having tangled code where every part of the system depends on the internal details of other parts of the system.</li>
-</ul><p>APIs can be amongst the companies greatest assets, this is because customers invest heavily in learning the API and writing software against it, so the cost to stop using the API or modify it can be devastating.</p>
+</ul>
+<p>APIs can be amongst the companies greatest assets, this is because customers invest heavily in learning the API and writing software against it, so the cost to stop using the API or modify it can be devastating.</p>
 <p>Because of this tight-coupling between the customers' software and the APIs, we can say that public APIs are forever, and there is one chance to get them right, either they become a liability and inhibit the ability to move forward, or they capture customers and give a great boost to your products.</p>
 <h3>Why APIs' design require special consideration?</h3>
-<ul><li>APIs will undoubtedly be used in ways that we never intended. This must be anticipated through the design process.</li>
+<ul>
+<li>APIs will undoubtedly be used in ways that we never intended. This must be anticipated through the design process.</li>
 <li>Errors in APIs affect multiple applications.</li>
 <li>Backward compatibility is a priority to prevent clients' code from breaking if we introduce changes to the interfaces.</li>
 <li>APIs can be amongst the companies greatest assets, this is because customers invest heavily in learning the API and writing software against it, so the cost to stop using the API or modify it can be devastating.</li>
-</ul><h3>Extra miles taken for developing APIs</h3>
-<ul><li>To ensure backward compatibility, API reviews are held before releasing a new version of the API. By having one or more senior developers check to make sure that all changes are:<ul><li>acceptable</li>
+</ul>
+<h3>Extra miles taken for developing APIs</h3>
+<ul>
+<li>To ensure backward compatibility, API reviews are held before releasing a new version of the API. By having one or more senior developers check to make sure that all changes are:<ul>
+<li>acceptable</li>
 <li>made for valid reasons</li>
 <li>implemented in the best way to maintain backward compatibility</li>
-</ul></li>
+</ul>
+</li>
 <li>Well-written, consistent, and extensive documentation is imperative when writing good APIs. This includes detailed examples of the API usage. Remember all the long nights you spent trying to figure out how to include a library into your code base from a single code example? Well we don't want our clients to suffer the same do we? :D</li>
 <li>Automated testing, to ensure that no changes affect the expected behaviour of the API, and to save you the headache of testing every possible use-case by hand. This type of testing is called regression testing.</li>
-</ul><h3>Characteristics of a Good API</h3>
+</ul>
+<h3>Characteristics of a Good API</h3>
 <p>There are several qualities which ensure that our APIs are well-designed and and that they maintain high usability when considered throughout the process of designing and developing our APIs.</p>
 <h4>Easy to learn, easy to use and hard to misuse</h4>
-<ol><li>
+<ol>
+<li>
 <p>Mapping the problem properly:<br>
 A good API should lend itself to be easily used, even without reading the documentation, which can be achieved by <strong>properly modelling the problem domain</strong> being solved; meaning that it is apparent for the user the relation between the actual entities of the problem and their representations in your API which rely on proper Object-oriented design.</p>
 </li>
@@ -128,12 +194,16 @@ A good API should lend itself to be easily used, even without reading the docume
 <p>Well documented
 As Peter Gruenbaum has <a href="http://msdn.microsoft.com/en-us/magazine/gg309172.aspx">put it</a></p>
 <blockquote>
-<ol><li>Good documentation can increase the likelihood of platform adoption because it means a less-frustrating experience for developers.</li>
+<ol>
+<li>Good documentation can increase the likelihood of platform adoption because it means a less-frustrating experience for developers.</li>
 <li>Good documentation reduces the cost of support because developers can find the answers to their questions more easily.</li>
-</ol></blockquote>
+</ol>
+</blockquote>
 </li>
-</ol><p>If your API is gaining momentum and is robust enough, it won't be a bad thing to provide some reference material for it. This includes documenting every class, interface, method, constructor, parameter, and exception. The simplest form of reference material would include information about each entity; a short description for it, what it is used for, how to use it and any important remarks that will be of aid to the developers, e.g. exceptions that need to be caught.</p>
-<ul><li>Class: what an instance represents</li>
+</ol>
+<p>If your API is gaining momentum and is robust enough, it won't be a bad thing to provide some reference material for it. This includes documenting every class, interface, method, constructor, parameter, and exception. The simplest form of reference material would include information about each entity; a short description for it, what it is used for, how to use it and any important remarks that will be of aid to the developers, e.g. exceptions that need to be caught.</p>
+<ul>
+<li>Class: what an instance represents</li>
 <li>
 <p>Method: contract between method and its client, this includes preconditions, postconditions, side-effects</p>
 </li>
@@ -144,33 +214,47 @@ Some errors can be reported in compile-time, so if you are using a static-typed 
 Example, matrices depths and types in OpenCV: a method allowed you to use several algorithms to achieve a certain functionality, you send it a matrix to apply the algorithm on and an integer specifying the algorithm you want to use.
 We got a really strange error in the run-time and we couldn't figure out what was the problem, and after hours of tracing through the library's code we figured out that one of the algorithm had a constraint on the depth of elements operated on in a helper method that is called internally.</p>
 </li>
-</ul><p>So it is always better to fail gracefully early on, than to wreak havoc when the software is online.</p>
+</ul>
+<p>So it is always better to fail gracefully early on, than to wreak havoc when the software is online.</p>
 <h4>Minimally Complete</h4>
 <p>APIs should be powerful enough to satisfy the requirements. Not more, not less.</p>
-<ul><li>Should Do One Thing and Do it Well - Functionality should be easy to explain If it's hard to name, that's generally a bad sign</li>
+<ul>
+<li>Should Do One Thing and Do it Well - Functionality should be easy to explain If it's hard to name, that's generally a bad sign</li>
 <li>Should be as small as possible but not any smaller, When in doubt leave it out You can always add functionality, but you can never remove it after your clients have depended on it</li>
-</ul><h4>Easy to evolve</h4>
+</ul>
+<h4>Easy to evolve</h4>
 <p>Hide implementation details as they confuse users and and as mentioned earlier,  they make it more difficult for you to change the implementation later on.
 Implementation details include internal exceptions, over-specifying the behaviour of the methods e.g.  hash functions</p>
 <h3>Class Design</h3>
 <h3>Methods</h3>
-<ol><li>Maintain consistent parameters ordering especially when overloading methods and don't change the parameter names from one overloaded function to another if they represent the same input.</li>
+<ol>
+<li>Maintain consistent parameters ordering especially when overloading methods and don't change the parameter names from one overloaded function to another if they represent the same input.</li>
 <li>Avoid using string parameters and use enumerations that could be investigated instead, especially if your language has mutable strings which could be modified after you've validated them causing you a lot of headache and security vulnerabilities.</li>
 <li>Avoid long parameter lists, especially if they contain identically typed parameters as programmers might shift those parameters by mistake and the compiler will compile successfully, yet causing logical errors. You can solve this either by breaking up the method into smaller methods or creating a wrapper struct/class to hold the parameters.</li>
 <li>String parsing return array of string instead of one string to be parsed</li>
-</ol><h3>References and Further Reading:</h3>
-<ul><li><a href="http://www.apibook.com/blog/">Martin Reddy's "API Design for C++"</a></li>
+</ol>
+<h3>References and Further Reading:</h3>
+<ul>
+<li><a href="http://www.apibook.com/blog/">Martin Reddy's "API Design for C++"</a></li>
 <li><a href="https://www.youtube.com/watch?v=aAb7hSCtvGw">Joshua Bloch's Google Tech Talk</a> - <a href="http://lcsd05.cs.tamu.edu/slides/keynote.pdf">(Slides)</a> - <a href="http://limist.com/coding/talk-notes-how-to-design-a-good-api-and-why-it-matters-bloch.html">(Talk Notes)</a></li>
 <li><a href="http://www.infoq.com/articles/API-Design-Joshua-Bloch">Joshua Bloch: Bumper-Sticker API Design</a></li>
 <li><a href="http://msdn.microsoft.com/en-us/magazine/gg309172.aspx">Peter Gruenbaum's A Coder’s Guide to Writing API Documentation</a></li>
-</ul><ul class="pager"></ul><div id="disqus_thread"></div>
-        <script type="text/javascript"> var disqus_shortname = 'amrelroumysblog'; var disqus_url = 'http://amrelroumy.github.io/posts/2013/drafts/introducing-api-design.html'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); </script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</ul>
+    <ul class="pager">
+    
+    
+    </ul>
+    
+        <div id="disqus_thread"></div>
+        <script type="text/javascript"> var disqus_shortname = 'amrelroumysblog'; var disqus_url = 'http://amrelroumy.github.io/posts/2013/drafts/introducing-api-design.html'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     
     </div>
 
           <!--End of body content-->
-          <hr><div class="footer"><small>© 2011-2013 <a href="mailto:amr.elroumy@gmail.com">Amr Elroumy</a><br>Some rights reserved (<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="license">CC BY-NC-SA 3.0</a>)<br>Powered by <a href="http://nikola.ralsina.com.ar" target="_blank">Nikola</a> - Original theme by <a href="http://thomaspark.me/" target="_blank">Thomas Park</a></small></div>
+          <hr>
+          <div class="footer"><small>© 2011-2013 <a href="mailto:amr.elroumy@gmail.com">Amr Elroumy</a><br>Some rights reserved (<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="license">CC BY-NC-SA 3.0</a>)<br>Powered by <a href="http://nikola.ralsina.com.ar" target="_blank">Nikola</a> - Original theme by <a href="http://thomaspark.me/" target="_blank">Thomas Park</a></small></div>
         </div>
       </div>
 
@@ -190,7 +274,9 @@ Implementation details include internal exceptions, over-specifying the behaviou
 <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="../../../assets/js/jquery-1.9.1.min.js" type="text/javascript"></script><script src="../../../assets/js/bootstrap.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">
+  <script src="../../../assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+  <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],
     displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ]},
@@ -200,7 +286,9 @@ Implementation details include internal exceptions, over-specifying the behaviou
         "font-size":  "120%"},
         scale: 120}
       });
-  </script><script>
+  </script>
+  
+  <script>
   (function() {
     var cx = '000224632386531530640:6f01ofvavgy';
     var gcse = document.createElement('script');
@@ -211,7 +299,13 @@ Implementation details include internal exceptions, over-specifying the behaviou
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(gcse, s);
   })();
-  </script><search></search><script src="../../../assets/js/mathjax.js" type="text/javascript"></script><script type="text/javascript">
+  </script>
+  <search></search>
+
+  <script src="../../../assets/js/mathjax.js" type="text/javascript"></script>
+
+  
+<script type="text/javascript">
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-33968631-1']);
@@ -225,4 +319,8 @@ Implementation details include internal exceptions, over-specifying the behaviou
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script></body></html>
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Amr Elroumy's Blog (C++11)</title><link>http://amrelroumy.github.io</link><description>Science, Code, Personal Encounters &amp; and other random stuff</description><lastBuildDate>Thu, 11 Jul 2013 14:00:18 GMT</lastBuildDate><generator>nikola</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Move semantics and rvalue references in C++11</title><link>http://amrelroumy.github.io/posts/2013/07/cpp-move-semantics-rvalues.html</link><description>&lt;div&gt;&lt;h3&gt;Questions we want to answer in this post&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Why do we need move semantics?&lt;/li&gt;
+&lt;li&gt;What's the deal with rvalues, lvalues, and their references?&lt;/li&gt;
+&lt;li&gt;How to make use of the move semantics?&lt;/li&gt;
+&lt;li&gt;How do we force a move?&lt;/li&gt;
+&lt;li&gt;What are other uses for rvalue references?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="/posts/2013/07/cpp-move-semantics-rvalues.html"&gt;Read more...&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><category>C++</category><category>C++11</category><guid>http://amrelroumy.github.io/posts/2013/07/cpp-move-semantics-rvalues.html</guid><pubDate>Thu, 11 Jul 2013 14:00:00 GMT</pubDate></item></channel></rss>

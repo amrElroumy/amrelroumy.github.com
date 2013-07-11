@@ -1,0 +1,470 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="title" content="C++ Threads Notes | Amr Elroumy's Blog">
+  <meta name="description" content="None">
+  <meta name="author" content="Amr Elroumy">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C++ Threads Notes | Amr Elroumy's Blog</title>
+
+  <!-- Le favicon -->
+  <link rel="shortcut icon" href="../../../favicon.ico">
+
+  <!-- Le styles -->
+  <link rel="stylesheet" href="../../../assets/css/bootstrap.css">
+  <link rel="stylesheet" href="../../../assets/css/bootstrap-responsive.css">
+  <!-- <link rel="stylesheet" href="/assets/css/colorbox.css"> -->
+  <!-- <link rel="stylesheet" href="/assets/css/slides.css"> -->
+  <link rel="stylesheet" href="../../../assets/css/fonts.css">
+  <link rel="stylesheet" href="../../../assets/css/font-awesome.css">
+  <link rel="stylesheet" href="../../../assets/css/pygments.css">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../assets/css/component.css">
+
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+      <![endif]-->
+      
+      <!-- Le fonts -->
+      
+      <!-- <link href="http://fonts.googleapis.com/css?family=Aldrich|Lato:400,400italic" rel="stylesheet" type="text/css"> -->
+      <!-- <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|PT+Sans' rel='stylesheet' type='text/css'> -->
+      
+
+      
+      
+    </head>
+    <body>
+
+      
+      <ul id="vertical-menu" class="vertical-menu">
+    <li><a href="../../../" class="icon-logo" title="Home">Home</a></li>
+    <li><a href="../../../about.html" class="icon-user" title="About Me">About Me</a></li>
+    
+    <li><a href="../../../archive.html" class="icon-cabinet" title="Archive">Archive</a></li>
+    
+    <li><a href="../../../categories/index.html" class="icon-tags" title="Tags">Tags</a></li>
+    
+    <li>
+        <a href="http://feedburner.google.com/fb/a/mailverify?uri=AmrElroumysBlog&amp;loc=en_US" class="icon-envelope" title="Subscribe by Mail" onclick="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=AmrElroumysBlog&amp;loc=en_US', 'popupwindow', 'scrollbars=yes,width=660,height=600,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=no'); return false">Subscribe</a>
+    </li>
+    <li><a href="../../../rss.xml" class="icon-feed" title="RSS Feed">RSS</a></li>
+    
+    <li><a href="#" class="icon-pencil" title="Blog Roll">Blog Roll</a>
+        <ul class="vertical-submenu">
+            
+            <li><a href="http://abdelrahmanogail.wordpress.com/" target="_blank">Abdelrahman Elogeel's Blog</a></li>
+            
+            <li><a href="http://acmascis.org/blog/" target="_blank">acmASCIS' Blog</a></li>
+            
+            <li><a href="http://anasmehassab.wordpress.com/" target="_blank">Anas Awad's T-Blog</a></li>
+            
+            <li><a href="http://ferasferas.wordpress.com/" target="_blank">Feras' Blog</a></li>
+            
+            <li><a href="http://iamsamy.blogspot.com/" target="_blank">Mohamed Samy's thoughts</a></li>
+            
+            <li><a href="http://mhesham.wordpress.com/" target="_blank">Muhammad Hesham's Blog</a></li>
+            
+        </ul>
+    </li>
+</ul>
+      <!-- Blog Continer -->
+      <div class="container-fluid" id="container">
+        <!-- Blog navbar Bar -->
+        
+        <div class="header" style="margin-bottom: 16px;">
+  <h1 style="max-width: 800px;  margin: 0 auto;  padding-top: 36px;font-style: normal;font-weight: inherit;color: #999999;font-size: 20px;">Amr Elroumy's Blog</h1>
+  <h3 style="max-width: 800px;  margin: 0 auto;padding-top: 2px;font-style: normal;">Science, Programming &amp; Personal Encounters</h3>
+</div>
+<div style="
+    max-width: 77%;
+    margin: auto;
+">
+<div style="
+    width: 10.7%;
+    height: 5px;
+    background-color: #f6c99a;
+    display: inline;
+    float: left;
+"></div>
+<div style="
+    background-color: #bfdab3;
+    height: 5px;
+    display: inline;
+    float: left;
+    width: 78.3%;
+"></div>
+<div style="
+    width: 10.7%;      
+    height: 5px;      background-color: #f6c99a;      display: inline;      float: left;
+"></div>
+</div>
+        
+        <!-- End Blog navbar Bar -->
+
+        <div class="container">
+
+         <div class="content" style="max-width: 800px; margin: 0 auto; padding-top:70px;"> 
+          <!--Body content-->
+          
+    <div class="postbox">
+    <h1><a class="post-title" href="#">C++ Threads Notes</a></h1>
+    
+    <hr>
+    <small>
+        Posted: May 26, 2013  |  
+
+        
+
+        
+            More posts about
+            
+                <a href="../../../categories/C++.html"><span class="badge badge-info">C++</span></a>
+            
+                <a href="../../../categories/concurrency.html"><span class="badge badge-info">concurrency</span></a>
+            
+        
+    </small>
+    <hr>
+    <h2>C++ Threads</h2>
+<h3>Working with Threads</h3>
+<h4>Threads' Instantiation</h4>
+<p>The instantiation of a thread is as easy as declaring a <code>std::thread</code> and passing a function pointer to it.</p>
+<div class="code"><pre><span class="kt">void</span> <span class="nf">do_something</span><span class="p">();</span>
+<span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">spawned_thread</span><span class="p">(</span><span class="n">do_something</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Can also work with any callable type, e.g.</p>
+<div class="code"><pre><span class="k">class</span> <span class="nc">background_worker</span>
+<span class="p">{</span>
+    <span class="nl">private:</span>
+    <span class="kt">void</span> <span class="n">do_something</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello world"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="nl">public:</span>
+    <span class="kt">void</span> <span class="k">operator</span><span class="p">()</span> <span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="n">do_something</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">background_worker</span> <span class="n">mWorker</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">(</span><span class="n">mWorker</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>A pitfall because of C++'s most <a href="http://en.wikipedia.org/wiki/Most_vexing_parse">vexing parse</a>, is that passing a function object while constructing it causes a compilation error later on operating on this thread. This is because there is an ambiguity between function declaration and object initialization. Priority is given to the first. </p>
+<div class="code"><pre><span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">mThread1</span> <span class="p">(</span> <span class="n">background_worker</span><span class="p">()</span> <span class="p">);</span>   <span class="c1">// Compilation Error</span>
+</pre></div>
+
+
+<p>A possible solution to avoid the parsing ambiguity is by adding extra parenthesis</p>
+<div class="code"><pre><span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">mThread1</span> <span class="p">(</span> <span class="p">(</span><span class="n">background_worker</span><span class="p">()</span> <span class="p">)</span> <span class="p">);</span>
+</pre></div>
+
+
+<p>Another way to instantiate an object is through uniform initialization (based on initializer list constructor)</p>
+<div class="code"><pre><span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">mThread1</span> <span class="p">{</span> <span class="n">background_worker</span><span class="p">()</span> <span class="p">};</span>   <span class="c1">// Not supported by VS2012</span>
+</pre></div>
+
+
+<h4>Thread Management</h4>
+<h5>Abandon/Wait for thread to finish execution</h5>
+<p>After thread instantiation, comes the choice whether to wait for the thread to finish its execution before exiting the main thread (the thread where the secondary thread branched from) or forfeit ownership of the thread and leave it to run in the background with no direct way of communicating with it. This type of background threads are sometimes referred to as <strong><em>daemon threads</em></strong> after the UNIX concept of a daemon process that run in the background without any explicit user interface.</p>
+<p>In order to detach from a thread or join a thread, there must be a thread object to detach or join as you can't call <code>detach()/join()</code>on std::thread</p>
+<p>Important points about <code>detach()</code> and <code>join()</code></p>
+<ul>
+<li>If I don't make a decision about whether to wait for a thread to terminate (thread.join()) or leave it to run on its own 
+(thread.detach()) before the std::thread object is destroyed, then the program is terminated (the std::thread destructor calls std::terminate()</li>
+<li>When passing a local variable from main thread to a secondary thread either by reference or through a pointer we risk a dangling 
+pointer/reference. Possible ways to handle this scenario:</li>
+<li>Make the thread function self-contained; copy the data into the thread rather than sharing data. Caution: be wary of pointers/references  in the copied object.</li>
+<li>Ensure that the thread has completed its execution before the  main thread exits by joining the thread.</li>
+<li>When writing to a console in a secondary thread, if the master thread exists and the second thread is not detached an exception is thrown. Either detach it from the main thread or wait for it to finish its execution by using thread.join() </li>
+<li>thread.join() is simple and brute-force either wait for the thread to terminate or you don't.. If we need to have more fine-grained control over waiting for a thread we use condition variables and futures.</li>
+<li>The act of calling join()also cleans up any storage associated with the thread, so the std::threadobject is no longer associated with the now finished thread; it isn’t associated with any thread. This means that you can call join()only once for a given thread; once you’ve called join(), the std::thread object is no longer joinable, and joinable()will return false.</li>
+</ul>
+<p>// <strong>Todo:</strong> Write code samples about join and detach + RAII for exceptional situations + Thread ownership <code>std::move()</code></p>
+<h5>Passing arguments to threads</h5>
+<p>Passing arguments to threads is as easy as passing additional arguments to the <code>std::thread</code> constructor.</p>
+<div class="code"><pre><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">t</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"hello world"</span><span class="p">);</span>
+</pre></div>
+
+
+<p>If you are interested in invoking a member function of an object, we follow a mechanism similar to that of <code>std::bind()</code>:</p>
+<div class="code"><pre><span class="k">class</span> <span class="nc">my_type</span>
+<span class="p">{</span>
+    <span class="nl">public:</span>
+    <span class="kt">void</span> <span class="n">F</span><span class="p">(</span><span class="kt">int</span> <span class="n">i1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i2</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"i1= %d - i2= %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">my_type</span> <span class="n">mObject</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">t</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_type</span><span class="o">::</span><span class="n">F</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mObject</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">t</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+</pre></div>
+
+
+<p><strong>Caution - Common pitfalls</strong> </p>
+<ul>
+<li>Not knowing that passing a pointer/reference to an automatic variable might cause dangling pointer/reference if the main thread finishes execution before the spawned thread finishes its execution.</li>
+</ul>
+<div class="code"><pre><span class="c1">// Example: passing a string literal to a function which takes a string, the string</span>
+<span class="c1">//  the string literal is only converted to string in the context of the new thread</span>
+
+<span class="kt">void</span> <span class="nf">f1</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">fstream</span> <span class="n">file</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">file_name</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+    <span class="n">sprintf</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s">"out_%d.txt"</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">get_id</span><span class="p">());</span>
+    <span class="n">file</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n">out</span><span class="p">);</span>
+    <span class="n">file</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">oops1</span><span class="p">(</span><span class="kt">int</span> <span class="n">some_param</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+    <span class="n">sprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="s">"%d"</span><span class="p">,</span> <span class="n">some_param</span><span class="p">);</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">t1</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>                          <span class="c1">// Dangling pointer scenario</span>
+    <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">t2</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">buffer</span><span class="p">));</span>     <span class="c1">// Proper way to pass string to avoid dangling pointer</span>
+
+    <span class="n">t1</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>    <span class="c1">// Won't complete execution properly, will need to use t1.join to finish execution properly</span>
+    <span class="n">t2</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>    <span class="c1">// Will properly give output</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>The other pitfall is when we want to do the opposite, pass a reference to the spawned thread. The thread constructor is oblivious to the types of arguments expected by the function and copies unknowingly the object instead of passing the reference</li>
+</ul>
+<div class="code"><pre><span class="kt">void</span> <span class="nf">f2</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">cr</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">r</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">oops2</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span><span class="mi">3</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">t1</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+    <span class="n">t1</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+
+    <span class="c1">// No changes happen to the value of b</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a= %d - b= %d - c= %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>     
+
+    <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">t2</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ref</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">cref</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+    <span class="n">t2</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+
+    <span class="c1">// The problem is solved by wrapping the values in reference objects</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a= %d - b= %d - c= %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>     
+<span class="p">}</span>
+</pre></div>
+
+
+<h5>Controlling the number of running threads</h5>
+<p>To identify the maximum number of threads that can run concurrently we use <code>std::thread::hardware_concurrency()</code>. It returns 0 if this information is unavailable.</p>
+<p>It is preferred to refrain from exceeding this value in order to avoid something called <em>oversubscription</em> that results when we run more threads than the hardware can support causing a lot of context switching, which in turn degrades the performance.</p>
+<h5>Identifying threads</h5>
+<p>It is useful to be able to identify which thread is executing a segment of the code, allowing easier management of the workload. There are 2 possible ways to get the id of a thread:</p>
+<ul>
+<li>The first is using <code>std::thread::get_id()</code> member function</li>
+</ul>
+<div class="code"><pre><span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">t</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+<span class="n">t</span><span class="p">.</span><span class="n">get_id</span><span class="p">();</span>
+</pre></div>
+
+
+<ul>
+<li>The second is by using the static function <code>std::this_thread::get_id()</code> to get the identifier for the current thread</li>
+</ul>
+<div class="code"><pre><span class="kt">int</span> <span class="n">currentThreadID</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">get_id</span><span class="p">();</span>
+</pre></div>
+
+
+<h4>Sharing Data Between Threads</h4>
+<p>If all shared data is read-only, there’s no problem, because the data read by one thread is unaffected by whether or not another thread is reading the same data. However, if data is shared between threads, and one or more threads start modifying the data, there’s a lot of potential for trouble. In this case, we must take precautionary actions to ensure that nothing goes wrong.</p>
+<p><em>Race conditions</em> are possible causes for problems related to shared data. Race conditions occur when multiple threads of execution are accessing the same data concurrently while it is being modified by one or more thread.</p>
+<p>Problematic race conditions typically occur where completing an operation requires modification of two or more distinct pieces of data. Because the operation must access two separate pieces of data, these must be modified in separate instructions, and another thread could potentially access the data structure when only one of them has been completed.</p>
+<p>E.g. of race conditions: Invariant statements about a particular data structure which are broken during changes in the data structures.</p>
+<p>Ways to deal with race conditions include:
+- Using synchronization methods provided by the programming language or the operating system.
+- Using lock-free programming, in which the code is redesigned so that modifications are done as a series of indivisible changes.
+- Using <em>software transaction model (STM)</em> which is to handle the updates to the data structure as a transaction, just as updates to a database are done within a transaction. The required series of data modifications and reads is stored in a transaction log and then committed in a single step. If the commit can’t proceed because the data structure has been modified by another thread, the transaction is restarted.</p>
+<p>The most primitive method for synchronization which is supported by the C++ standard is a <code>mutex</code>. The method of using a mutex is:
+1. The thread making the changes locks the mutex before entering the critical section, causing other threads to wait (block) when reaching this critical section.
+2. The thread that acquired the mutex, unlocks it when it has finished its modifications.</p>
+<h5>Usage of Mutexes</h5>
+<p>The process of using a mutex to synchronize access is as easy as declaring the mutex object and acquiring the lock in another statement.</p>
+<div class="code"><pre><span class="kt">int</span> <span class="n">my_precious</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">mutex</span> <span class="n">mutex_lock</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">modify_my_precious</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">guard</span><span class="p">(</span><span class="n">mutex_lock</span><span class="p">);</span>
+    <span class="n">my_precious</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Common pitfall:</strong>
+The usage of a mutex lock is not as simple as slapping <code>std::lock_guard</code> object in every member function; one stray pointer or reference, and all that protection is for nothing. In order to avoid this we must ensure that member functions don't pass references/pointers to the protected data object either out by returning them or into other functions they call.</p>
+<div class="code"><pre><span class="c1">// An example of how naively protecting data with locks without accounting for </span>
+<span class="c1">// how acquired references  of the protected data can be used maliciously</span>
+
+<span class="k">class</span> <span class="nc">some_data</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">b</span><span class="p">;</span>
+    <span class="nl">public:</span>
+        <span class="kt">void</span> <span class="nf">do_something</span><span class="p">();</span>
+<span class="p">};</span>
+<span class="k">class</span> <span class="nc">data_wrapper</span>
+<span class="p">{</span>
+    <span class="nl">private:</span>
+        <span class="n">some_data</span> <span class="n">data</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">mutex</span> <span class="n">m</span><span class="p">;</span>
+    <span class="nl">public:</span>
+        <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Function</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">process_data</span><span class="p">(</span><span class="n">Function</span> <span class="n">func</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">l</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+            <span class="n">func</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>     <span class="c1">// This argument can be received as a reference in the called function</span>
+        <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">some_data</span><span class="o">*</span> <span class="n">unprotected</span><span class="p">;</span>
+<span class="c1">// A reference to the protected data object is acquired by the function</span>
+<span class="kt">void</span> <span class="nf">malicious_function</span><span class="p">(</span><span class="n">some_data</span><span class="o">&amp;</span> <span class="n">protected_data</span><span class="p">)</span>      
+<span class="p">{</span>
+    <span class="n">unprotected</span><span class="o">=&amp;</span><span class="n">protected_data</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">data_wrapper</span> <span class="n">x</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">process_data</span><span class="p">(</span><span class="n">malicious_function</span><span class="p">);</span> 
+    <span class="n">unprotected</span><span class="o">-&gt;</span><span class="n">do_something</span><span class="p">();</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<hr>
+<h6>Use Case - Designing the stack <code>pop()</code> and <code>top()</code> functions to overcome race conditions</h6>
+<p>The race conditions we are talking about is how the <code>empty()</code> and <code>size()</code> functions are not reliable, this is because the actual state of the data structure can be altered between the function call to them and the statement where the returned value is used.</p>
+<p>A possible race condition that might occur is if the stack contains only 1 element, and after checking that the stack isn't empty we enter a sequence of code that works on this element, while another thread modifies the stack and removes this element. This causes undefined behaviour.</p>
+<div class="code"><pre><span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+<span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// Our stack contains only 1 element</span>
+
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> 
+<span class="p">{</span>
+    <span class="c1">// Another thread calls pop() on this stack removing the only element</span>
+    <span class="kt">int</span> <span class="k">const</span> <span class="n">value</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>          <span class="c1">// Undefined behaviour</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span> 
+    <span class="n">do_something</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Another possible race condition is what could happen between <code>s.top()</code> and <code>s.pop()</code> where 2 threads can be executing this code sequence at the same time, if the calls are interleaved so that the 2 threads call the <code>s.top()</code> function and then the <code>s.pop()</code> calls are executed what will happen is that one element of the stack will be processed twice, while the next element will be skipped without processing. This type of race conditions is critical because there are no indicators of it in the run-time and causes annoying logical errors, unlike the previous one which causes an exception to be thrown.</p>
+<p>Even if we use mutex locks internally in these functions, the interface of the data structure is prone to race conditions as we've noticed from the previous examples. This requires a proper redesign of the interface to properly handle these situations.</p>
+<hr>
+    <ul class="pager">
+    
+    
+    </ul>
+    
+        <div id="disqus_thread"></div>
+        <script type="text/javascript"> var disqus_shortname = 'amrelroumysblog'; var disqus_url = 'http://amrelroumy.github.io/posts/2013/drafts/cpp-threads-notes.html'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+    </div>
+
+          <!--End of body content-->
+          <hr>
+          <div class="footer"><small>© 2011-2013 <a href="mailto:amr.elroumy@gmail.com">Amr Elroumy</a><br>Some rights reserved (<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="license">CC BY-NC-SA 3.0</a>)<br>Powered by <a href="http://nikola.ralsina.com.ar" target="_blank">Nikola</a> - Original theme by <a href="http://thomaspark.me/" target="_blank">Thomas Park</a></small></div>
+        </div>
+      </div>
+
+   <!--    
+      <div class="row-fluid">
+        <div class="span12 site-footer">
+          ©2011-2012 <a href="/about">Amr Elroumy</a> <br />Powered by <a href="https://github.com/hyde/hyde" title="The beast under the hood" target="_blank">Hyde</a>
+        </div>
+      </div>
+       -->
+
+    </div>
+    <!-- End Blog Container -->
+
+    
+
+<!-- Le javascript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../../../assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ]},
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+      styles: {
+        "font-size":  "120%"},
+        scale: 120}
+      });
+  </script>
+  
+  <script>
+  (function() {
+    var cx = '000224632386531530640:6f01ofvavgy';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+    '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+  </script>
+  <search></search>
+
+  <script src="../../../assets/js/mathjax.js" type="text/javascript"></script>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33968631-1']);
+  _gaq.push(['_setDomainName', 'amrelroumy.github.io']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+</body>
+</html>

@@ -1,25 +1,78 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="title" content="Posts about Design Patterns | Amr Elroumy's Blog"><meta name="description" content="Science, Code, Personal Encounters &amp; and other random stuff"><meta name="author" content="Amr Elroumy"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Posts about Design Patterns | Amr Elroumy's Blog</title><!-- Le favicon --><link rel="shortcut icon" href="../favicon.ico"><!-- Le styles --><link rel="stylesheet" href="../assets/css/bootstrap.css"><link rel="stylesheet" href="../assets/css/bootstrap-responsive.css"><!-- <link rel="stylesheet" href="/assets/css/colorbox.css"> --><!-- <link rel="stylesheet" href="/assets/css/slides.css"> --><link rel="stylesheet" href="../assets/css/fonts.css"><link rel="stylesheet" href="../assets/css/font-awesome.css"><link rel="stylesheet" href="../assets/css/pygments.css"><link rel="stylesheet" href="../assets/css/style.css"><link rel="stylesheet" href="../assets/css/component.css"><!-- Le HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="title" content="Posts about Design Patterns | Amr Elroumy's Blog">
+  <meta name="description" content="Science, Code, Personal Encounters &amp; and other random stuff">
+  <meta name="author" content="Amr Elroumy">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posts about Design Patterns | Amr Elroumy's Blog</title>
+
+  <!-- Le favicon -->
+  <link rel="shortcut icon" href="../favicon.ico">
+
+  <!-- Le styles -->
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap-responsive.css">
+  <!-- <link rel="stylesheet" href="/assets/css/colorbox.css"> -->
+  <!-- <link rel="stylesheet" href="/assets/css/slides.css"> -->
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/css/font-awesome.css">
+  <link rel="stylesheet" href="../assets/css/pygments.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/component.css">
+
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-      <![endif]--><!-- Le fonts --><!-- <link href="http://fonts.googleapis.com/css?family=Aldrich|Lato:400,400italic" rel="stylesheet" type="text/css"> --><!-- <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|PT+Sans' rel='stylesheet' type='text/css'> --></head><body>
+      <![endif]-->
+      
+      <!-- Le fonts -->
+      
+      <!-- <link href="http://fonts.googleapis.com/css?family=Aldrich|Lato:400,400italic" rel="stylesheet" type="text/css"> -->
+      <!-- <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|PT+Sans' rel='stylesheet' type='text/css'> -->
+      
 
       
-      <ul id="vertical-menu" class="vertical-menu"><li><a href="../" class="icon-logo" title="Home">Home</a></li>
+      
+    </head>
+    <body>
+
+      
+      <ul id="vertical-menu" class="vertical-menu">
+    <li><a href="../" class="icon-logo" title="Home">Home</a></li>
     <li><a href="../about.html" class="icon-user" title="About Me">About Me</a></li>
     
     <li><a href="../archive.html" class="icon-cabinet" title="Archive">Archive</a></li>
     
     <li><a href="index.html" class="icon-tags" title="Tags">Tags</a></li>
     
+    <li>
+        <a href="http://feedburner.google.com/fb/a/mailverify?uri=AmrElroumysBlog&amp;loc=en_US" class="icon-envelope" title="Subscribe by Mail" onclick="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=AmrElroumysBlog&amp;loc=en_US', 'popupwindow', 'scrollbars=yes,width=660,height=600,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=no'); return false">Subscribe</a>
+    </li>
     <li><a href="../rss.xml" class="icon-feed" title="RSS Feed">RSS</a></li>
     
     <li><a href="#" class="icon-pencil" title="Blog Roll">Blog Roll</a>
-        <ul class="vertical-submenu"><li><a href="http://abdelrahmanogail.wordpress.com/" target="_blank">Abdelrahman Elogeel's Blog</a></li>
-            <li><a href="http://acmascis.org/blog" target="_blank">acmASCIS' Blog</a></li>
+        <ul class="vertical-submenu">
+            
+            <li><a href="http://abdelrahmanogail.wordpress.com/" target="_blank">Abdelrahman Elogeel's Blog</a></li>
+            
+            <li><a href="http://acmascis.org/blog/" target="_blank">acmASCIS' Blog</a></li>
+            
             <li><a href="http://anasmehassab.wordpress.com/" target="_blank">Anas Awad's T-Blog</a></li>
+            
+            <li><a href="http://ferasferas.wordpress.com/" target="_blank">Feras' Blog</a></li>
+            
             <li><a href="http://iamsamy.blogspot.com/" target="_blank">Mohamed Samy's thoughts</a></li>
+            
             <li><a href="http://mhesham.wordpress.com/" target="_blank">Muhammad Hesham's Blog</a></li>
-        </ul></li>
-</ul><!-- Blog Continer --><div class="container-fluid" id="container">
+            
+        </ul>
+    </li>
+</ul>
+      <!-- Blog Continer -->
+      <div class="container-fluid" id="container">
         <!-- Blog navbar Bar -->
         
         <div class="header" style="margin-bottom: 16px;">
@@ -66,7 +119,8 @@
         <small class="pull-right">August 01, 2011</small>
     </h1>
 </div>
-<hr><h3>Pattern Name</h3>
+<hr>
+<h3>Pattern Name</h3>
 <p>Singleton Pattern</p>
 <h3>Classification</h3>
 <p>Creational Pattern</p>
@@ -77,15 +131,19 @@
 <h3>Motivation</h3>
 <p>In many situations you’d find yourself in need of ensuring that a certain class can only be instantiated once and is accessible in various parts of a system.    <br>
 Example for such situations is:</p>
-<ul><li>Database access</li>
+<ul>
+<li>Database access</li>
 <li>Logging</li>
 <li>Communication</li>
 <li>Printer spooling</li>
 <li>File systems</li>
-</ul><p>The singleton pattern provides us with two properties:</p>
-<ul><li>It ensures a class is only instantiated once. </li>
+</ul>
+<p>The singleton pattern provides us with two properties:</p>
+<ul>
+<li>It ensures a class is only instantiated once. </li>
 <li>It provides a global access point to that class. </li>
-</ul><p><strong>Note </strong>
+</ul>
+<p><strong>Note </strong>
 Singletons are meant to be used sparingly, so if you find yourself using them everywhere you might want to take another look at your design.</p>
 <h3>Applicability</h3>
 <p>Use The <strong>Singleton pattern</strong> when you want your classes to provide you with only one instance that is globally accessible to the code from an access point.</p>
@@ -93,9 +151,11 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <p><img alt="Singleton" src="../2011/08/singleton28.png"></p>
 <h3>Participants</h3>
 <p><strong>SingletonClass:</strong> This class provide global access to only a single instance of it by doing the following:  </p>
-<ul><li>It hides its constructor to prevent any external classes from creating new instances. </li>
+<ul>
+<li>It hides its constructor to prevent any external classes from creating new instances. </li>
 <li>It declares the static method <em>GetInstance()</em> that provides access to the single instance that is held in the private variable: <strong>instance</strong>. </li>
-</ul><h3>Consequences</h3>
+</ul>
+<h3>Consequences</h3>
 <p>Like any pattern, the singleton pattern has its tradeoffs (according to its implementation) and if it is used while being unaware of these tradeoffs can produce unwanted results.</p>
 <h4>Criticisms</h4>
 <p><strong>First criticism:</strong> Using it is considered a breach to one of the OOD Principles: The <strong>Single Responsibility Principle</strong>, which states that: </p>
@@ -103,18 +163,24 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <p>Every object should have a single responsibility, and that this responsibility should be entirely encapsulated by the class.</p>
 </blockquote>
 <p>Thus, the class shouldn’t care less for being a <strong>Singleton </strong>or not, as it’s only concern should be doing its business responsibility. But when using <strong>Singleton</strong>, the class is responsible for two things here:</p>
-<ul><li>Its original business responsibility.</li>
+<ul>
+<li>Its original business responsibility.</li>
 <li>Managing the instantiation of its objects.</li>
-</ul><hr><p><strong>Second criticism:</strong> We all know that having global variables in our code, produces code smells. But, isn’t this what the <strong>Singleton Pattern </strong>does? It makes an instance of the class accessible globally. There disadvantages of using global variables that apply when we use Singletons without proper care because of the similarity in their nature. </p>
+</ul>
+<hr>
+<p><strong>Second criticism:</strong> We all know that having global variables in our code, produces code smells. But, isn’t this what the <strong>Singleton Pattern </strong>does? It makes an instance of the class accessible globally. There disadvantages of using global variables that apply when we use Singletons without proper care because of the similarity in their nature. </p>
 <p>Some of these disadvantages are:</p>
-<ul><li><strong>Implicit <a href="http://en.wikipedia.org/wiki/Coupling_(computer_programming)">coupling</a> - </strong>Many programmers unconsciously would tightly couple the class that uses the <strong>Singleton Pattern </strong>with the rest of their code, because it’s globally accessible. When this is done, the overuse of this pattern could converge into becoming an anti-pattern.</li>
+<ul>
+<li><strong>Implicit <a href="http://en.wikipedia.org/wiki/Coupling_(computer_programming)">coupling</a> - </strong>Many programmers unconsciously would tightly couple the class that uses the <strong>Singleton Pattern </strong>with the rest of their code, because it’s globally accessible. When this is done, the overuse of this pattern could converge into becoming an anti-pattern.</li>
 <li><strong>Namespace pollution - </strong>Namespace pollution<strong> </strong>can occur when we abuse <strong>Singleton Pattern</strong>, though it is a bit unlikely if the pattern is used wisely.</li>
 <li>Multithreading issues can occur when more than one thread the <em>GetInstance()</em> method is invoked for the first time. This will result in instantiating many instance at the same time. That’s why it is important to make sure that our code is thread safe by using <strong>Synchronization</strong> (sometimes discouraged because of its performance footprint), <strong><a href="http://en.wikipedia.org/wiki/Lazy_instantiation">Lazy Instantiation</a></strong> using <strong>double-checked locking</strong>, or <strong>Early Instantiation</strong>.<strong> </strong>Choosing the implementation to use depends mainly on your needs and the available resources.</li>
 <li>Unit-testing programs that contain singleton objects can become annoying because the <strong>Singleton</strong> objects have a persistent state throughout the program. Leading to the following: </li>
 <li>It makes it hard to replicate the tests for later testing or even having a clean environment for testing. </li>
 <li>It takes away one thing that makes unit testing effective which is having tests that are independent on each other.</li>
 <li>Also many developers prefer making dependencies between classes obvious through method signatures, rather than having the <strong>Singleton</strong> object hidden in the code, lurking for the right moment to come and bite you in the back. Some might argue that passing that object through all this methods induces tight coupling, but on the contrary this way of exchanging objects allows you to write to an interface that can be easily extended without having to change a single line in your old code. <strong>Thus you’re coupling to an interface not to an implementation.</strong></li>
-</ul><hr><p>If we want to overcome the mentioned shortcomings, we could separate the singleton part from the actual object, allowing for the object itself to be used normally if needed. Perhaps we can use a Factory or a builder that would encapsulate the object creation and maintain having only one instance created of this class, while leaving the class responsible only for its business responsibility. </p>
+</ul>
+<hr>
+<p>If we want to overcome the mentioned shortcomings, we could separate the singleton part from the actual object, allowing for the object itself to be used normally if needed. Perhaps we can use a Factory or a builder that would encapsulate the object creation and maintain having only one instance created of this class, while leaving the class responsible only for its business responsibility. </p>
 <p>J. B. Rainsberger argued in his article “<a href="http://www.ibm.com/developerworks/webservices/library/co-single/index.html#h3">Use your Singletons wisely</a>” that classes should not be responsible for the singleton part of the code:</p>
 <blockquote>
 <p>Suppose an application needs only one instance of a class and the application configures that class at startup: Why should the class itself be responsible for being a singleton? It seems quite logical for the application to take on this responsibility, since the application requires this kind of behavior. The application, not the component, should be the singleton. The application then makes an instance of the component available for any application-specific code to use. When an application uses several such components, it can aggregate them into what we have called a toolbox.</p>
@@ -190,20 +256,26 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 
 <h5>This specific implementation of Double-Checked locking can be factored into:</h5>
 <p>When working in a multi-threaded environment, we risk running into issues that arise from resource-sharing between multiple threads, like deadlocks and race conditions (<a href="http://stackoverflow.com/questions/34510/what-is-a-race-condition">What is a race condition?</a>). This implementation of the <strong>Singleton Pattern </strong>however saves us from all this drama. </p>
-<ul><li>Using <strong>volatile</strong> keyword.</li>
+<ul>
+<li>Using <strong>volatile</strong> keyword.</li>
 <li>Using the <strong>lock </strong>statement to accomplish thread synchronization.</li>
 <li>Using <strong>double-checked locking</strong>.</li>
-</ul><p>The use of the <strong>volatile</strong> keyword on the <strong>instance </strong>member variable allows us to avoid the unexpected and unpredictable results in multi-threaded programs that access fields without synchronization and using the lock statement to synchronize access. The <strong>volatile </strong>keyword indicates that a certain field can be modified by multiple threads, avoiding the compiler optimizations that assume access by a single thread. This ensures that the most up-to-date value is present in the field at all times.  </p>
+</ul>
+<p>The use of the <strong>volatile</strong> keyword on the <strong>instance </strong>member variable allows us to avoid the unexpected and unpredictable results in multi-threaded programs that access fields without synchronization and using the lock statement to synchronize access. The <strong>volatile </strong>keyword indicates that a certain field can be modified by multiple threads, avoiding the compiler optimizations that assume access by a single thread. This ensures that the most up-to-date value is present in the field at all times.  </p>
 <p>For more details on the volatile keyword and volatile fields check the following references:
 <em> <a href="http://msdn.microsoft.com/en-us/library/x13ttww7.aspx">volatile (C# Reference) [MSDN Library]</a>
 </em> <a href="http://msdn.microsoft.com/en-us/library/aa645755(v=vs.71).aspx">Volatile fields [MSDN Library]</a></p>
-<hr><p>Having data shared between threads is the best recipe for obscure errors and complexity when working in a multithreaded environment. A way of solving this problem is using locks in order to stop more than one thread from working on the same data at the same time.  </p>
+<hr>
+<p>Having data shared between threads is the best recipe for obscure errors and complexity when working in a multithreaded environment. A way of solving this problem is using locks in order to stop more than one thread from working on the same data at the same time.  </p>
 <p>The <strong>lock</strong> keyword marks a statement block as a critical section by obtaining the mutual-exclusion lock for a given object, executing a statement, and then releasing the lock (source: <a href="http://msdn.microsoft.com/en-us/library/c5kehkcz(v=VS.100).aspx">lock Statement [MSDN Library]</a>). The idea is to ensure that a thread can’t enter a critical area in the code, when another thread is still executing it. If two threads encounter a lock, one thread waits(blocks) until the lock becomes available.  </p>
 <p>So, in layman’s terms we can say that the mutual-exclusion lock acts as a simple door lock. You enter a room, you lock the door behind you and when you finish your business, you unlock the door and come out of the room, only then can somebody else enter. If anybody tries to enter the room while you are still in there, he has to wait.</p>
 <h4>Important Notes</h4>
-<ul><li>It’s a matter of good practice to avoid locking on a public type or an object that is accessible to other classes, because this risks running into performance issues and even deadlocks. Instead, we should use values of objects that are specifically made for the sole purpose of locking. These objects are commonly declared as <strong>private </strong>or <strong>private static</strong>.</li>
+<ul>
+<li>It’s a matter of good practice to avoid locking on a public type or an object that is accessible to other classes, because this risks running into performance issues and even deadlocks. Instead, we should use values of objects that are specifically made for the sole purpose of locking. These objects are commonly declared as <strong>private </strong>or <strong>private static</strong>.</li>
 <li>It’s also worth knowing that when using mutual-exclusion locks, the blocked thread doesn’t consume any CPU resources unlike other locks like the <a href="http://en.wikipedia.org/wiki/Spinlock">Spinlock</a>, nevertheless each has its advantages and usages.</li>
-</ul><hr><p>You might ask yourself why can’t I just simply use the lock this way:</p>
+</ul>
+<hr>
+<p>You might ask yourself why can’t I just simply use the lock this way:</p>
 <div class="code"><pre><span class="k">get</span>
 <span class="p">{</span>
     <span class="k">lock</span> <span class="p">(</span><span class="n">Lock</span><span class="p">)</span>
@@ -236,11 +308,13 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <h3>Related Patterns</h3>
 <p>Abstract Factory , Builder , and Prototype.</p>
 <h4>References</h4>
-<ul><li><a href="http://en.wikipedia.org/wiki/Design_Patterns">Design Patterns: Elements of Reusable Object-Oriented Software</a> – The Gang of Four (GoF): <a href="http://en.wikipedia.org/wiki/Erich_Gamma">Erich Gamma</a>, Richard Helm, <a href="http://en.wikipedia.org/wiki/Ralph_Johnson_(computer_scientist)">Ralph Johnson</a>, <a href="http://en.wikipedia.org/wiki/John_Vlissides">John M. Vlissides</a>. </li>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Design_Patterns">Design Patterns: Elements of Reusable Object-Oriented Software</a> – The Gang of Four (GoF): <a href="http://en.wikipedia.org/wiki/Erich_Gamma">Erich Gamma</a>, Richard Helm, <a href="http://en.wikipedia.org/wiki/Ralph_Johnson_(computer_scientist)">Ralph Johnson</a>, <a href="http://en.wikipedia.org/wiki/John_Vlissides">John M. Vlissides</a>. </li>
 <li><a href="http://oreilly.com/catalog/9780596007126">Head First Design Patterns</a> – <a href="http://www.oreillynet.com/pub/au/2003">Eric T Freeman</a>, <a href="http://www.oreillynet.com/pub/au/2002">Elisabeth Robson</a>, <a href="http://www.oreillynet.com/pub/au/1085">Bert Bates</a>, <a href="http://www.oreillynet.com/pub/au/1084">Kathy Sierra</a>. </li>
 <li><a href="http://blogs.msdn.com/b/scottdensmore/archive/2004/05/25/140827.aspx">Why Singletons are Evil</a> - <a href="http://blogs.msdn.com/b/scottdensmore/">Scott Densmore</a></li>
 <li><a href="http://csharpindepth.com/Articles/General/Singleton.aspx">Implementing the Singleton Pattern in C# - C# in Depth</a></li>
-</ul><p>
+</ul>
+<p>
     
     <a href="../posts/2011/08/singleton-pattern.html#disqus_thread">Comments</a>
     
@@ -254,7 +328,8 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
         <small class="pull-right">July 20, 2011</small>
     </h1>
 </div>
-<hr><h3>Pattern Name</h3>
+<hr>
+<h3>Pattern Name</h3>
 <p>Factory Method</p>
 <h3>Classification</h3>
 <p>Creational Pattern</p>
@@ -275,36 +350,46 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 </blockquote>
 <p>This is why we are needed to <strong>encapsulate</strong> the object creation and <strong>isolate</strong> it from the rest of the code, ensuring that any change in the object creation will remain transparent to the rest of the code. And here comes the role of the <strong>Factory Method pattern</strong>, as it handles the object creation and encapsulates it in a subclass. Thus, the client depends on the subclasses to handle all the object creation, so it doesn’t really know the kind of concrete product that is actually created and its code depends on an abstract product. </p>
 <h4>Notes:</h4>
-<ul><li>Factory Patterns in general focus on encapsulating the instantiation of concrete types; abstracting the product creation process, so that the type of the concrete product can be determined in the runtime.</li>
-<li>There are two types of <strong>Factory Method</strong>:<ul><li>Parameterized: This can make more than one object based on the parameters passed to it.</li>
+<ul>
+<li>Factory Patterns in general focus on encapsulating the instantiation of concrete types; abstracting the product creation process, so that the type of the concrete product can be determined in the runtime.</li>
+<li>There are two types of <strong>Factory Method</strong>:<ul>
+<li>Parameterized: This can make more than one object based on the parameters passed to it.</li>
 <li>Not parameterized: This can make only one object</li>
-</ul></li>
+</ul>
+</li>
 <li>When using parameterized Factory Methods it is important to make sure that the parameters are “type safe” and ensure that errors in parameters are caught at compile time; to prevent runtime errors. E.g. we could use enumerators.</li>
 <li><strong>Factory Method</strong> is similar to the <strong>Abstract Factory</strong> in that the methods of the <strong>Abstract factory</strong> can be implemented as <strong>Factory Methods</strong>. The main difference is that while abstract factory deals with an entire family of products, the <strong>Factory Method</strong> is only worried about a single product. Also <strong>Factory Methods</strong> use inheritance to get the concrete object as they delegate object creation to subclasses which implement the <strong>Factory Method</strong>, while <strong>Abstract Factory</strong> uses object composition.</li>
-</ul><h2>Applicability</h2>
+</ul>
+<h2>Applicability</h2>
 <blockquote>
 <p>Use the <strong>Factory Method</strong> pattern when:   </p>
-<ul><li>a class can't anticipate the class of objects it must create. </li>
+<ul>
+<li>a class can't anticipate the class of objects it must create. </li>
 <li>a class wants its subclasses to specify the objects it creates. </li>
 <li>classes delegate responsibility to one of several helper subclasses, and you want to localize the knowledge of which helper subclass is the delegate.
 <cite>(source: GoF’s Book)</cite></li>
-</ul></blockquote>
+</ul>
+</blockquote>
 <h4>Important Note:</h4>
 <p>Factories can only be used with a family of classes. If these classes doesn’t extend the same base or interface, then we can’t use factories with them.</p>
 <h3>Structure</h3>
 <p><img alt="Factory_Method" src="http://amrelroumy.files.wordpress.com/2011/07/factory_method2.png"></p>
 <h3>Participants</h3>
-<ul><li><strong>CreatorBase:</strong> If we don’t need to extend the creator and have different creators the whole factory can be implemented here. Otherwise, this base is either an interface or an abstract class; depending on the situation and if we want to add specify some simple functionality that the concrete creators inherit.</li>
+<ul>
+<li><strong>CreatorBase:</strong> If we don’t need to extend the creator and have different creators the whole factory can be implemented here. Otherwise, this base is either an interface or an abstract class; depending on the situation and if we want to add specify some simple functionality that the concrete creators inherit.</li>
 <li><strong>ConcreteCreator:</strong> It inherits the <strong>CreatorBase</strong> class. It either uses the <strong>FactoryMethod</strong> as it is if it is implemented fully in the base class, or it overrides it with the suitable object creation code.</li>
 <li><strong>ProductBase:</strong> This abstract class defines the type of products that the <strong>FactoryMethod </strong>can create.</li>
 <li><strong>ConcreteProduct:</strong> The actual object that is created by the <strong>FactoryMethod</strong>.</li>
-</ul><h3>Consequences</h3>
+</ul>
+<h3>Consequences</h3>
 <h5>Advantages:</h5>
-<ul><li>It enforces loose coupling between the Creator and the product. This is good, because it’ll allow us to add new products or change old ones without affecting our code or having to change it to fit into the new design as the code only deals with the product’s interface.</li>
+<ul>
+<li>It enforces loose coupling between the Creator and the product. This is good, because it’ll allow us to add new products or change old ones without affecting our code or having to change it to fit into the new design as the code only deals with the product’s interface.</li>
 <li>It allows us to encapsulate all the object creation procedures and use of constructors, leaving the object type and creation to be determined at the runtime instead of being hardwired in the code.</li>
 <li>Using this pattern reinforces the principle of programming to an interface instead of an implementation, as we separate the object instantiation from the creators and are putting them in separate objects.</li>
 <li><em>Provides hooks for subclasses.</em> Creating objects inside a class with a factory method is always more flexible than creating an object directly. Factory Method gives subclasses a hook for providing an extended version of an object. (Source: GoF’s book)</li>
-</ul><h3>Implementation</h3>
+</ul>
+<h3>Implementation</h3>
 <div class="code"><pre><span class="k">abstract</span> <span class="k">class</span> <span class="nc">ProductBase</span>
 <span class="p">{</span>
 <span class="p">}</span>
@@ -343,9 +428,11 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 
 
 <h3>References</h3>
-<ul><li><a href="http://en.wikipedia.org/wiki/Design_Patterns">Design Patterns: Elements of Reusable Object-Oriented Software</a> – The Gang of Four (GoF): <a href="http://en.wikipedia.org/wiki/Erich_Gamma">Erich Gamma</a>, Richard Helm, <a href="http://en.wikipedia.org/wiki/Ralph_Johnson_(computer_scientist)">Ralph Johnson</a>, <a href="http://en.wikipedia.org/wiki/John_Vlissides">John M. Vlissides</a>. </li>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Design_Patterns">Design Patterns: Elements of Reusable Object-Oriented Software</a> – The Gang of Four (GoF): <a href="http://en.wikipedia.org/wiki/Erich_Gamma">Erich Gamma</a>, Richard Helm, <a href="http://en.wikipedia.org/wiki/Ralph_Johnson_(computer_scientist)">Ralph Johnson</a>, <a href="http://en.wikipedia.org/wiki/John_Vlissides">John M. Vlissides</a>. </li>
 <li><a href="http://oreilly.com/catalog/9780596007126">Head First Design Patterns</a> - <a href="http://www.oreillynet.com/pub/au/2003">Eric T Freeman</a>, <a href="http://www.oreillynet.com/pub/au/2002">Elisabeth Robson</a>, <a href="http://www.oreillynet.com/pub/au/1085">Bert Bates</a>, <a href="http://www.oreillynet.com/pub/au/1084">Kathy Sierra</a>. </li>
-</ul><p>
+</ul>
+<p>
     
     <a href="../posts/2011/07/factory-method.html#disqus_thread">Comments</a>
     
@@ -359,7 +446,8 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
         <small class="pull-right">July 09, 2011</small>
     </h1>
 </div>
-<hr><h2>Pattern Name</h2>
+<hr>
+<h2>Pattern Name</h2>
 <p>Decorator Pattern</p>
 <h2>Classification</h2>
 <p>Structural Pattern</p>
@@ -373,36 +461,50 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <p>You might find yourself while working on a project and in the need of adding/modifying responsibilities or behaviors to objects of a certain type. One way of approaching this problem is that we extend this type using inheritance and add the new behavior to it in its children. But what would happen when we want to add more than one responsibility for some objects while keeping others with only a single new responsibility? Then, we would have to implement all the combinations of these responsibilities and ending up with what can be called as a <strong>class explosion</strong>; as you’ll end up with a lot of classes, more time to debug and a lot of those long &amp; lonely nights of maintenance.</p>
 <p>An answer to this problem would be to <strong>extend</strong> <strong>the behavior without using inheritance</strong>. This can be achieved by using <strong>composition</strong> to wrap the components by the decorator and add new behavior/properties or modify already existing ones in the runtime. Using this approach we can avoid having to use inheritance and constrain ourselves with static (compile-time) extending to the objects and use instead <strong>dynamic (runtime)</strong> extending of those specific objects. Also it allows us to add the needed behavior according to the specific conditions that occur during the runtime; meaning that objects of the same type can end up being decorated differently and that the same object can be wrapped in more than one decorator.</p>
 <h4>Design principles behind this pattern:</h4>
-<ul><li><strong>Open-Closed Principle</strong> from SOLID Principles Classes should be <strong>open</strong> <strong>for extension</strong>, but <strong>closed for modification</strong>. One reason why this principle is important is that it prevents us from introducing bugs into code that has already been tested and debugged.</li>
-</ul><h4>Important Notes:</h4>
-<ul><li>The decorator pattern is used to extend behavior of objects during the runtime not classes.</li>
+<ul>
+<li><strong>Open-Closed Principle</strong> from SOLID Principles Classes should be <strong>open</strong> <strong>for extension</strong>, but <strong>closed for modification</strong>. One reason why this principle is important is that it prevents us from introducing bugs into code that has already been tested and debugged.</li>
+</ul>
+<h4>Important Notes:</h4>
+<ul>
+<li>The decorator pattern is used to extend behavior of objects during the runtime not classes.</li>
 <li>You can't apply the <strong>Open-Closed Principle</strong> to every part of your design, because it'll add complexity to the code and it'll take time and effort. You need to identify—comes with experience—the parts of the code that are most likely to change and apply the principle on them.</li>
 <li>Using decorators with code that relies on the component's <strong>concrete</strong> type will break that code. But if we only use them with code that depends on the <strong>abstract</strong> component's type, then the decorators will remain <strong>transparent</strong> to the client of the component.</li>
-</ul><h2>Applicability (from GoF’s Book)</h2>
-<ul><li>To add responsibilities to individual objects dynamically and transparently, that is, without affecting other objects. </li>
+</ul>
+<h2>Applicability (from GoF’s Book)</h2>
+<ul>
+<li>To add responsibilities to individual objects dynamically and transparently, that is, without affecting other objects. </li>
 <li>For responsibilities that can be withdrawn. </li>
 <li>When extension by subclassing is impractical. Sometimes a large number of independent extensions are possible and would produce an explosion of subclasses to support every combination. Or a class definition may be hidden or otherwise unavailable for subclassing. </li>
-</ul><h2>Structure</h2>
+</ul>
+<h2>Structure</h2>
 <p><img alt="Decorator Pattern Structure" src="http://amrelroumy.files.wordpress.com/2011/07/decorator_pattern1.png"></p>
 <p>You might ask yourself if the decorator pattern teaches us to favor composition over inheritance, then why does the <strong>DecoratorBase</strong> class extends the Object's super class? The answer is that the decorator is extending this class to gain the same interface as the object it will wrap, not to gain the behavior. Thus we extend the base class to get the interface but we're getting the behavior through composition of decorators with the base components as other decorators.</p>
 <h2>Participants</h2>
-<ul><li><strong>ComponentBase: </strong>Defines the basic behaviors/properties that would be implemented by the components that will be decorated. If we don’t want to define any actual functionality in it, you can use an interface instead of an abstract class.</li>
+<ul>
+<li><strong>ComponentBase: </strong>Defines the basic behaviors/properties that would be implemented by the components that will be decorated. If we don’t want to define any actual functionality in it, you can use an interface instead of an abstract class.</li>
 <li><strong>DecoratorBase: </strong>It is the abstract class for all the decorators. It inherits the basic interface of the components from the <strong>ConcreteBase</strong>, to allow the decorators to be used in place of the components. You’ll notice that it adds a constructor that accepts a <strong>Component</strong> of type <strong>ComponentBase; </strong>this is the Component to be wrapped.</li>
 <li><strong>ConcreteComponent: </strong>The actual components that will be wrapped.</li>
 <li><strong>ConcreteDecoratorA/</strong><strong>ConcreteDecoratorA: </strong>The decorators that wrap Components. They can introduce new behavior/properties like <strong>ConcreteDecoratorA </strong>or modify already existing ones like <strong>ConcretDecoratorB</strong>.</li>
-</ul><h2>Properties of decorators:</h2>
-<ul><li>They have the same supertype as the objects they decorate.</li>
+</ul>
+<h2>Properties of decorators:</h2>
+<ul>
+<li>They have the same supertype as the objects they decorate.</li>
 <li>You can use one or more decorators to wrap an object.</li>
 <li>The decorator adds its own behavior either before and/or after delegating to the object it decorates to do the rest of the job.</li>
 <li>Objects can be decorated at runtime.</li>
-</ul><h2>Consequences</h2>
+</ul>
+<h2>Consequences</h2>
 <h4>Advantages of using the decorator pattern:</h4>
-<ul><li>It allows us to add new behavior to existing code without the need to modify it (Following the Open-Closed Principle) or without having to use inheritance, thus avoiding inheritance’s rigidity and adding more flexibility to the code.</li>
+<ul>
+<li>It allows us to add new behavior to existing code without the need to modify it (Following the Open-Closed Principle) or without having to use inheritance, thus avoiding inheritance’s rigidity and adding more flexibility to the code.</li>
 <li>Avoids having classes with complicated and complex responsibilities high up in the class hierarchy. Instead we use simple classes that are customizable and whose responsibilities can be added during the runtime.</li>
-</ul><h4>One of the shortcomings of using the Decorator Pattern:</h4>
-<ul><li>Using this pattern in your design, you'll end up with a relatively large number of small objects that differ in the way they are assembled. This can be overwhelming to a developer trying to use the Decorator-based API, but is easy to those who understand them and are familiar with this design pattern.</li>
+</ul>
+<h4>One of the shortcomings of using the Decorator Pattern:</h4>
+<ul>
+<li>Using this pattern in your design, you'll end up with a relatively large number of small objects that differ in the way they are assembled. This can be overwhelming to a developer trying to use the Decorator-based API, but is easy to those who understand them and are familiar with this design pattern.</li>
 <li>Using this pattern can complicate the process of instantiating objects, that's why this pattern is used alongside the Factory and Builder patterns</li>
-</ul><h2>Implementation</h2>
+</ul>
+<h2>Implementation</h2>
 <div class="code"><pre><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">ComponentBase</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">abstract</span> <span class="k">void</span> <span class="nf">Operation</span><span class="p">();</span>
@@ -447,10 +549,12 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 
 
 <h2>Related Patterns (from GoF’s book)</h2>
-<ul><li><strong>Adapter</strong> : A decorator is different from an adapter in that a decorator only changes an object's responsibilities, not its interface; an adapter will give an object a completely new interface.</li>
+<ul>
+<li><strong>Adapter</strong> : A decorator is different from an adapter in that a decorator only changes an object's responsibilities, not its interface; an adapter will give an object a completely new interface.</li>
 <li><strong>Composite</strong> : A decorator can be viewed as a degenerate composite with only one component. However, a decorator adds additional responsibilities—it isn't intended for object aggregation.</li>
 <li><strong>Strategy </strong>: A decorator lets you change the skin of an object; a strategy lets you change the guts. These are two alternative ways of changing an object.</li>
-</ul><p>
+</ul>
+<p>
     
     <a href="../posts/2011/07/decorator-pattern.html#disqus_thread">Comments</a>
     
@@ -464,7 +568,8 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
         <small class="pull-right">July 01, 2011</small>
     </h1>
 </div>
-<hr><h3>Pattern Name</h3>
+<hr>
+<h3>Pattern Name</h3>
 <p>Strategy Pattern</p>
 <h3>Classification</h3>
 <p>Behavioral Pattern</p>
@@ -478,37 +583,50 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <p>In some situations, we might find ourselves working with classes that only differ in their behavior. If we use inheritance, we’ll have to override the behavior every time we want to derive a class and want to change the algorithm, but when we want to remove special behaviors we would override them with empty methods because the algorithms are hardwired in the classes. Such rigidity in the implementation breaks an important OO principle, which is flexibility.</p>
 <p>Also another approach would be providing an interface for each algorithm, this way only classes that should have this algorithm can implement it; thus, solving some of the first approach's shortcomings. But it will have its own disadvantages like duplicate code . Also, by applying this approach, we can kiss code reuse goodbye since we'll have to write the algorithm in each class. Consequently, the slightest change in the implementation will require us to go over all the classes and change them too. These shortcomings would create and ideal "Maintenance Nightmare".</p>
 <p><strong>We can conclude some of the restrictions that prevent us from using any of the previously mentioned approaches, include:</strong></p>
-<ul><li>
+<ul>
+<li>
 <p><strong>Clients vary in complexity</strong>; some can be very simple to the point they are have one behavior only, while others might be complicated to support multiple behaviors.</p>
 </li>
 <li>
 <p>If the algorithms are hardwired in the clients, it will be <strong><em>hard to implement</em></strong> new ones or <strong><em>modify</em></strong> the ones that already exist.</p>
 </li>
-</ul><h3>The design principles behind the pattern</h3>
-<ul><li>Identify the aspects of our application that might vary and is suspected to change in the future and <strong>separate (encapsulate)</strong> them from the rest of the code. This way when they are changed, the rest of the code won't be affected.</li>
+</ul>
+<h3>The design principles behind the pattern</h3>
+<ul>
+<li>Identify the aspects of our application that might vary and is suspected to change in the future and <strong>separate (encapsulate)</strong> them from the rest of the code. This way when they are changed, the rest of the code won't be affected.</li>
 <li><strong>Program To an interface not to an implementation</strong>; the idea here is to exploit polymorphism by programming to a supertype so that the actual runtime object isn't hardwired into the code. This way, behaviors and clients are loosely coupled and clients can use behaviors interchangeably.</li>
-</ul><hr><h3>Applicability (from GoF's book)</h3>
+</ul>
+<hr>
+<h3>Applicability (from GoF's book)</h3>
 <p><strong>Use the Strategy pattern when:</strong></p>
-<ul><li>Many related classes differ only in their behavior. Strategies provide a way to configure a class with one of many behaviors.</li>
+<ul>
+<li>Many related classes differ only in their behavior. Strategies provide a way to configure a class with one of many behaviors.</li>
 <li>You need different variants of an algorithm. For example, you might define algorithms reflecting different space/time trade-offs. Strategies can be used when these variants are implemented as a class hierarchy of algorithms [HO87].</li>
 <li>An algorithm uses data that clients shouldn't know about. Use the Strategy pattern to avoid exposing complex, algorithm-specific data structures.</li>
 <li>A class defines many behaviors, and these appear as multiple conditional statements in its operations. Instead of many conditionals, move related conditional branches into their own Strategy class.</li>
-</ul><h3>Structure</h3>
+</ul>
+<h3>Structure</h3>
 <p><img alt="Strategy_Pattern" src="../2011/07/strategy_pattern3.png"></p>
 <h3>Participants</h3>
-<ul><li><strong>IStrategy: </strong>The interface common to all algorithms that the client uses to deal with the <strong>Strategies</strong> (Concrete Algorithms). This interface represents the family of <strong>Strategies </strong>that share something in common. This interface can be implemented as an abstract class if it has functionality to provide to its children.</li>
+<ul>
+<li><strong>IStrategy: </strong>The interface common to all algorithms that the client uses to deal with the <strong>Strategies</strong> (Concrete Algorithms). This interface represents the family of <strong>Strategies </strong>that share something in common. This interface can be implemented as an abstract class if it has functionality to provide to its children.</li>
 <li><strong>Context/Client: </strong>Uses the interchangeable algorithms through the <strong>IStrategy</strong> interface. It declares a property of the <strong>IStrategy</strong> type that holds one of the <strong>Strategies</strong>. This property can be set to the required algorithm in the runtime.</li>
 <li><strong>Strategy A / Strategy B: </strong>They implement the <strong>IStrategy </strong>interface and represent the different implementations of the algorithm.</li>
-</ul><h3>Consequences</h3>
+</ul>
+<h3>Consequences</h3>
 <p><strong>The strategy design pattern splits the behaviors of a class from the class itself, resulting in the following advantages:</strong></p>
-<ul><li>The algorithms/behaviors produced are reusable by other clients since they are no longer hardwired in our classes. </li>
+<ul>
+<li>The algorithms/behaviors produced are reusable by other clients since they are no longer hardwired in our classes. </li>
 <li>Clients can chose from various implementations of the same behavior. </li>
 <li>New algorithms/behaviors can be added easily without the need to modify any existing code.  </li>
-</ul><p><strong>Yet, the strategy design pattern has some draw backs (from GoF's book):</strong></p>
-<ul><li><strong>Clients must be aware of different Strategies</strong>. The pattern has a potential drawback in that a client must understand how Strategies differ before it can select the appropriate one. Clients might be exposed to implementation issues. Therefore you should use the Strategy pattern only when the variation in behavior is relevant to clients.</li>
+</ul>
+<p><strong>Yet, the strategy design pattern has some draw backs (from GoF's book):</strong></p>
+<ul>
+<li><strong>Clients must be aware of different Strategies</strong>. The pattern has a potential drawback in that a client must understand how Strategies differ before it can select the appropriate one. Clients might be exposed to implementation issues. Therefore you should use the Strategy pattern only when the variation in behavior is relevant to clients.</li>
 <li><strong>Communication overhead between Strategy and Context</strong>. The Strategy interface is shared by all ConcreteStrategy classes whether the algorithms they implement are trivial or complex. Hence it's likely that some ConcreteStrategies won't use all the information passed to them through this interface; simple ConcreteStrategies may use none of it! That means there will be times when the context creates and initializes parameters that never get used. If this is an issue, then you'll need tighter coupling between Strategy and Context.</li>
 <li><strong>Increased number of objects</strong>. Strategies increase the number of objects in an application.</li>
-</ul><h3>Implementation</h3>
+</ul>
+<h3>Implementation</h3>
 <div class="code"><pre><span class="k">public</span> <span class="k">interface</span> <span class="n">IStrategy</span> 
 <span class="p">{</span> 
     <span class="kt">string</span> <span class="nf">ExecuteAlgorithm</span><span class="p">();</span> 
@@ -674,7 +792,8 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
         <small class="pull-right">June 28, 2011</small>
     </h1>
 </div>
-<hr><h2>What are Design Patterns?</h2>
+<hr>
+<h2>What are Design Patterns?</h2>
 <blockquote>
 <p>“Each pattern describes a problem which occurs over and over in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice.”<cite><a href="http://en.wikipedia.org/wiki/Christopher_Alexander">Christopher Alexander</a></cite></p>
 </blockquote>
@@ -684,14 +803,17 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <p>In a way we could say that anti-patterns tell us how to go from a problem to a bad solution. Using anti-patterns in practice, leads to counterproductive results or ineffective solutions to the problems that might face us.</p>
 <h2>Describing Design Patterns</h2>
 <h3>A pattern has four essential elements:</h3>
-<ul><li>A unique pattern <strong>name</strong> to help us in identifying and referring to the pattern.</li>
+<ul>
+<li>A unique pattern <strong>name</strong> to help us in identifying and referring to the pattern.</li>
 <li><strong>Problem</strong> scenario.</li>
 <li>The proposed <strong>solution</strong>.</li>
 <li><strong>Consequences/tradeoffs</strong> of applying this pattern.</li>
-</ul><h3>Documentation (Design Patterns Catalog)</h3>
+</ul>
+<h3>Documentation (Design Patterns Catalog)</h3>
 <p>The documentation for a design pattern describes the context, where the pattern is used, the forces within the context that the pattern seeks to resolve, and the suggested solution. There is no single, standard format for documenting design patterns. Rather, many different formats have been used by different pattern authors. One example of a commonly used documentation format is the one used by "Gang of Four" in their book <a href="http://en.wikipedia.org/wiki/Design_Patterns%22">Design Patterns</a></p>
 <p>It is as follows:   </p>
-<ul><li><strong>Pattern Name and Classification:</strong> A descriptive and unique name that helps in identifying and referring to the pattern.</li>
+<ul>
+<li><strong>Pattern Name and Classification:</strong> A descriptive and unique name that helps in identifying and referring to the pattern.</li>
 <li><strong>Intent:</strong> A description of the goal behind the pattern and the reason for using it.</li>
 <li><strong>Also Known As:</strong> Other names for the pattern. </li>
 <li><strong>Motivation (Forces):</strong> A scenario consisting of a problem and a context in which this pattern can be used. </li>
@@ -704,20 +826,33 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <li><strong>Sample Code:</strong> An illustration of how the pattern can be used in a programming language. </li>
 <li><strong>Known Uses:</strong> Examples of real usages of the pattern. </li>
 <li><strong>Related Patterns:</strong> Other patterns that have some relationship with the pattern; discussion of the differences between the pattern and similar patterns. </li>
-</ul><h2>Design Patterns' Classifications</h2>
-<ul><li>Creational Patterns</li>
+</ul>
+<h2>Design Patterns' Classifications</h2>
+<ul>
+<li>Creational Patterns</li>
 <li>Structural Patterns </li>
 <li>Behavioral Patterns </li>
-</ul><p>
+</ul>
+<p>
     
     <a href="../posts/2011/06/introduction-to-design-patterns.html#disqus_thread">Comments</a>
     
 </p></div>
 
 <div>
-    <ul class="pager"></ul></div>
+    <ul class="pager">
+      
+    
+</ul>
 
-<script type="text/javascript"> var disqus_shortname = 'amrelroumysblog'; (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = 'http://' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script><!--End of body content--><hr><div class="footer"><small>© 2011-2013 <a href="mailto:amr.elroumy@gmail.com">Amr Elroumy</a><br>Some rights reserved (<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="license">CC BY-NC-SA 3.0</a>)<br>Powered by <a href="http://nikola.ralsina.com.ar" target="_blank">Nikola</a> - Original theme by <a href="http://thomaspark.me/" target="_blank">Thomas Park</a></small></div>
+</div>
+
+<script type="text/javascript"> var disqus_shortname = 'amrelroumysblog'; (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = 'http://' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script>
+
+
+          <!--End of body content-->
+          <hr>
+          <div class="footer"><small>© 2011-2013 <a href="mailto:amr.elroumy@gmail.com">Amr Elroumy</a><br>Some rights reserved (<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="license">CC BY-NC-SA 3.0</a>)<br>Powered by <a href="http://nikola.ralsina.com.ar" target="_blank">Nikola</a> - Original theme by <a href="http://thomaspark.me/" target="_blank">Thomas Park</a></small></div>
         </div>
       </div>
 
@@ -737,7 +872,9 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="../assets/js/jquery-1.9.1.min.js" type="text/javascript"></script><script src="../assets/js/bootstrap.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">
+  <script src="../assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+  <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],
     displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ]},
@@ -747,7 +884,9 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
         "font-size":  "120%"},
         scale: 120}
       });
-  </script><script>
+  </script>
+  
+  <script>
   (function() {
     var cx = '000224632386531530640:6f01ofvavgy';
     var gcse = document.createElement('script');
@@ -758,7 +897,13 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(gcse, s);
   })();
-  </script><search></search><script src="../assets/js/mathjax.js" type="text/javascript"></script><script type="text/javascript">
+  </script>
+  <search></search>
+
+  <script src="../assets/js/mathjax.js" type="text/javascript"></script>
+
+  
+<script type="text/javascript">
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-33968631-1']);
@@ -772,4 +917,8 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script></body></html>
+</script>
+
+
+</body>
+</html>

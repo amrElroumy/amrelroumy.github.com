@@ -5,48 +5,28 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
-  <loc>http://amrelroumy.github.io</loc>
-  <lastmod>2013-06-11</lastmod>
+  <loc>http://amrelroumy.github.io/</loc>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
   <loc>http://amrelroumy.github.io/2011/</loc>
-  <lastmod>2013-06-11</lastmod>
-  <priority>0.5000</priority>
- </url>
- <url>
-  <loc>http://amrelroumy.github.io/2011/06/</loc>
-  <lastmod>2013-06-11</lastmod>
-  <priority>0.5000</priority>
- </url>
- <url>
-  <loc>http://amrelroumy.github.io/2011/07/</loc>
-  <lastmod>2013-06-11</lastmod>
-  <priority>0.5000</priority>
- </url>
- <url>
-  <loc>http://amrelroumy.github.io/2011/08/</loc>
-  <lastmod>2013-06-11</lastmod>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
   <loc>http://amrelroumy.github.io/2011/index.html</loc>
-  <lastmod>2013-06-11</lastmod>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
   <loc>http://amrelroumy.github.io/2013/</loc>
-  <lastmod>2013-06-11</lastmod>
-  <priority>0.5000</priority>
- </url>
- <url>
-  <loc>http://amrelroumy.github.io/2013/06/</loc>
-  <lastmod>2013-06-11</lastmod>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
   <loc>http://amrelroumy.github.io/2013/index.html</loc>
-  <lastmod>2013-06-11</lastmod>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
@@ -56,127 +36,117 @@
  </url>
  <url>
   <loc>http://amrelroumy.github.io/archive.html</loc>
-  <lastmod>2013-06-11</lastmod>
-  <priority>0.5000</priority>
- </url>
- <url>
-  <loc>http://amrelroumy.github.io/assets/</loc>
-  <lastmod>2013-06-11</lastmod>
-  <priority>0.5000</priority>
- </url>
- <url>
-  <loc>http://amrelroumy.github.io/assets/css/</loc>
-  <lastmod>2013-06-11</lastmod>
-  <priority>0.5000</priority>
- </url>
- <url>
-  <loc>http://amrelroumy.github.io/assets/font/</loc>
-  <lastmod>2013-06-11</lastmod>
-  <priority>0.5000</priority>
- </url>
- <url>
-  <loc>http://amrelroumy.github.io/assets/images/</loc>
-  <lastmod>2013-06-11</lastmod>
-  <priority>0.5000</priority>
- </url>
- <url>
-  <loc>http://amrelroumy.github.io/assets/js/</loc>
-  <lastmod>2013-06-11</lastmod>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
   <loc>http://amrelroumy.github.io/categories/</loc>
-  <lastmod>2013-06-11</lastmod>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
-  <loc>http://amrelroumy.github.io/categories/concurrency.html</loc>
-  <lastmod>2013-06-11</lastmod>
+  <loc>http://amrelroumy.github.io/categories/C++.html</loc>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
-  <loc>http://amrelroumy.github.io/categories/design-patterns.html</loc>
-  <lastmod>2013-06-11</lastmod>
+  <loc>http://amrelroumy.github.io/categories/C++11.html</loc>
+  <lastmod>2013-07-11</lastmod>
+  <priority>0.5000</priority>
+ </url>
+ <url>
+  <loc>http://amrelroumy.github.io/categories/Concurrency.html</loc>
+  <lastmod>2013-07-11</lastmod>
+  <priority>0.5000</priority>
+ </url>
+ <url>
+  <loc>http://amrelroumy.github.io/categories/Design Patterns.html</loc>
+  <lastmod>2013-07-11</lastmod>
+  <priority>0.5000</priority>
+ </url>
+ <url>
+  <loc>http://amrelroumy.github.io/categories/OOP.html</loc>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
   <loc>http://amrelroumy.github.io/categories/index.html</loc>
-  <lastmod>2013-06-11</lastmod>
-  <priority>0.5000</priority>
- </url>
- <url>
-  <loc>http://amrelroumy.github.io/categories/oop.html</loc>
-  <lastmod>2013-06-11</lastmod>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
   <loc>http://amrelroumy.github.io/categories/programming.html</loc>
-  <lastmod>2013-06-11</lastmod>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
   <loc>http://amrelroumy.github.io/galleries/</loc>
-  <lastmod>2013-06-11</lastmod>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
   <loc>http://amrelroumy.github.io/galleries/index.html</loc>
-  <lastmod>2013-06-11</lastmod>
+  <lastmod>2013-07-11</lastmod>
+  <priority>0.5000</priority>
+ </url>
+ <url>
+  <loc>http://amrelroumy.github.io/index-1.html</loc>
+  <lastmod>2013-07-11</lastmod>
+  <priority>0.5000</priority>
+ </url>
+ <url>
+  <loc>http://amrelroumy.github.io/index.html</loc>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
   <loc>http://amrelroumy.github.io/listings/</loc>
-  <lastmod>2013-06-11</lastmod>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
   <loc>http://amrelroumy.github.io/listings/hello.py.html</loc>
-  <lastmod>2013-06-11</lastmod>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
   <loc>http://amrelroumy.github.io/listings/index.html</loc>
-  <lastmod>2013-06-11</lastmod>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
-  <loc>http://amrelroumy.github.io/posts/</loc>
-  <lastmod>2013-06-11</lastmod>
+  <loc>http://amrelroumy.github.io/posts/2011/06/introduction-to-design-patterns.html</loc>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
-  <loc>http://amrelroumy.github.io/posts/2011/</loc>
-  <lastmod>2013-06-11</lastmod>
+  <loc>http://amrelroumy.github.io/posts/2011/07/decorator-pattern.html</loc>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
-  <loc>http://amrelroumy.github.io/posts/2011/06/</loc>
-  <lastmod>2013-06-11</lastmod>
+  <loc>http://amrelroumy.github.io/posts/2011/07/factory-method.html</loc>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
-  <loc>http://amrelroumy.github.io/posts/2011/07/</loc>
-  <lastmod>2013-06-11</lastmod>
+  <loc>http://amrelroumy.github.io/posts/2011/07/strategy-pattern.html</loc>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
-  <loc>http://amrelroumy.github.io/posts/2011/08/</loc>
-  <lastmod>2013-06-11</lastmod>
+  <loc>http://amrelroumy.github.io/posts/2011/08/singleton-pattern.html</loc>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
-  <loc>http://amrelroumy.github.io/posts/2013/</loc>
-  <lastmod>2013-06-11</lastmod>
+  <loc>http://amrelroumy.github.io/posts/2013/06/concurrency-in-cpp-prologue.html</loc>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
  <url>
-  <loc>http://amrelroumy.github.io/posts/2013/06/</loc>
-  <lastmod>2013-06-11</lastmod>
-  <priority>0.5000</priority>
- </url>
- <url>
-  <loc>http://amrelroumy.github.io/posts/2013/drafts/</loc>
-  <lastmod>2013-06-11</lastmod>
+  <loc>http://amrelroumy.github.io/posts/2013/07/cpp-move-semantics-rvalues.html</loc>
+  <lastmod>2013-07-11</lastmod>
   <priority>0.5000</priority>
  </url>
 </urlset>

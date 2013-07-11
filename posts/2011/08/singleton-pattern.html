@@ -1,25 +1,78 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="title" content="Singleton Pattern | Amr Elroumy's Blog"><meta name="description" content="None"><meta name="author" content="Amr Elroumy"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Singleton Pattern | Amr Elroumy's Blog</title><!-- Le favicon --><link rel="shortcut icon" href="../../../favicon.ico"><!-- Le styles --><link rel="stylesheet" href="../../../assets/css/bootstrap.css"><link rel="stylesheet" href="../../../assets/css/bootstrap-responsive.css"><!-- <link rel="stylesheet" href="/assets/css/colorbox.css"> --><!-- <link rel="stylesheet" href="/assets/css/slides.css"> --><link rel="stylesheet" href="../../../assets/css/fonts.css"><link rel="stylesheet" href="../../../assets/css/font-awesome.css"><link rel="stylesheet" href="../../../assets/css/pygments.css"><link rel="stylesheet" href="../../../assets/css/style.css"><link rel="stylesheet" href="../../../assets/css/component.css"><!-- Le HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="title" content="Singleton Pattern | Amr Elroumy's Blog">
+  <meta name="description" content="None">
+  <meta name="author" content="Amr Elroumy">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Singleton Pattern | Amr Elroumy's Blog</title>
+
+  <!-- Le favicon -->
+  <link rel="shortcut icon" href="../../../favicon.ico">
+
+  <!-- Le styles -->
+  <link rel="stylesheet" href="../../../assets/css/bootstrap.css">
+  <link rel="stylesheet" href="../../../assets/css/bootstrap-responsive.css">
+  <!-- <link rel="stylesheet" href="/assets/css/colorbox.css"> -->
+  <!-- <link rel="stylesheet" href="/assets/css/slides.css"> -->
+  <link rel="stylesheet" href="../../../assets/css/fonts.css">
+  <link rel="stylesheet" href="../../../assets/css/font-awesome.css">
+  <link rel="stylesheet" href="../../../assets/css/pygments.css">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../assets/css/component.css">
+
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-      <![endif]--><!-- Le fonts --><!-- <link href="http://fonts.googleapis.com/css?family=Aldrich|Lato:400,400italic" rel="stylesheet" type="text/css"> --><!-- <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|PT+Sans' rel='stylesheet' type='text/css'> --></head><body>
+      <![endif]-->
+      
+      <!-- Le fonts -->
+      
+      <!-- <link href="http://fonts.googleapis.com/css?family=Aldrich|Lato:400,400italic" rel="stylesheet" type="text/css"> -->
+      <!-- <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|PT+Sans' rel='stylesheet' type='text/css'> -->
+      
 
       
-      <ul id="vertical-menu" class="vertical-menu"><li><a href="../../../" class="icon-logo" title="Home">Home</a></li>
+      
+    </head>
+    <body>
+
+      
+      <ul id="vertical-menu" class="vertical-menu">
+    <li><a href="../../../" class="icon-logo" title="Home">Home</a></li>
     <li><a href="../../../about.html" class="icon-user" title="About Me">About Me</a></li>
     
     <li><a href="../../../archive.html" class="icon-cabinet" title="Archive">Archive</a></li>
     
     <li><a href="../../../categories/index.html" class="icon-tags" title="Tags">Tags</a></li>
     
+    <li>
+        <a href="http://feedburner.google.com/fb/a/mailverify?uri=AmrElroumysBlog&amp;loc=en_US" class="icon-envelope" title="Subscribe by Mail" onclick="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=AmrElroumysBlog&amp;loc=en_US', 'popupwindow', 'scrollbars=yes,width=660,height=600,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=no'); return false">Subscribe</a>
+    </li>
     <li><a href="../../../rss.xml" class="icon-feed" title="RSS Feed">RSS</a></li>
     
     <li><a href="#" class="icon-pencil" title="Blog Roll">Blog Roll</a>
-        <ul class="vertical-submenu"><li><a href="http://abdelrahmanogail.wordpress.com/" target="_blank">Abdelrahman Elogeel's Blog</a></li>
-            <li><a href="http://acmascis.org/blog" target="_blank">acmASCIS' Blog</a></li>
+        <ul class="vertical-submenu">
+            
+            <li><a href="http://abdelrahmanogail.wordpress.com/" target="_blank">Abdelrahman Elogeel's Blog</a></li>
+            
+            <li><a href="http://acmascis.org/blog/" target="_blank">acmASCIS' Blog</a></li>
+            
             <li><a href="http://anasmehassab.wordpress.com/" target="_blank">Anas Awad's T-Blog</a></li>
+            
+            <li><a href="http://ferasferas.wordpress.com/" target="_blank">Feras' Blog</a></li>
+            
             <li><a href="http://iamsamy.blogspot.com/" target="_blank">Mohamed Samy's thoughts</a></li>
+            
             <li><a href="http://mhesham.wordpress.com/" target="_blank">Muhammad Hesham's Blog</a></li>
-        </ul></li>
-</ul><!-- Blog Continer --><div class="container-fluid" id="container">
+            
+        </ul>
+    </li>
+</ul>
+      <!-- Blog Continer -->
+      <div class="container-fluid" id="container">
         <!-- Blog navbar Bar -->
         
         <div class="header" style="margin-bottom: 16px;">
@@ -60,7 +113,8 @@
     <div class="postbox">
     <h1><a class="post-title" href="#">Singleton Pattern</a></h1>
     
-    <hr><small>
+    <hr>
+    <small>
         Posted: August 01, 2011  |  
 
         
@@ -68,15 +122,16 @@
         
             More posts about
             
-                <a href="../../../categories/design-patterns.html"><span class="badge badge-info">Design Patterns</span></a>
+                <a href="../../../categories/Design%20Patterns.html"><span class="badge badge-info">Design Patterns</span></a>
             
-                <a href="../../../categories/oop.html"><span class="badge badge-info">OOP</span></a>
+                <a href="../../../categories/OOP.html"><span class="badge badge-info">OOP</span></a>
             
                 <a href="../../../categories/programming.html"><span class="badge badge-info">programming</span></a>
             
         
     </small>
-    <hr><h3>Pattern Name</h3>
+    <hr>
+    <h3>Pattern Name</h3>
 <p>Singleton Pattern</p>
 <h3>Classification</h3>
 <p>Creational Pattern</p>
@@ -87,15 +142,19 @@
 <h3>Motivation</h3>
 <p>In many situations you’d find yourself in need of ensuring that a certain class can only be instantiated once and is accessible in various parts of a system.    <br>
 Example for such situations is:</p>
-<ul><li>Database access</li>
+<ul>
+<li>Database access</li>
 <li>Logging</li>
 <li>Communication</li>
 <li>Printer spooling</li>
 <li>File systems</li>
-</ul><p>The singleton pattern provides us with two properties:</p>
-<ul><li>It ensures a class is only instantiated once. </li>
+</ul>
+<p>The singleton pattern provides us with two properties:</p>
+<ul>
+<li>It ensures a class is only instantiated once. </li>
 <li>It provides a global access point to that class. </li>
-</ul><p><strong>Note </strong>
+</ul>
+<p><strong>Note </strong>
 Singletons are meant to be used sparingly, so if you find yourself using them everywhere you might want to take another look at your design.</p>
 <h3>Applicability</h3>
 <p>Use The <strong>Singleton pattern</strong> when you want your classes to provide you with only one instance that is globally accessible to the code from an access point.</p>
@@ -103,9 +162,11 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <p><img alt="Singleton" src="../../../2011/08/singleton28.png"></p>
 <h3>Participants</h3>
 <p><strong>SingletonClass:</strong> This class provide global access to only a single instance of it by doing the following:  </p>
-<ul><li>It hides its constructor to prevent any external classes from creating new instances. </li>
+<ul>
+<li>It hides its constructor to prevent any external classes from creating new instances. </li>
 <li>It declares the static method <em>GetInstance()</em> that provides access to the single instance that is held in the private variable: <strong>instance</strong>. </li>
-</ul><h3>Consequences</h3>
+</ul>
+<h3>Consequences</h3>
 <p>Like any pattern, the singleton pattern has its tradeoffs (according to its implementation) and if it is used while being unaware of these tradeoffs can produce unwanted results.</p>
 <h4>Criticisms</h4>
 <p><strong>First criticism:</strong> Using it is considered a breach to one of the OOD Principles: The <strong>Single Responsibility Principle</strong>, which states that: </p>
@@ -113,18 +174,24 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <p>Every object should have a single responsibility, and that this responsibility should be entirely encapsulated by the class.</p>
 </blockquote>
 <p>Thus, the class shouldn’t care less for being a <strong>Singleton </strong>or not, as it’s only concern should be doing its business responsibility. But when using <strong>Singleton</strong>, the class is responsible for two things here:</p>
-<ul><li>Its original business responsibility.</li>
+<ul>
+<li>Its original business responsibility.</li>
 <li>Managing the instantiation of its objects.</li>
-</ul><hr><p><strong>Second criticism:</strong> We all know that having global variables in our code, produces code smells. But, isn’t this what the <strong>Singleton Pattern </strong>does? It makes an instance of the class accessible globally. There disadvantages of using global variables that apply when we use Singletons without proper care because of the similarity in their nature. </p>
+</ul>
+<hr>
+<p><strong>Second criticism:</strong> We all know that having global variables in our code, produces code smells. But, isn’t this what the <strong>Singleton Pattern </strong>does? It makes an instance of the class accessible globally. There disadvantages of using global variables that apply when we use Singletons without proper care because of the similarity in their nature. </p>
 <p>Some of these disadvantages are:</p>
-<ul><li><strong>Implicit <a href="http://en.wikipedia.org/wiki/Coupling_(computer_programming)">coupling</a> - </strong>Many programmers unconsciously would tightly couple the class that uses the <strong>Singleton Pattern </strong>with the rest of their code, because it’s globally accessible. When this is done, the overuse of this pattern could converge into becoming an anti-pattern.</li>
+<ul>
+<li><strong>Implicit <a href="http://en.wikipedia.org/wiki/Coupling_(computer_programming)">coupling</a> - </strong>Many programmers unconsciously would tightly couple the class that uses the <strong>Singleton Pattern </strong>with the rest of their code, because it’s globally accessible. When this is done, the overuse of this pattern could converge into becoming an anti-pattern.</li>
 <li><strong>Namespace pollution - </strong>Namespace pollution<strong> </strong>can occur when we abuse <strong>Singleton Pattern</strong>, though it is a bit unlikely if the pattern is used wisely.</li>
 <li>Multithreading issues can occur when more than one thread the <em>GetInstance()</em> method is invoked for the first time. This will result in instantiating many instance at the same time. That’s why it is important to make sure that our code is thread safe by using <strong>Synchronization</strong> (sometimes discouraged because of its performance footprint), <strong><a href="http://en.wikipedia.org/wiki/Lazy_instantiation">Lazy Instantiation</a></strong> using <strong>double-checked locking</strong>, or <strong>Early Instantiation</strong>.<strong> </strong>Choosing the implementation to use depends mainly on your needs and the available resources.</li>
 <li>Unit-testing programs that contain singleton objects can become annoying because the <strong>Singleton</strong> objects have a persistent state throughout the program. Leading to the following: </li>
 <li>It makes it hard to replicate the tests for later testing or even having a clean environment for testing. </li>
 <li>It takes away one thing that makes unit testing effective which is having tests that are independent on each other.</li>
 <li>Also many developers prefer making dependencies between classes obvious through method signatures, rather than having the <strong>Singleton</strong> object hidden in the code, lurking for the right moment to come and bite you in the back. Some might argue that passing that object through all this methods induces tight coupling, but on the contrary this way of exchanging objects allows you to write to an interface that can be easily extended without having to change a single line in your old code. <strong>Thus you’re coupling to an interface not to an implementation.</strong></li>
-</ul><hr><p>If we want to overcome the mentioned shortcomings, we could separate the singleton part from the actual object, allowing for the object itself to be used normally if needed. Perhaps we can use a Factory or a builder that would encapsulate the object creation and maintain having only one instance created of this class, while leaving the class responsible only for its business responsibility. </p>
+</ul>
+<hr>
+<p>If we want to overcome the mentioned shortcomings, we could separate the singleton part from the actual object, allowing for the object itself to be used normally if needed. Perhaps we can use a Factory or a builder that would encapsulate the object creation and maintain having only one instance created of this class, while leaving the class responsible only for its business responsibility. </p>
 <p>J. B. Rainsberger argued in his article “<a href="http://www.ibm.com/developerworks/webservices/library/co-single/index.html#h3">Use your Singletons wisely</a>” that classes should not be responsible for the singleton part of the code:</p>
 <blockquote>
 <p>Suppose an application needs only one instance of a class and the application configures that class at startup: Why should the class itself be responsible for being a singleton? It seems quite logical for the application to take on this responsibility, since the application requires this kind of behavior. The application, not the component, should be the singleton. The application then makes an instance of the component available for any application-specific code to use. When an application uses several such components, it can aggregate them into what we have called a toolbox.</p>
@@ -200,20 +267,26 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 
 <h5>This specific implementation of Double-Checked locking can be factored into:</h5>
 <p>When working in a multi-threaded environment, we risk running into issues that arise from resource-sharing between multiple threads, like deadlocks and race conditions (<a href="http://stackoverflow.com/questions/34510/what-is-a-race-condition">What is a race condition?</a>). This implementation of the <strong>Singleton Pattern </strong>however saves us from all this drama. </p>
-<ul><li>Using <strong>volatile</strong> keyword.</li>
+<ul>
+<li>Using <strong>volatile</strong> keyword.</li>
 <li>Using the <strong>lock </strong>statement to accomplish thread synchronization.</li>
 <li>Using <strong>double-checked locking</strong>.</li>
-</ul><p>The use of the <strong>volatile</strong> keyword on the <strong>instance </strong>member variable allows us to avoid the unexpected and unpredictable results in multi-threaded programs that access fields without synchronization and using the lock statement to synchronize access. The <strong>volatile </strong>keyword indicates that a certain field can be modified by multiple threads, avoiding the compiler optimizations that assume access by a single thread. This ensures that the most up-to-date value is present in the field at all times.  </p>
+</ul>
+<p>The use of the <strong>volatile</strong> keyword on the <strong>instance </strong>member variable allows us to avoid the unexpected and unpredictable results in multi-threaded programs that access fields without synchronization and using the lock statement to synchronize access. The <strong>volatile </strong>keyword indicates that a certain field can be modified by multiple threads, avoiding the compiler optimizations that assume access by a single thread. This ensures that the most up-to-date value is present in the field at all times.  </p>
 <p>For more details on the volatile keyword and volatile fields check the following references:
 <em> <a href="http://msdn.microsoft.com/en-us/library/x13ttww7.aspx">volatile (C# Reference) [MSDN Library]</a>
 </em> <a href="http://msdn.microsoft.com/en-us/library/aa645755(v=vs.71).aspx">Volatile fields [MSDN Library]</a></p>
-<hr><p>Having data shared between threads is the best recipe for obscure errors and complexity when working in a multithreaded environment. A way of solving this problem is using locks in order to stop more than one thread from working on the same data at the same time.  </p>
+<hr>
+<p>Having data shared between threads is the best recipe for obscure errors and complexity when working in a multithreaded environment. A way of solving this problem is using locks in order to stop more than one thread from working on the same data at the same time.  </p>
 <p>The <strong>lock</strong> keyword marks a statement block as a critical section by obtaining the mutual-exclusion lock for a given object, executing a statement, and then releasing the lock (source: <a href="http://msdn.microsoft.com/en-us/library/c5kehkcz(v=VS.100).aspx">lock Statement [MSDN Library]</a>). The idea is to ensure that a thread can’t enter a critical area in the code, when another thread is still executing it. If two threads encounter a lock, one thread waits(blocks) until the lock becomes available.  </p>
 <p>So, in layman’s terms we can say that the mutual-exclusion lock acts as a simple door lock. You enter a room, you lock the door behind you and when you finish your business, you unlock the door and come out of the room, only then can somebody else enter. If anybody tries to enter the room while you are still in there, he has to wait.</p>
 <h4>Important Notes</h4>
-<ul><li>It’s a matter of good practice to avoid locking on a public type or an object that is accessible to other classes, because this risks running into performance issues and even deadlocks. Instead, we should use values of objects that are specifically made for the sole purpose of locking. These objects are commonly declared as <strong>private </strong>or <strong>private static</strong>.</li>
+<ul>
+<li>It’s a matter of good practice to avoid locking on a public type or an object that is accessible to other classes, because this risks running into performance issues and even deadlocks. Instead, we should use values of objects that are specifically made for the sole purpose of locking. These objects are commonly declared as <strong>private </strong>or <strong>private static</strong>.</li>
 <li>It’s also worth knowing that when using mutual-exclusion locks, the blocked thread doesn’t consume any CPU resources unlike other locks like the <a href="http://en.wikipedia.org/wiki/Spinlock">Spinlock</a>, nevertheless each has its advantages and usages.</li>
-</ul><hr><p>You might ask yourself why can’t I just simply use the lock this way:</p>
+</ul>
+<hr>
+<p>You might ask yourself why can’t I just simply use the lock this way:</p>
 <div class="code"><pre><span class="k">get</span>
 <span class="p">{</span>
     <span class="k">lock</span> <span class="p">(</span><span class="n">Lock</span><span class="p">)</span>
@@ -246,11 +319,15 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <h3>Related Patterns</h3>
 <p>Abstract Factory , Builder , and Prototype.</p>
 <h4>References</h4>
-<ul><li><a href="http://en.wikipedia.org/wiki/Design_Patterns">Design Patterns: Elements of Reusable Object-Oriented Software</a> – The Gang of Four (GoF): <a href="http://en.wikipedia.org/wiki/Erich_Gamma">Erich Gamma</a>, Richard Helm, <a href="http://en.wikipedia.org/wiki/Ralph_Johnson_(computer_scientist)">Ralph Johnson</a>, <a href="http://en.wikipedia.org/wiki/John_Vlissides">John M. Vlissides</a>. </li>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Design_Patterns">Design Patterns: Elements of Reusable Object-Oriented Software</a> – The Gang of Four (GoF): <a href="http://en.wikipedia.org/wiki/Erich_Gamma">Erich Gamma</a>, Richard Helm, <a href="http://en.wikipedia.org/wiki/Ralph_Johnson_(computer_scientist)">Ralph Johnson</a>, <a href="http://en.wikipedia.org/wiki/John_Vlissides">John M. Vlissides</a>. </li>
 <li><a href="http://oreilly.com/catalog/9780596007126">Head First Design Patterns</a> – <a href="http://www.oreillynet.com/pub/au/2003">Eric T Freeman</a>, <a href="http://www.oreillynet.com/pub/au/2002">Elisabeth Robson</a>, <a href="http://www.oreillynet.com/pub/au/1085">Bert Bates</a>, <a href="http://www.oreillynet.com/pub/au/1084">Kathy Sierra</a>. </li>
 <li><a href="http://blogs.msdn.com/b/scottdensmore/archive/2004/05/25/140827.aspx">Why Singletons are Evil</a> - <a href="http://blogs.msdn.com/b/scottdensmore/">Scott Densmore</a></li>
 <li><a href="http://csharpindepth.com/Articles/General/Singleton.aspx">Implementing the Singleton Pattern in C# - C# in Depth</a></li>
-</ul><ul class="pager"><li class="previous">
+</ul>
+    <ul class="pager">
+    
+        <li class="previous">
             <a href="../07/factory-method.html">← Previous post</a>
         </li>
     
@@ -259,14 +336,18 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
             <a href="../../2013/06/concurrency-in-cpp-prologue.html">Next post →</a>
         </li>
     
-    </ul><div id="disqus_thread"></div>
-        <script type="text/javascript"> var disqus_shortname = 'amrelroumysblog'; var disqus_url = 'http://amrelroumy.github.io/posts/2011/08/singleton-pattern.html'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); </script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </ul>
+    
+        <div id="disqus_thread"></div>
+        <script type="text/javascript"> var disqus_shortname = 'amrelroumysblog'; var disqus_url = 'http://amrelroumy.github.io/posts/2011/08/singleton-pattern.html'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     
     </div>
 
           <!--End of body content-->
-          <hr><div class="footer"><small>© 2011-2013 <a href="mailto:amr.elroumy@gmail.com">Amr Elroumy</a><br>Some rights reserved (<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="license">CC BY-NC-SA 3.0</a>)<br>Powered by <a href="http://nikola.ralsina.com.ar" target="_blank">Nikola</a> - Original theme by <a href="http://thomaspark.me/" target="_blank">Thomas Park</a></small></div>
+          <hr>
+          <div class="footer"><small>© 2011-2013 <a href="mailto:amr.elroumy@gmail.com">Amr Elroumy</a><br>Some rights reserved (<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="license">CC BY-NC-SA 3.0</a>)<br>Powered by <a href="http://nikola.ralsina.com.ar" target="_blank">Nikola</a> - Original theme by <a href="http://thomaspark.me/" target="_blank">Thomas Park</a></small></div>
         </div>
       </div>
 
@@ -286,7 +367,9 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="../../../assets/js/jquery-1.9.1.min.js" type="text/javascript"></script><script src="../../../assets/js/bootstrap.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">
+  <script src="../../../assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+  <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],
     displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ]},
@@ -296,7 +379,9 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
         "font-size":  "120%"},
         scale: 120}
       });
-  </script><script>
+  </script>
+  
+  <script>
   (function() {
     var cx = '000224632386531530640:6f01ofvavgy';
     var gcse = document.createElement('script');
@@ -307,7 +392,13 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(gcse, s);
   })();
-  </script><search></search><script src="../../../assets/js/mathjax.js" type="text/javascript"></script><script type="text/javascript">
+  </script>
+  <search></search>
+
+  <script src="../../../assets/js/mathjax.js" type="text/javascript"></script>
+
+  
+<script type="text/javascript">
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-33968631-1']);
@@ -321,4 +412,8 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script></body></html>
+</script>
+
+
+</body>
+</html>

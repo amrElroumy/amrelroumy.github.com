@@ -1,25 +1,78 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="title" content="Amr Elroumy's Blog | Amr Elroumy's Blog"><meta name="description" content="Science, Code, Personal Encounters &amp; and other random stuff"><meta name="author" content="Amr Elroumy"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Amr Elroumy's Blog | Amr Elroumy's Blog</title><!-- Le favicon --><link rel="shortcut icon" href="favicon.ico"><!-- Le styles --><link rel="stylesheet" href="assets/css/bootstrap.css"><link rel="stylesheet" href="assets/css/bootstrap-responsive.css"><!-- <link rel="stylesheet" href="/assets/css/colorbox.css"> --><!-- <link rel="stylesheet" href="/assets/css/slides.css"> --><link rel="stylesheet" href="assets/css/fonts.css"><link rel="stylesheet" href="assets/css/font-awesome.css"><link rel="stylesheet" href="assets/css/pygments.css"><link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/component.css"><!-- Le HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="title" content="Amr Elroumy's Blog | Amr Elroumy's Blog">
+  <meta name="description" content="Science, Code, Personal Encounters &amp; and other random stuff">
+  <meta name="author" content="Amr Elroumy">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amr Elroumy's Blog | Amr Elroumy's Blog</title>
+
+  <!-- Le favicon -->
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- Le styles -->
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" href="assets/css/bootstrap-responsive.css">
+  <!-- <link rel="stylesheet" href="/assets/css/colorbox.css"> -->
+  <!-- <link rel="stylesheet" href="/assets/css/slides.css"> -->
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.css">
+  <link rel="stylesheet" href="assets/css/pygments.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/component.css">
+
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-      <![endif]--><!-- Le fonts --><!-- <link href="http://fonts.googleapis.com/css?family=Aldrich|Lato:400,400italic" rel="stylesheet" type="text/css"> --><!-- <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|PT+Sans' rel='stylesheet' type='text/css'> --></head><body>
+      <![endif]-->
+      
+      <!-- Le fonts -->
+      
+      <!-- <link href="http://fonts.googleapis.com/css?family=Aldrich|Lato:400,400italic" rel="stylesheet" type="text/css"> -->
+      <!-- <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|PT+Sans' rel='stylesheet' type='text/css'> -->
+      
 
       
-      <ul id="vertical-menu" class="vertical-menu"><li><a href="." class="icon-logo" title="Home">Home</a></li>
+      
+    </head>
+    <body>
+
+      
+      <ul id="vertical-menu" class="vertical-menu">
+    <li><a href="." class="icon-logo" title="Home">Home</a></li>
     <li><a href="about.html" class="icon-user" title="About Me">About Me</a></li>
     
     <li><a href="archive.html" class="icon-cabinet" title="Archive">Archive</a></li>
     
     <li><a href="categories/index.html" class="icon-tags" title="Tags">Tags</a></li>
     
+    <li>
+        <a href="http://feedburner.google.com/fb/a/mailverify?uri=AmrElroumysBlog&amp;loc=en_US" class="icon-envelope" title="Subscribe by Mail" onclick="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=AmrElroumysBlog&amp;loc=en_US', 'popupwindow', 'scrollbars=yes,width=660,height=600,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=no'); return false">Subscribe</a>
+    </li>
     <li><a href="rss.xml" class="icon-feed" title="RSS Feed">RSS</a></li>
     
     <li><a href="#" class="icon-pencil" title="Blog Roll">Blog Roll</a>
-        <ul class="vertical-submenu"><li><a href="http://abdelrahmanogail.wordpress.com/" target="_blank">Abdelrahman Elogeel's Blog</a></li>
-            <li><a href="http://acmascis.org/blog" target="_blank">acmASCIS' Blog</a></li>
+        <ul class="vertical-submenu">
+            
+            <li><a href="http://abdelrahmanogail.wordpress.com/" target="_blank">Abdelrahman Elogeel's Blog</a></li>
+            
+            <li><a href="http://acmascis.org/blog/" target="_blank">acmASCIS' Blog</a></li>
+            
             <li><a href="http://anasmehassab.wordpress.com/" target="_blank">Anas Awad's T-Blog</a></li>
+            
+            <li><a href="http://ferasferas.wordpress.com/" target="_blank">Feras' Blog</a></li>
+            
             <li><a href="http://iamsamy.blogspot.com/" target="_blank">Mohamed Samy's thoughts</a></li>
+            
             <li><a href="http://mhesham.wordpress.com/" target="_blank">Muhammad Hesham's Blog</a></li>
-        </ul></li>
-</ul><!-- Blog Continer --><div class="container-fluid" id="container">
+            
+        </ul>
+    </li>
+</ul>
+      <!-- Blog Continer -->
+      <div class="container-fluid" id="container">
         <!-- Blog navbar Bar -->
         
         <div class="header" style="margin-bottom: 16px;">
@@ -60,17 +113,45 @@
 
 <div class="postbox">
    <div class="row-fluid">
+    <h1 class="span9"><a class="post-title" href="posts/2013/07/cpp-move-semantics-rvalues.html">Move semantics and rvalue references in C++11</a>
+    </h1>
+    <h1 class="span3">
+        <small class="pull-right">July 11, 2013</small>
+    </h1>
+</div>
+<hr>
+<div><h3>Questions we want to answer in this post</h3>
+<ul>
+<li>Why do we need move semantics?</li>
+<li>What's the deal with rvalues, lvalues, and their references?</li>
+<li>How to make use of the move semantics?</li>
+<li>How do we force a move?</li>
+<li>What are other uses for rvalue references?</li>
+</ul>
+<p><a href="posts/2013/07/cpp-move-semantics-rvalues.html">Read more...</a></p></div>
+<p>
+    
+    <a href="posts/2013/07/cpp-move-semantics-rvalues.html#disqus_thread">Comments</a>
+    
+</p></div>
+
+<div class="postbox">
+   <div class="row-fluid">
     <h1 class="span9"><a class="post-title" href="posts/2013/06/concurrency-in-cpp-prologue.html">Concurrency in C++ [Prologue]</a>
     </h1>
     <h1 class="span3">
         <small class="pull-right">June 11, 2013</small>
     </h1>
 </div>
-<hr><h3>First things first</h3>
+<hr>
+<h3>First things first</h3>
 <p>The purpose of these posts is to explore the newly release thread-aware memory model supported by the new C++11 standard. But before we get our hacking on, we'll need to get some terminology out of our way. These terminology can be divided into a couple of questions that we'll answer in this post</p>
-<ul><li>What is the difference between concurrency and parallelism?</li>
+<ul>
+<li>What is the difference between concurrency and parallelism?</li>
 <li>What are threads? And what is the difference between threads and processes?</li>
-</ul><hr><h3>What is the difference between concurrency and parallelism?</h3>
+</ul>
+<hr>
+<h3>What is the difference between concurrency and parallelism?</h3>
 <p><strong>Parallelism</strong>: When we execute several computations in parallel, e.g. multiple tasks are executing code simultaneously (at the same instant) on multi-processor/multi-core/distributed systems with the goal of hopefully running faster than it would on a single processor.</p>
 <p><img alt="Parallel Execution" src="2013/06/parallel-execution.jpg"></p>
 <p><br></p>
@@ -79,7 +160,8 @@
 <p>A great importance of concurrency is its role in making computer software more usable, example when running software that uses an MDI (Multiple Document Interface) or a TDI (Tabbed Document Interface) like a word processor or a browser on a single-core processor, you get to operate on several documents and interact properly with the GUI without any lagging or sluggishness. Or having a program that connects to a database, retrieves data from it while still being able to handle the user's interactions. This can't be achieved if each task gets to complete all of its work before relinquishing the processor control. One way to achieve this scenarios would require using time-slicing, where the processor's time is divided into slices to be shared between a number of tasks and each task runs until its time is over then an interrupt is made to switch (context switch) to another task, giving the illusion that tasks are running in parallel. This mode of operation can also be referred to as preemptive multitasking. You could also <a href="http://concur.rspace.googlecode.com/hg/talk/concur.html">check Rob Pike's demo about the difference between Concurrency and Parallelism</a> (slide 14:30)</p>
 <p><br></p>
 <p>Having established the difference between concurrency and parallelism we can now move on to another concept which is threads. </p>
-<hr><h3>What are threads? <br> And what is the difference between threads and processes?</h3>
+<hr>
+<h3>What are threads? <br> And what is the difference between threads and processes?</h3>
 <p>Before we answer this question, we'll try to use an <a href="http://www.qnx.com/developers/docs/6.4.0/neutrino/getting_started/s1_procs.html#Fundamentals">analogy</a> that might make things easier to grasp.</p>
 <blockquote>
 <h4>A process is like a house</h4>
@@ -97,26 +179,34 @@
 <p>Threads represent the smallest sequence of execution in a program that can be managed independently by the OS, meaning that in terms of the time-slicing approach we've referred to earlier, the slice can't be assigned to anything more granular than threads. </p>
 <p>Threads hold tasks like loading a document and updating the UI which are interleaved by the scheduler to run concurrently.</p>
 <p>After examining the previous analogy we can say that:</p>
-<ul><li>A single instance of a program constitutes a running process which in turn may contain a single main thread or multiple running threads.</li>
+<ul>
+<li>A single instance of a program constitutes a running process which in turn may contain a single main thread or multiple running threads.</li>
 <li>Threads of the same process run in a shared memory space, while each process on the other hand have its own memory space. </li>
-</ul><p>Based on this mode of operation, there are some consequences:</p>
-<ul><li>Threads are more easy to instantiate than processes because they don't require the allocation of a new address space like processes.</li>
+</ul>
+<p>Based on this mode of operation, there are some consequences:</p>
+<ul>
+<li>Threads are more easy to instantiate than processes because they don't require the allocation of a new address space like processes.</li>
 <li>Because processes are independent of each other, they require some sort of channel in order to communicate with each other e.g. message passing used in MPI</li>
 <li>Threads on the other hand don't suffer from lack of communication because they share the same memory, consequently synchronization between the threads is required to make sure that one thread won't tamper with a shared resource e.g. a data structure (the wash-room from our analogy) while another thread is operating on it. We'll talk later about the methods for accomplishing synchronization between threads.</li>
-</ul><p>When do we divide tasks into threads and when do we spawn several processes to run them is mainly up to the programmer to decide how his software is going to behave. To illustrate, we'll talk about a ubiquitous tool in our present; browsers.
+</ul>
+<p>When do we divide tasks into threads and when do we spawn several processes to run them is mainly up to the programmer to decide how his software is going to behave. To illustrate, we'll talk about a ubiquitous tool in our present; browsers.
 A few years ago when we wanted to operate on several tabs on a browser that supported <strong>TDI</strong>, the application's process  spawned a separate child thread for each tab. Around 2008, Chromium started using a different model "multi-process architecture" where separate processes were spawned for managing tabs, web apps and plug-ins.</p>
 <p>The reasons behind the approach that was taken in Chromium in putting web apps and plug-ins in separate processes from the browser itself can be found <a href="http://blog.chromium.org/2008/09/multi-process-architecture.html">in this post explaining the multi-process architecture</a>, they could be summarised into:</p>
-<ul><li>Prevent having the whole browser crash if one of the tabs become unresponsive (e.g. rendering engine crashes) this won’t affect the browser or other running web apps. </li>
+<ul>
+<li>Prevent having the whole browser crash if one of the tabs become unresponsive (e.g. rendering engine crashes) this won’t affect the browser or other running web apps. </li>
 <li>To take advantage of the modern computer architectures by parallelizing the execution of the rendering engines for each tab along with the rest of web apps and extensions. </li>
 <li>Provide a sandbox for tabs, web apps, etc. to limit the damage if an exploit occurs.</li>
-</ul><p>Soon enough, other flagship browsers have started to follow this model including Mozilla's Firefox in a project named <a href="https://wiki.mozilla.org/Content_Processes">Electrolysis</a>.  </p>
+</ul>
+<p>Soon enough, other flagship browsers have started to follow this model including Mozilla's Firefox in a project named <a href="https://wiki.mozilla.org/Content_Processes">Electrolysis</a>.  </p>
 <p><br></p>
 <p>In the next post, we'll start our journey to explore the concurrency realm in C++11 from managing threads, synchronizing operations between threads and protecting shared data.</p>
 <p><br></p>
 <h4>Further reading</h4>
-<ul><li><a href="http://www.amazon.com/Operating-Systems-Internals-Principles-Edition/dp/013230998X">William Stalling's - Operating Systems: Internals and Design Principles</a> (Part 2 - Processes)</li>
+<ul>
+<li><a href="http://www.amazon.com/Operating-Systems-Internals-Principles-Edition/dp/013230998X">William Stalling's - Operating Systems: Internals and Design Principles</a> (Part 2 - Processes)</li>
 <li><a href="http://www.haskell.org/haskellwiki/Parallelism_vs._Concurrency">On parallelism vs. concurrency</a></li>
-</ul><p>
+</ul>
+<p>
     
     <a href="posts/2013/06/concurrency-in-cpp-prologue.html#disqus_thread">Comments</a>
     
@@ -130,7 +220,8 @@ A few years ago when we wanted to operate on several tabs on a browser that supp
         <small class="pull-right">August 01, 2011</small>
     </h1>
 </div>
-<hr><h3>Pattern Name</h3>
+<hr>
+<h3>Pattern Name</h3>
 <p>Singleton Pattern</p>
 <h3>Classification</h3>
 <p>Creational Pattern</p>
@@ -141,15 +232,19 @@ A few years ago when we wanted to operate on several tabs on a browser that supp
 <h3>Motivation</h3>
 <p>In many situations you’d find yourself in need of ensuring that a certain class can only be instantiated once and is accessible in various parts of a system.    <br>
 Example for such situations is:</p>
-<ul><li>Database access</li>
+<ul>
+<li>Database access</li>
 <li>Logging</li>
 <li>Communication</li>
 <li>Printer spooling</li>
 <li>File systems</li>
-</ul><p>The singleton pattern provides us with two properties:</p>
-<ul><li>It ensures a class is only instantiated once. </li>
+</ul>
+<p>The singleton pattern provides us with two properties:</p>
+<ul>
+<li>It ensures a class is only instantiated once. </li>
 <li>It provides a global access point to that class. </li>
-</ul><p><strong>Note </strong>
+</ul>
+<p><strong>Note </strong>
 Singletons are meant to be used sparingly, so if you find yourself using them everywhere you might want to take another look at your design.</p>
 <h3>Applicability</h3>
 <p>Use The <strong>Singleton pattern</strong> when you want your classes to provide you with only one instance that is globally accessible to the code from an access point.</p>
@@ -157,9 +252,11 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <p><img alt="Singleton" src="2011/08/singleton28.png"></p>
 <h3>Participants</h3>
 <p><strong>SingletonClass:</strong> This class provide global access to only a single instance of it by doing the following:  </p>
-<ul><li>It hides its constructor to prevent any external classes from creating new instances. </li>
+<ul>
+<li>It hides its constructor to prevent any external classes from creating new instances. </li>
 <li>It declares the static method <em>GetInstance()</em> that provides access to the single instance that is held in the private variable: <strong>instance</strong>. </li>
-</ul><h3>Consequences</h3>
+</ul>
+<h3>Consequences</h3>
 <p>Like any pattern, the singleton pattern has its tradeoffs (according to its implementation) and if it is used while being unaware of these tradeoffs can produce unwanted results.</p>
 <h4>Criticisms</h4>
 <p><strong>First criticism:</strong> Using it is considered a breach to one of the OOD Principles: The <strong>Single Responsibility Principle</strong>, which states that: </p>
@@ -167,18 +264,24 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <p>Every object should have a single responsibility, and that this responsibility should be entirely encapsulated by the class.</p>
 </blockquote>
 <p>Thus, the class shouldn’t care less for being a <strong>Singleton </strong>or not, as it’s only concern should be doing its business responsibility. But when using <strong>Singleton</strong>, the class is responsible for two things here:</p>
-<ul><li>Its original business responsibility.</li>
+<ul>
+<li>Its original business responsibility.</li>
 <li>Managing the instantiation of its objects.</li>
-</ul><hr><p><strong>Second criticism:</strong> We all know that having global variables in our code, produces code smells. But, isn’t this what the <strong>Singleton Pattern </strong>does? It makes an instance of the class accessible globally. There disadvantages of using global variables that apply when we use Singletons without proper care because of the similarity in their nature. </p>
+</ul>
+<hr>
+<p><strong>Second criticism:</strong> We all know that having global variables in our code, produces code smells. But, isn’t this what the <strong>Singleton Pattern </strong>does? It makes an instance of the class accessible globally. There disadvantages of using global variables that apply when we use Singletons without proper care because of the similarity in their nature. </p>
 <p>Some of these disadvantages are:</p>
-<ul><li><strong>Implicit <a href="http://en.wikipedia.org/wiki/Coupling_(computer_programming)">coupling</a> - </strong>Many programmers unconsciously would tightly couple the class that uses the <strong>Singleton Pattern </strong>with the rest of their code, because it’s globally accessible. When this is done, the overuse of this pattern could converge into becoming an anti-pattern.</li>
+<ul>
+<li><strong>Implicit <a href="http://en.wikipedia.org/wiki/Coupling_(computer_programming)">coupling</a> - </strong>Many programmers unconsciously would tightly couple the class that uses the <strong>Singleton Pattern </strong>with the rest of their code, because it’s globally accessible. When this is done, the overuse of this pattern could converge into becoming an anti-pattern.</li>
 <li><strong>Namespace pollution - </strong>Namespace pollution<strong> </strong>can occur when we abuse <strong>Singleton Pattern</strong>, though it is a bit unlikely if the pattern is used wisely.</li>
 <li>Multithreading issues can occur when more than one thread the <em>GetInstance()</em> method is invoked for the first time. This will result in instantiating many instance at the same time. That’s why it is important to make sure that our code is thread safe by using <strong>Synchronization</strong> (sometimes discouraged because of its performance footprint), <strong><a href="http://en.wikipedia.org/wiki/Lazy_instantiation">Lazy Instantiation</a></strong> using <strong>double-checked locking</strong>, or <strong>Early Instantiation</strong>.<strong> </strong>Choosing the implementation to use depends mainly on your needs and the available resources.</li>
 <li>Unit-testing programs that contain singleton objects can become annoying because the <strong>Singleton</strong> objects have a persistent state throughout the program. Leading to the following: </li>
 <li>It makes it hard to replicate the tests for later testing or even having a clean environment for testing. </li>
 <li>It takes away one thing that makes unit testing effective which is having tests that are independent on each other.</li>
 <li>Also many developers prefer making dependencies between classes obvious through method signatures, rather than having the <strong>Singleton</strong> object hidden in the code, lurking for the right moment to come and bite you in the back. Some might argue that passing that object through all this methods induces tight coupling, but on the contrary this way of exchanging objects allows you to write to an interface that can be easily extended without having to change a single line in your old code. <strong>Thus you’re coupling to an interface not to an implementation.</strong></li>
-</ul><hr><p>If we want to overcome the mentioned shortcomings, we could separate the singleton part from the actual object, allowing for the object itself to be used normally if needed. Perhaps we can use a Factory or a builder that would encapsulate the object creation and maintain having only one instance created of this class, while leaving the class responsible only for its business responsibility. </p>
+</ul>
+<hr>
+<p>If we want to overcome the mentioned shortcomings, we could separate the singleton part from the actual object, allowing for the object itself to be used normally if needed. Perhaps we can use a Factory or a builder that would encapsulate the object creation and maintain having only one instance created of this class, while leaving the class responsible only for its business responsibility. </p>
 <p>J. B. Rainsberger argued in his article “<a href="http://www.ibm.com/developerworks/webservices/library/co-single/index.html#h3">Use your Singletons wisely</a>” that classes should not be responsible for the singleton part of the code:</p>
 <blockquote>
 <p>Suppose an application needs only one instance of a class and the application configures that class at startup: Why should the class itself be responsible for being a singleton? It seems quite logical for the application to take on this responsibility, since the application requires this kind of behavior. The application, not the component, should be the singleton. The application then makes an instance of the component available for any application-specific code to use. When an application uses several such components, it can aggregate them into what we have called a toolbox.</p>
@@ -254,20 +357,26 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 
 <h5>This specific implementation of Double-Checked locking can be factored into:</h5>
 <p>When working in a multi-threaded environment, we risk running into issues that arise from resource-sharing between multiple threads, like deadlocks and race conditions (<a href="http://stackoverflow.com/questions/34510/what-is-a-race-condition">What is a race condition?</a>). This implementation of the <strong>Singleton Pattern </strong>however saves us from all this drama. </p>
-<ul><li>Using <strong>volatile</strong> keyword.</li>
+<ul>
+<li>Using <strong>volatile</strong> keyword.</li>
 <li>Using the <strong>lock </strong>statement to accomplish thread synchronization.</li>
 <li>Using <strong>double-checked locking</strong>.</li>
-</ul><p>The use of the <strong>volatile</strong> keyword on the <strong>instance </strong>member variable allows us to avoid the unexpected and unpredictable results in multi-threaded programs that access fields without synchronization and using the lock statement to synchronize access. The <strong>volatile </strong>keyword indicates that a certain field can be modified by multiple threads, avoiding the compiler optimizations that assume access by a single thread. This ensures that the most up-to-date value is present in the field at all times.  </p>
+</ul>
+<p>The use of the <strong>volatile</strong> keyword on the <strong>instance </strong>member variable allows us to avoid the unexpected and unpredictable results in multi-threaded programs that access fields without synchronization and using the lock statement to synchronize access. The <strong>volatile </strong>keyword indicates that a certain field can be modified by multiple threads, avoiding the compiler optimizations that assume access by a single thread. This ensures that the most up-to-date value is present in the field at all times.  </p>
 <p>For more details on the volatile keyword and volatile fields check the following references:
 <em> <a href="http://msdn.microsoft.com/en-us/library/x13ttww7.aspx">volatile (C# Reference) [MSDN Library]</a>
 </em> <a href="http://msdn.microsoft.com/en-us/library/aa645755(v=vs.71).aspx">Volatile fields [MSDN Library]</a></p>
-<hr><p>Having data shared between threads is the best recipe for obscure errors and complexity when working in a multithreaded environment. A way of solving this problem is using locks in order to stop more than one thread from working on the same data at the same time.  </p>
+<hr>
+<p>Having data shared between threads is the best recipe for obscure errors and complexity when working in a multithreaded environment. A way of solving this problem is using locks in order to stop more than one thread from working on the same data at the same time.  </p>
 <p>The <strong>lock</strong> keyword marks a statement block as a critical section by obtaining the mutual-exclusion lock for a given object, executing a statement, and then releasing the lock (source: <a href="http://msdn.microsoft.com/en-us/library/c5kehkcz(v=VS.100).aspx">lock Statement [MSDN Library]</a>). The idea is to ensure that a thread can’t enter a critical area in the code, when another thread is still executing it. If two threads encounter a lock, one thread waits(blocks) until the lock becomes available.  </p>
 <p>So, in layman’s terms we can say that the mutual-exclusion lock acts as a simple door lock. You enter a room, you lock the door behind you and when you finish your business, you unlock the door and come out of the room, only then can somebody else enter. If anybody tries to enter the room while you are still in there, he has to wait.</p>
 <h4>Important Notes</h4>
-<ul><li>It’s a matter of good practice to avoid locking on a public type or an object that is accessible to other classes, because this risks running into performance issues and even deadlocks. Instead, we should use values of objects that are specifically made for the sole purpose of locking. These objects are commonly declared as <strong>private </strong>or <strong>private static</strong>.</li>
+<ul>
+<li>It’s a matter of good practice to avoid locking on a public type or an object that is accessible to other classes, because this risks running into performance issues and even deadlocks. Instead, we should use values of objects that are specifically made for the sole purpose of locking. These objects are commonly declared as <strong>private </strong>or <strong>private static</strong>.</li>
 <li>It’s also worth knowing that when using mutual-exclusion locks, the blocked thread doesn’t consume any CPU resources unlike other locks like the <a href="http://en.wikipedia.org/wiki/Spinlock">Spinlock</a>, nevertheless each has its advantages and usages.</li>
-</ul><hr><p>You might ask yourself why can’t I just simply use the lock this way:</p>
+</ul>
+<hr>
+<p>You might ask yourself why can’t I just simply use the lock this way:</p>
 <div class="code"><pre><span class="k">get</span>
 <span class="p">{</span>
     <span class="k">lock</span> <span class="p">(</span><span class="n">Lock</span><span class="p">)</span>
@@ -300,11 +409,13 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <h3>Related Patterns</h3>
 <p>Abstract Factory , Builder , and Prototype.</p>
 <h4>References</h4>
-<ul><li><a href="http://en.wikipedia.org/wiki/Design_Patterns">Design Patterns: Elements of Reusable Object-Oriented Software</a> – The Gang of Four (GoF): <a href="http://en.wikipedia.org/wiki/Erich_Gamma">Erich Gamma</a>, Richard Helm, <a href="http://en.wikipedia.org/wiki/Ralph_Johnson_(computer_scientist)">Ralph Johnson</a>, <a href="http://en.wikipedia.org/wiki/John_Vlissides">John M. Vlissides</a>. </li>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Design_Patterns">Design Patterns: Elements of Reusable Object-Oriented Software</a> – The Gang of Four (GoF): <a href="http://en.wikipedia.org/wiki/Erich_Gamma">Erich Gamma</a>, Richard Helm, <a href="http://en.wikipedia.org/wiki/Ralph_Johnson_(computer_scientist)">Ralph Johnson</a>, <a href="http://en.wikipedia.org/wiki/John_Vlissides">John M. Vlissides</a>. </li>
 <li><a href="http://oreilly.com/catalog/9780596007126">Head First Design Patterns</a> – <a href="http://www.oreillynet.com/pub/au/2003">Eric T Freeman</a>, <a href="http://www.oreillynet.com/pub/au/2002">Elisabeth Robson</a>, <a href="http://www.oreillynet.com/pub/au/1085">Bert Bates</a>, <a href="http://www.oreillynet.com/pub/au/1084">Kathy Sierra</a>. </li>
 <li><a href="http://blogs.msdn.com/b/scottdensmore/archive/2004/05/25/140827.aspx">Why Singletons are Evil</a> - <a href="http://blogs.msdn.com/b/scottdensmore/">Scott Densmore</a></li>
 <li><a href="http://csharpindepth.com/Articles/General/Singleton.aspx">Implementing the Singleton Pattern in C# - C# in Depth</a></li>
-</ul><p>
+</ul>
+<p>
     
     <a href="posts/2011/08/singleton-pattern.html#disqus_thread">Comments</a>
     
@@ -318,7 +429,8 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
         <small class="pull-right">July 20, 2011</small>
     </h1>
 </div>
-<hr><h3>Pattern Name</h3>
+<hr>
+<h3>Pattern Name</h3>
 <p>Factory Method</p>
 <h3>Classification</h3>
 <p>Creational Pattern</p>
@@ -339,36 +451,46 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 </blockquote>
 <p>This is why we are needed to <strong>encapsulate</strong> the object creation and <strong>isolate</strong> it from the rest of the code, ensuring that any change in the object creation will remain transparent to the rest of the code. And here comes the role of the <strong>Factory Method pattern</strong>, as it handles the object creation and encapsulates it in a subclass. Thus, the client depends on the subclasses to handle all the object creation, so it doesn’t really know the kind of concrete product that is actually created and its code depends on an abstract product. </p>
 <h4>Notes:</h4>
-<ul><li>Factory Patterns in general focus on encapsulating the instantiation of concrete types; abstracting the product creation process, so that the type of the concrete product can be determined in the runtime.</li>
-<li>There are two types of <strong>Factory Method</strong>:<ul><li>Parameterized: This can make more than one object based on the parameters passed to it.</li>
+<ul>
+<li>Factory Patterns in general focus on encapsulating the instantiation of concrete types; abstracting the product creation process, so that the type of the concrete product can be determined in the runtime.</li>
+<li>There are two types of <strong>Factory Method</strong>:<ul>
+<li>Parameterized: This can make more than one object based on the parameters passed to it.</li>
 <li>Not parameterized: This can make only one object</li>
-</ul></li>
+</ul>
+</li>
 <li>When using parameterized Factory Methods it is important to make sure that the parameters are “type safe” and ensure that errors in parameters are caught at compile time; to prevent runtime errors. E.g. we could use enumerators.</li>
 <li><strong>Factory Method</strong> is similar to the <strong>Abstract Factory</strong> in that the methods of the <strong>Abstract factory</strong> can be implemented as <strong>Factory Methods</strong>. The main difference is that while abstract factory deals with an entire family of products, the <strong>Factory Method</strong> is only worried about a single product. Also <strong>Factory Methods</strong> use inheritance to get the concrete object as they delegate object creation to subclasses which implement the <strong>Factory Method</strong>, while <strong>Abstract Factory</strong> uses object composition.</li>
-</ul><h2>Applicability</h2>
+</ul>
+<h2>Applicability</h2>
 <blockquote>
 <p>Use the <strong>Factory Method</strong> pattern when:   </p>
-<ul><li>a class can't anticipate the class of objects it must create. </li>
+<ul>
+<li>a class can't anticipate the class of objects it must create. </li>
 <li>a class wants its subclasses to specify the objects it creates. </li>
 <li>classes delegate responsibility to one of several helper subclasses, and you want to localize the knowledge of which helper subclass is the delegate.
 <cite>(source: GoF’s Book)</cite></li>
-</ul></blockquote>
+</ul>
+</blockquote>
 <h4>Important Note:</h4>
 <p>Factories can only be used with a family of classes. If these classes doesn’t extend the same base or interface, then we can’t use factories with them.</p>
 <h3>Structure</h3>
 <p><img alt="Factory_Method" src="http://amrelroumy.files.wordpress.com/2011/07/factory_method2.png"></p>
 <h3>Participants</h3>
-<ul><li><strong>CreatorBase:</strong> If we don’t need to extend the creator and have different creators the whole factory can be implemented here. Otherwise, this base is either an interface or an abstract class; depending on the situation and if we want to add specify some simple functionality that the concrete creators inherit.</li>
+<ul>
+<li><strong>CreatorBase:</strong> If we don’t need to extend the creator and have different creators the whole factory can be implemented here. Otherwise, this base is either an interface or an abstract class; depending on the situation and if we want to add specify some simple functionality that the concrete creators inherit.</li>
 <li><strong>ConcreteCreator:</strong> It inherits the <strong>CreatorBase</strong> class. It either uses the <strong>FactoryMethod</strong> as it is if it is implemented fully in the base class, or it overrides it with the suitable object creation code.</li>
 <li><strong>ProductBase:</strong> This abstract class defines the type of products that the <strong>FactoryMethod </strong>can create.</li>
 <li><strong>ConcreteProduct:</strong> The actual object that is created by the <strong>FactoryMethod</strong>.</li>
-</ul><h3>Consequences</h3>
+</ul>
+<h3>Consequences</h3>
 <h5>Advantages:</h5>
-<ul><li>It enforces loose coupling between the Creator and the product. This is good, because it’ll allow us to add new products or change old ones without affecting our code or having to change it to fit into the new design as the code only deals with the product’s interface.</li>
+<ul>
+<li>It enforces loose coupling between the Creator and the product. This is good, because it’ll allow us to add new products or change old ones without affecting our code or having to change it to fit into the new design as the code only deals with the product’s interface.</li>
 <li>It allows us to encapsulate all the object creation procedures and use of constructors, leaving the object type and creation to be determined at the runtime instead of being hardwired in the code.</li>
 <li>Using this pattern reinforces the principle of programming to an interface instead of an implementation, as we separate the object instantiation from the creators and are putting them in separate objects.</li>
 <li><em>Provides hooks for subclasses.</em> Creating objects inside a class with a factory method is always more flexible than creating an object directly. Factory Method gives subclasses a hook for providing an extended version of an object. (Source: GoF’s book)</li>
-</ul><h3>Implementation</h3>
+</ul>
+<h3>Implementation</h3>
 <div class="code"><pre><span class="k">abstract</span> <span class="k">class</span> <span class="nc">ProductBase</span>
 <span class="p">{</span>
 <span class="p">}</span>
@@ -407,9 +529,11 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 
 
 <h3>References</h3>
-<ul><li><a href="http://en.wikipedia.org/wiki/Design_Patterns">Design Patterns: Elements of Reusable Object-Oriented Software</a> – The Gang of Four (GoF): <a href="http://en.wikipedia.org/wiki/Erich_Gamma">Erich Gamma</a>, Richard Helm, <a href="http://en.wikipedia.org/wiki/Ralph_Johnson_(computer_scientist)">Ralph Johnson</a>, <a href="http://en.wikipedia.org/wiki/John_Vlissides">John M. Vlissides</a>. </li>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Design_Patterns">Design Patterns: Elements of Reusable Object-Oriented Software</a> – The Gang of Four (GoF): <a href="http://en.wikipedia.org/wiki/Erich_Gamma">Erich Gamma</a>, Richard Helm, <a href="http://en.wikipedia.org/wiki/Ralph_Johnson_(computer_scientist)">Ralph Johnson</a>, <a href="http://en.wikipedia.org/wiki/John_Vlissides">John M. Vlissides</a>. </li>
 <li><a href="http://oreilly.com/catalog/9780596007126">Head First Design Patterns</a> - <a href="http://www.oreillynet.com/pub/au/2003">Eric T Freeman</a>, <a href="http://www.oreillynet.com/pub/au/2002">Elisabeth Robson</a>, <a href="http://www.oreillynet.com/pub/au/1085">Bert Bates</a>, <a href="http://www.oreillynet.com/pub/au/1084">Kathy Sierra</a>. </li>
-</ul><p>
+</ul>
+<p>
     
     <a href="posts/2011/07/factory-method.html#disqus_thread">Comments</a>
     
@@ -423,7 +547,8 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
         <small class="pull-right">July 09, 2011</small>
     </h1>
 </div>
-<hr><h2>Pattern Name</h2>
+<hr>
+<h2>Pattern Name</h2>
 <p>Decorator Pattern</p>
 <h2>Classification</h2>
 <p>Structural Pattern</p>
@@ -437,36 +562,50 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <p>You might find yourself while working on a project and in the need of adding/modifying responsibilities or behaviors to objects of a certain type. One way of approaching this problem is that we extend this type using inheritance and add the new behavior to it in its children. But what would happen when we want to add more than one responsibility for some objects while keeping others with only a single new responsibility? Then, we would have to implement all the combinations of these responsibilities and ending up with what can be called as a <strong>class explosion</strong>; as you’ll end up with a lot of classes, more time to debug and a lot of those long &amp; lonely nights of maintenance.</p>
 <p>An answer to this problem would be to <strong>extend</strong> <strong>the behavior without using inheritance</strong>. This can be achieved by using <strong>composition</strong> to wrap the components by the decorator and add new behavior/properties or modify already existing ones in the runtime. Using this approach we can avoid having to use inheritance and constrain ourselves with static (compile-time) extending to the objects and use instead <strong>dynamic (runtime)</strong> extending of those specific objects. Also it allows us to add the needed behavior according to the specific conditions that occur during the runtime; meaning that objects of the same type can end up being decorated differently and that the same object can be wrapped in more than one decorator.</p>
 <h4>Design principles behind this pattern:</h4>
-<ul><li><strong>Open-Closed Principle</strong> from SOLID Principles Classes should be <strong>open</strong> <strong>for extension</strong>, but <strong>closed for modification</strong>. One reason why this principle is important is that it prevents us from introducing bugs into code that has already been tested and debugged.</li>
-</ul><h4>Important Notes:</h4>
-<ul><li>The decorator pattern is used to extend behavior of objects during the runtime not classes.</li>
+<ul>
+<li><strong>Open-Closed Principle</strong> from SOLID Principles Classes should be <strong>open</strong> <strong>for extension</strong>, but <strong>closed for modification</strong>. One reason why this principle is important is that it prevents us from introducing bugs into code that has already been tested and debugged.</li>
+</ul>
+<h4>Important Notes:</h4>
+<ul>
+<li>The decorator pattern is used to extend behavior of objects during the runtime not classes.</li>
 <li>You can't apply the <strong>Open-Closed Principle</strong> to every part of your design, because it'll add complexity to the code and it'll take time and effort. You need to identify—comes with experience—the parts of the code that are most likely to change and apply the principle on them.</li>
 <li>Using decorators with code that relies on the component's <strong>concrete</strong> type will break that code. But if we only use them with code that depends on the <strong>abstract</strong> component's type, then the decorators will remain <strong>transparent</strong> to the client of the component.</li>
-</ul><h2>Applicability (from GoF’s Book)</h2>
-<ul><li>To add responsibilities to individual objects dynamically and transparently, that is, without affecting other objects. </li>
+</ul>
+<h2>Applicability (from GoF’s Book)</h2>
+<ul>
+<li>To add responsibilities to individual objects dynamically and transparently, that is, without affecting other objects. </li>
 <li>For responsibilities that can be withdrawn. </li>
 <li>When extension by subclassing is impractical. Sometimes a large number of independent extensions are possible and would produce an explosion of subclasses to support every combination. Or a class definition may be hidden or otherwise unavailable for subclassing. </li>
-</ul><h2>Structure</h2>
+</ul>
+<h2>Structure</h2>
 <p><img alt="Decorator Pattern Structure" src="http://amrelroumy.files.wordpress.com/2011/07/decorator_pattern1.png"></p>
 <p>You might ask yourself if the decorator pattern teaches us to favor composition over inheritance, then why does the <strong>DecoratorBase</strong> class extends the Object's super class? The answer is that the decorator is extending this class to gain the same interface as the object it will wrap, not to gain the behavior. Thus we extend the base class to get the interface but we're getting the behavior through composition of decorators with the base components as other decorators.</p>
 <h2>Participants</h2>
-<ul><li><strong>ComponentBase: </strong>Defines the basic behaviors/properties that would be implemented by the components that will be decorated. If we don’t want to define any actual functionality in it, you can use an interface instead of an abstract class.</li>
+<ul>
+<li><strong>ComponentBase: </strong>Defines the basic behaviors/properties that would be implemented by the components that will be decorated. If we don’t want to define any actual functionality in it, you can use an interface instead of an abstract class.</li>
 <li><strong>DecoratorBase: </strong>It is the abstract class for all the decorators. It inherits the basic interface of the components from the <strong>ConcreteBase</strong>, to allow the decorators to be used in place of the components. You’ll notice that it adds a constructor that accepts a <strong>Component</strong> of type <strong>ComponentBase; </strong>this is the Component to be wrapped.</li>
 <li><strong>ConcreteComponent: </strong>The actual components that will be wrapped.</li>
 <li><strong>ConcreteDecoratorA/</strong><strong>ConcreteDecoratorA: </strong>The decorators that wrap Components. They can introduce new behavior/properties like <strong>ConcreteDecoratorA </strong>or modify already existing ones like <strong>ConcretDecoratorB</strong>.</li>
-</ul><h2>Properties of decorators:</h2>
-<ul><li>They have the same supertype as the objects they decorate.</li>
+</ul>
+<h2>Properties of decorators:</h2>
+<ul>
+<li>They have the same supertype as the objects they decorate.</li>
 <li>You can use one or more decorators to wrap an object.</li>
 <li>The decorator adds its own behavior either before and/or after delegating to the object it decorates to do the rest of the job.</li>
 <li>Objects can be decorated at runtime.</li>
-</ul><h2>Consequences</h2>
+</ul>
+<h2>Consequences</h2>
 <h4>Advantages of using the decorator pattern:</h4>
-<ul><li>It allows us to add new behavior to existing code without the need to modify it (Following the Open-Closed Principle) or without having to use inheritance, thus avoiding inheritance’s rigidity and adding more flexibility to the code.</li>
+<ul>
+<li>It allows us to add new behavior to existing code without the need to modify it (Following the Open-Closed Principle) or without having to use inheritance, thus avoiding inheritance’s rigidity and adding more flexibility to the code.</li>
 <li>Avoids having classes with complicated and complex responsibilities high up in the class hierarchy. Instead we use simple classes that are customizable and whose responsibilities can be added during the runtime.</li>
-</ul><h4>One of the shortcomings of using the Decorator Pattern:</h4>
-<ul><li>Using this pattern in your design, you'll end up with a relatively large number of small objects that differ in the way they are assembled. This can be overwhelming to a developer trying to use the Decorator-based API, but is easy to those who understand them and are familiar with this design pattern.</li>
+</ul>
+<h4>One of the shortcomings of using the Decorator Pattern:</h4>
+<ul>
+<li>Using this pattern in your design, you'll end up with a relatively large number of small objects that differ in the way they are assembled. This can be overwhelming to a developer trying to use the Decorator-based API, but is easy to those who understand them and are familiar with this design pattern.</li>
 <li>Using this pattern can complicate the process of instantiating objects, that's why this pattern is used alongside the Factory and Builder patterns</li>
-</ul><h2>Implementation</h2>
+</ul>
+<h2>Implementation</h2>
 <div class="code"><pre><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">ComponentBase</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">abstract</span> <span class="k">void</span> <span class="nf">Operation</span><span class="p">();</span>
@@ -511,233 +650,31 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 
 
 <h2>Related Patterns (from GoF’s book)</h2>
-<ul><li><strong>Adapter</strong> : A decorator is different from an adapter in that a decorator only changes an object's responsibilities, not its interface; an adapter will give an object a completely new interface.</li>
+<ul>
+<li><strong>Adapter</strong> : A decorator is different from an adapter in that a decorator only changes an object's responsibilities, not its interface; an adapter will give an object a completely new interface.</li>
 <li><strong>Composite</strong> : A decorator can be viewed as a degenerate composite with only one component. However, a decorator adds additional responsibilities—it isn't intended for object aggregation.</li>
 <li><strong>Strategy </strong>: A decorator lets you change the skin of an object; a strategy lets you change the guts. These are two alternative ways of changing an object.</li>
-</ul><p>
+</ul>
+<p>
     
     <a href="posts/2011/07/decorator-pattern.html#disqus_thread">Comments</a>
     
 </p></div>
 
-<div class="postbox">
-   <div class="row-fluid">
-    <h1 class="span9"><a class="post-title" href="posts/2011/07/strategy-pattern.html">Strategy Pattern</a>
-    </h1>
-    <h1 class="span3">
-        <small class="pull-right">July 01, 2011</small>
-    </h1>
-</div>
-<hr><h3>Pattern Name</h3>
-<p>Strategy Pattern</p>
-<h3>Classification</h3>
-<p>Behavioral Pattern</p>
-<h3>Intent</h3>
-<blockquote>
-<p>Define a family of algorithms/behaviors, encapsulate each one and make them interchangeable. The Strategy pattern lets the algorithm vary independently from the clients that use it.</p>
-</blockquote>
-<h3>Also known as</h3>
-<p>Policy pattern</p>
-<h3>Motivation</h3>
-<p>In some situations, we might find ourselves working with classes that only differ in their behavior. If we use inheritance, we’ll have to override the behavior every time we want to derive a class and want to change the algorithm, but when we want to remove special behaviors we would override them with empty methods because the algorithms are hardwired in the classes. Such rigidity in the implementation breaks an important OO principle, which is flexibility.</p>
-<p>Also another approach would be providing an interface for each algorithm, this way only classes that should have this algorithm can implement it; thus, solving some of the first approach's shortcomings. But it will have its own disadvantages like duplicate code . Also, by applying this approach, we can kiss code reuse goodbye since we'll have to write the algorithm in each class. Consequently, the slightest change in the implementation will require us to go over all the classes and change them too. These shortcomings would create and ideal "Maintenance Nightmare".</p>
-<p><strong>We can conclude some of the restrictions that prevent us from using any of the previously mentioned approaches, include:</strong></p>
-<ul><li>
-<p><strong>Clients vary in complexity</strong>; some can be very simple to the point they are have one behavior only, while others might be complicated to support multiple behaviors.</p>
-</li>
-<li>
-<p>If the algorithms are hardwired in the clients, it will be <strong><em>hard to implement</em></strong> new ones or <strong><em>modify</em></strong> the ones that already exist.</p>
-</li>
-</ul><h3>The design principles behind the pattern</h3>
-<ul><li>Identify the aspects of our application that might vary and is suspected to change in the future and <strong>separate (encapsulate)</strong> them from the rest of the code. This way when they are changed, the rest of the code won't be affected.</li>
-<li><strong>Program To an interface not to an implementation</strong>; the idea here is to exploit polymorphism by programming to a supertype so that the actual runtime object isn't hardwired into the code. This way, behaviors and clients are loosely coupled and clients can use behaviors interchangeably.</li>
-</ul><hr><h3>Applicability (from GoF's book)</h3>
-<p><strong>Use the Strategy pattern when:</strong></p>
-<ul><li>Many related classes differ only in their behavior. Strategies provide a way to configure a class with one of many behaviors.</li>
-<li>You need different variants of an algorithm. For example, you might define algorithms reflecting different space/time trade-offs. Strategies can be used when these variants are implemented as a class hierarchy of algorithms [HO87].</li>
-<li>An algorithm uses data that clients shouldn't know about. Use the Strategy pattern to avoid exposing complex, algorithm-specific data structures.</li>
-<li>A class defines many behaviors, and these appear as multiple conditional statements in its operations. Instead of many conditionals, move related conditional branches into their own Strategy class.</li>
-</ul><h3>Structure</h3>
-<p><img alt="Strategy_Pattern" src="2011/07/strategy_pattern3.png"></p>
-<h3>Participants</h3>
-<ul><li><strong>IStrategy: </strong>The interface common to all algorithms that the client uses to deal with the <strong>Strategies</strong> (Concrete Algorithms). This interface represents the family of <strong>Strategies </strong>that share something in common. This interface can be implemented as an abstract class if it has functionality to provide to its children.</li>
-<li><strong>Context/Client: </strong>Uses the interchangeable algorithms through the <strong>IStrategy</strong> interface. It declares a property of the <strong>IStrategy</strong> type that holds one of the <strong>Strategies</strong>. This property can be set to the required algorithm in the runtime.</li>
-<li><strong>Strategy A / Strategy B: </strong>They implement the <strong>IStrategy </strong>interface and represent the different implementations of the algorithm.</li>
-</ul><h3>Consequences</h3>
-<p><strong>The strategy design pattern splits the behaviors of a class from the class itself, resulting in the following advantages:</strong></p>
-<ul><li>The algorithms/behaviors produced are reusable by other clients since they are no longer hardwired in our classes. </li>
-<li>Clients can chose from various implementations of the same behavior. </li>
-<li>New algorithms/behaviors can be added easily without the need to modify any existing code.  </li>
-</ul><p><strong>Yet, the strategy design pattern has some draw backs (from GoF's book):</strong></p>
-<ul><li><strong>Clients must be aware of different Strategies</strong>. The pattern has a potential drawback in that a client must understand how Strategies differ before it can select the appropriate one. Clients might be exposed to implementation issues. Therefore you should use the Strategy pattern only when the variation in behavior is relevant to clients.</li>
-<li><strong>Communication overhead between Strategy and Context</strong>. The Strategy interface is shared by all ConcreteStrategy classes whether the algorithms they implement are trivial or complex. Hence it's likely that some ConcreteStrategies won't use all the information passed to them through this interface; simple ConcreteStrategies may use none of it! That means there will be times when the context creates and initializes parameters that never get used. If this is an issue, then you'll need tighter coupling between Strategy and Context.</li>
-<li><strong>Increased number of objects</strong>. Strategies increase the number of objects in an application.</li>
-</ul><h3>Implementation</h3>
-<div class="code"><pre><span class="k">public</span> <span class="k">interface</span> <span class="n">IStrategy</span> 
-<span class="p">{</span> 
-    <span class="kt">string</span> <span class="nf">ExecuteAlgorithm</span><span class="p">();</span> 
-<span class="p">}</span> 
-
-<span class="k">public</span> <span class="k">class</span> <span class="nc">ConcreteStrategyA</span> <span class="p">:</span> <span class="n">IStrategy</span> 
-<span class="p">{</span> 
-    <span class="k">public</span> <span class="kt">string</span> <span class="nf">ExecuteAlgorithm</span><span class="p">()</span> 
-    <span class="p">{</span>
-         <span class="k">return</span> <span class="s">"This is Concrete Strategy A"</span><span class="p">;</span> 
-    <span class="p">}</span> 
-<span class="p">}</span> 
-
-<span class="k">public</span> <span class="k">class</span> <span class="nc">ConcreteStrategyB</span> <span class="p">:</span> <span class="n">IStrategy</span> 
-<span class="p">{</span> 
-    <span class="k">public</span> <span class="kt">string</span> <span class="nf">ExecuteAlgorithm</span><span class="p">();</span> 
-    <span class="p">{</span> 
-        <span class="k">return</span> <span class="s">"This is Concrete Strategy B"</span><span class="p">;</span> 
-    <span class="p">}</span> 
-<span class="p">}</span> 
-
-<span class="k">public</span> <span class="k">class</span> <span class="nc">Client</span> 
-<span class="p">{</span> 
-    <span class="k">public</span> <span class="n">IStrategy</span> <span class="n">Strategy</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span> 
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">CallAlgorithm</span><span class="p">()</span> 
-    <span class="p">{</span> 
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Strategy</span><span class="p">.</span><span class="n">ExecuteAlgorithm</span><span class="p">());</span> 
-    <span class="p">}</span> 
-<span class="p">}</span>
-</pre></div>
-
-
-<h3>Sample Code</h3>
-<p>We are writing a game that contains different types of terrains(e.g. Marshes, Dessert, City &amp; Coasts) and different types of characters (e.g. Warrior, Mage &amp; Rogue). We want every character to pass the terrain with a relative speed to their type and difficulty of the terrain.  </p>
-<p>We’ll refer to the terrains difficulty with integers to keep things simple. Also, we’ll add algorithms to calculate time taken which take in consideration the distance covered, terrain difficulty and character type.</p>
-<h4>Class Diagram</h4>
-<p><img alt="Strategy_Pattern_Example" src="http://amrelroumy.files.wordpress.com/2011/07/strategy_pattern_example2.png"></p>
-<h4>Timer’s implementations</h4>
-<div class="code"><pre><span class="k">public</span> <span class="k">interface</span> <span class="n">ITimer</span> 
-<span class="p">{</span> 
-    <span class="kt">double</span> <span class="nf">CalculateTimeTaken</span><span class="p">(</span><span class="kt">double</span> <span class="n">distance</span><span class="p">,</span> <span class="kt">int</span> <span class="n">terrainRate</span><span class="p">);</span> 
-<span class="p">}</span> 
-
-<span class="k">public</span> <span class="k">class</span> <span class="nc">RogueTimer</span><span class="p">:</span> <span class="n">ITimer</span> 
-<span class="p">{</span> 
-    <span class="kt">double</span> <span class="nf">CalculateTimeTaken</span><span class="p">(</span><span class="kt">double</span> <span class="n">distance</span><span class="p">,</span> <span class="kt">int</span> <span class="n">terrainRate</span><span class="p">)</span> 
-    <span class="p">{</span>
-        <span class="kt">double</span> <span class="n">timeTaken</span><span class="p">;</span> 
-        <span class="c1">//Implementation of Timer </span>
-        <span class="k">return</span> <span class="n">timeTaken</span><span class="p">;</span> 
-    <span class="p">}</span> 
-<span class="p">}</span> 
-
-<span class="k">public</span> <span class="k">class</span> <span class="nc">MageTimer</span><span class="p">:</span> <span class="n">ITimer</span> 
-<span class="p">{</span> 
-    <span class="kt">double</span> <span class="nf">CalculateTimeTaken</span><span class="p">(</span><span class="kt">double</span> <span class="n">distance</span><span class="p">,</span> <span class="kt">int</span> <span class="n">terrainRate</span><span class="p">)</span> 
-    <span class="p">{</span>
-        <span class="kt">double</span> <span class="n">timeTaken</span><span class="p">;</span> 
-        <span class="c1">//Implementation of Timer </span>
-        <span class="k">return</span> <span class="n">timeTaken</span><span class="p">;</span> 
-    <span class="p">}</span> 
-<span class="p">}</span> 
-
-<span class="k">public</span> <span class="k">class</span> <span class="nc">WarriorTimer</span><span class="p">:</span> <span class="n">ITimer</span> 
-<span class="p">{</span> 
-    <span class="kt">double</span> <span class="nf">CalculateTimeTaken</span><span class="p">(</span><span class="kt">double</span> <span class="n">distance</span><span class="p">,</span> <span class="kt">int</span> <span class="n">terrainRate</span><span class="p">)</span> 
-    <span class="p">{</span> 
-        <span class="kt">double</span> <span class="n">timeTaken</span><span class="p">;</span> 
-        <span class="c1">//Implementation of Timer </span>
-        <span class="k">return</span> <span class="n">timeTaken</span><span class="p">;</span> 
-    <span class="p">}</span> 
-<span class="p">}</span>
-</pre></div>
-
-
-<h4>Characters’ implementations</h4>
-<div class="code"><pre><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Character</span> 
-<span class="p">{</span> 
-    <span class="k">public</span> <span class="n">ITimer</span> <span class="n">Timer</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span> 
-    <span class="k">private</span> <span class="n">Health</span><span class="p">;</span> <span class="k">public</span> <span class="k">abstract</span> <span class="kt">double</span> <span class="n">CalculateTimeTaken</span><span class="p">(</span><span class="kt">double</span> <span class="n">distance</span><span class="p">,</span> <span class="kt">int</span> <span class="n">terrainRate</span><span class="p">);</span> 
-<span class="p">}</span> 
-
-<span class="k">public</span> <span class="k">class</span> <span class="nc">Warrior</span> <span class="p">:</span> <span class="n">Character</span> 
-<span class="p">{</span> 
-    <span class="k">private</span> <span class="n">Stamina</span><span class="p">;</span> 
-    <span class="k">private</span> <span class="n">Strength</span><span class="p">;</span> 
-    <span class="k">public</span> <span class="nf">Warrior</span><span class="p">()</span> 
-    <span class="p">{</span>
-        <span class="c1">// Constructor code here </span>
-    <span class="p">}</span> 
-
-    <span class="k">public</span> <span class="k">override</span> <span class="kt">double</span> <span class="nf">CalculateTimeTaken</span><span class="p">(</span><span class="kt">double</span> <span class="n">distance</span><span class="p">,</span> <span class="kt">int</span> <span class="n">terrainRate</span><span class="p">)</span> 
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="n">Timer</span><span class="p">.</span><span class="n">CalculateTimeTaken</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">terrainRate</span><span class="p">);</span> 
-    <span class="p">}</span> 
-<span class="p">}</span> 
-
-<span class="k">public</span> <span class="k">class</span> <span class="nc">Mage</span> <span class="p">:</span> <span class="n">Character</span> 
-<span class="p">{</span> 
-    <span class="k">private</span> <span class="n">Mana</span><span class="p">;</span>     
-    <span class="k">private</span> <span class="n">WillPower</span><span class="p">;</span> 
-    <span class="k">public</span> <span class="nf">Mage</span><span class="p">()</span> 
-    <span class="p">{</span>
-         <span class="c1">// Constructor code here </span>
-    <span class="p">}</span> 
-
-    <span class="k">public</span> <span class="k">override</span> <span class="kt">double</span> <span class="nf">CalculateTimeTaken</span><span class="p">(</span><span class="kt">double</span> <span class="n">distance</span><span class="p">,</span> <span class="kt">int</span> <span class="n">terrainRate</span><span class="p">)</span> 
-    <span class="p">{</span> 
-        <span class="k">return</span> <span class="n">Timer</span><span class="p">.</span><span class="n">CalculateTimeTaken</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">terrainRate</span><span class="p">);</span> 
-    <span class="p">}</span> 
-<span class="p">}</span> 
-
-<span class="k">public</span> <span class="k">class</span> <span class="nc">Rogue</span><span class="p">:</span> <span class="n">Character</span> 
-<span class="p">{</span> 
-    <span class="k">private</span> <span class="n">Dexterity</span><span class="p">;</span> 
-    <span class="k">private</span> <span class="n">Constitution</span><span class="p">;</span> 
-    <span class="k">public</span> <span class="nf">Rogue</span><span class="p">()</span> 
-    <span class="p">{</span>
-         <span class="c1">// Constructor code here </span>
-    <span class="p">}</span> 
-
-    <span class="k">public</span> <span class="k">override</span> <span class="kt">double</span> <span class="nf">CalculateTimeTaken</span><span class="p">(</span><span class="kt">double</span> <span class="n">distance</span><span class="p">,</span> <span class="kt">int</span> <span class="n">terrainRate</span><span class="p">)</span> 
-    <span class="p">{</span> 
-        <span class="k">return</span> <span class="n">Timer</span><span class="p">.</span><span class="n">CalculateTimeTaken</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">terrainRate</span><span class="p">);</span> 
-    <span class="p">}</span> 
-<span class="p">}</span>
-</pre></div>
-
-
-<h4>Testing Code</h4>
-<div class="code"><pre><span class="n">Warrior</span> <span class="n">warrior</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Warrior</span><span class="p">();</span> 
-<span class="n">Mage</span> <span class="n">mage</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Mage</span><span class="p">();</span> 
-<span class="n">Rogue</span> <span class="n">rogue</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Rogue</span><span class="p">();</span> 
-
-<span class="n">warrior</span><span class="p">.</span><span class="n">Timer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WarriorTimer</span><span class="p">();</span> 
-<span class="n">mage</span><span class="p">.</span><span class="n">Timer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MageTimer</span><span class="p">();</span> 
-<span class="n">rogue</span><span class="p">.</span><span class="n">Timer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">RogueTimer</span><span class="p">();</span> 
-
-<span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">"Warrior's Time: "</span><span class="p">);</span> 
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">warrior</span><span class="p">.</span><span class="n">CalculateTimeTaken</span><span class="p">(</span><span class="m">50</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span> 
-
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Mage's Time: "</span><span class="p">);</span> 
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">mage</span><span class="p">.</span><span class="n">CalculateTimeTaken</span><span class="p">(</span><span class="m">50</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span> 
-
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Rogue's Time: "</span><span class="p">);</span> 
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">rogue</span><span class="p">.</span><span class="n">CalculateTimeTaken</span><span class="p">(</span><span class="m">50</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>
-</pre></div>
-
-
-<h3>Related Patterns</h3>
-<p>Flyweight Pattern</p>
-<p>
-    
-    <a href="posts/2011/07/strategy-pattern.html#disqus_thread">Comments</a>
-    
-</p></div>
-
 <div>
-    <ul class="pager"><li class="next">
-        <a href="index-1.html">Older posts  →</a>
-    </li>
+    <ul class="pager">
+      
     
-</ul></div>
+</ul>
 
-<script type="text/javascript"> var disqus_shortname = 'amrelroumysblog'; (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = 'http://' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script><!--End of body content--><hr><div class="footer"><small>© 2011-2013 <a href="mailto:amr.elroumy@gmail.com">Amr Elroumy</a><br>Some rights reserved (<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="license">CC BY-NC-SA 3.0</a>)<br>Powered by <a href="http://nikola.ralsina.com.ar" target="_blank">Nikola</a> - Original theme by <a href="http://thomaspark.me/" target="_blank">Thomas Park</a></small></div>
+</div>
+
+<script type="text/javascript"> var disqus_shortname = 'amrelroumysblog'; (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = 'http://' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script>
+
+
+          <!--End of body content-->
+          <hr>
+          <div class="footer"><small>© 2011-2013 <a href="mailto:amr.elroumy@gmail.com">Amr Elroumy</a><br>Some rights reserved (<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="license">CC BY-NC-SA 3.0</a>)<br>Powered by <a href="http://nikola.ralsina.com.ar" target="_blank">Nikola</a> - Original theme by <a href="http://thomaspark.me/" target="_blank">Thomas Park</a></small></div>
         </div>
       </div>
 
@@ -757,7 +694,9 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
 <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="assets/js/jquery-1.9.1.min.js" type="text/javascript"></script><script src="assets/js/bootstrap.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">
+  <script src="assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+  <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],
     displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ]},
@@ -767,7 +706,9 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
         "font-size":  "120%"},
         scale: 120}
       });
-  </script><script>
+  </script>
+  
+  <script>
   (function() {
     var cx = '000224632386531530640:6f01ofvavgy';
     var gcse = document.createElement('script');
@@ -778,7 +719,13 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(gcse, s);
   })();
-  </script><search></search><script src="assets/js/mathjax.js" type="text/javascript"></script><script type="text/javascript">
+  </script>
+  <search></search>
+
+  <script src="assets/js/mathjax.js" type="text/javascript"></script>
+
+  
+<script type="text/javascript">
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-33968631-1']);
@@ -792,4 +739,8 @@ Singletons are meant to be used sparingly, so if you find yourself using them ev
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script></body></html>
+</script>
+
+
+</body>
+</html>

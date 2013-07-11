@@ -1,25 +1,78 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="title" content="Decorator Pattern | Amr Elroumy's Blog"><meta name="description" content="None"><meta name="author" content="Amr Elroumy"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Decorator Pattern | Amr Elroumy's Blog</title><!-- Le favicon --><link rel="shortcut icon" href="../../../favicon.ico"><!-- Le styles --><link rel="stylesheet" href="../../../assets/css/bootstrap.css"><link rel="stylesheet" href="../../../assets/css/bootstrap-responsive.css"><!-- <link rel="stylesheet" href="/assets/css/colorbox.css"> --><!-- <link rel="stylesheet" href="/assets/css/slides.css"> --><link rel="stylesheet" href="../../../assets/css/fonts.css"><link rel="stylesheet" href="../../../assets/css/font-awesome.css"><link rel="stylesheet" href="../../../assets/css/pygments.css"><link rel="stylesheet" href="../../../assets/css/style.css"><link rel="stylesheet" href="../../../assets/css/component.css"><!-- Le HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="title" content="Decorator Pattern | Amr Elroumy's Blog">
+  <meta name="description" content="None">
+  <meta name="author" content="Amr Elroumy">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decorator Pattern | Amr Elroumy's Blog</title>
+
+  <!-- Le favicon -->
+  <link rel="shortcut icon" href="../../../favicon.ico">
+
+  <!-- Le styles -->
+  <link rel="stylesheet" href="../../../assets/css/bootstrap.css">
+  <link rel="stylesheet" href="../../../assets/css/bootstrap-responsive.css">
+  <!-- <link rel="stylesheet" href="/assets/css/colorbox.css"> -->
+  <!-- <link rel="stylesheet" href="/assets/css/slides.css"> -->
+  <link rel="stylesheet" href="../../../assets/css/fonts.css">
+  <link rel="stylesheet" href="../../../assets/css/font-awesome.css">
+  <link rel="stylesheet" href="../../../assets/css/pygments.css">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../assets/css/component.css">
+
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-      <![endif]--><!-- Le fonts --><!-- <link href="http://fonts.googleapis.com/css?family=Aldrich|Lato:400,400italic" rel="stylesheet" type="text/css"> --><!-- <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|PT+Sans' rel='stylesheet' type='text/css'> --></head><body>
+      <![endif]-->
+      
+      <!-- Le fonts -->
+      
+      <!-- <link href="http://fonts.googleapis.com/css?family=Aldrich|Lato:400,400italic" rel="stylesheet" type="text/css"> -->
+      <!-- <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|PT+Sans' rel='stylesheet' type='text/css'> -->
+      
 
       
-      <ul id="vertical-menu" class="vertical-menu"><li><a href="../../../" class="icon-logo" title="Home">Home</a></li>
+      
+    </head>
+    <body>
+
+      
+      <ul id="vertical-menu" class="vertical-menu">
+    <li><a href="../../../" class="icon-logo" title="Home">Home</a></li>
     <li><a href="../../../about.html" class="icon-user" title="About Me">About Me</a></li>
     
     <li><a href="../../../archive.html" class="icon-cabinet" title="Archive">Archive</a></li>
     
     <li><a href="../../../categories/index.html" class="icon-tags" title="Tags">Tags</a></li>
     
+    <li>
+        <a href="http://feedburner.google.com/fb/a/mailverify?uri=AmrElroumysBlog&amp;loc=en_US" class="icon-envelope" title="Subscribe by Mail" onclick="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=AmrElroumysBlog&amp;loc=en_US', 'popupwindow', 'scrollbars=yes,width=660,height=600,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=no'); return false">Subscribe</a>
+    </li>
     <li><a href="../../../rss.xml" class="icon-feed" title="RSS Feed">RSS</a></li>
     
     <li><a href="#" class="icon-pencil" title="Blog Roll">Blog Roll</a>
-        <ul class="vertical-submenu"><li><a href="http://abdelrahmanogail.wordpress.com/" target="_blank">Abdelrahman Elogeel's Blog</a></li>
-            <li><a href="http://acmascis.org/blog" target="_blank">acmASCIS' Blog</a></li>
+        <ul class="vertical-submenu">
+            
+            <li><a href="http://abdelrahmanogail.wordpress.com/" target="_blank">Abdelrahman Elogeel's Blog</a></li>
+            
+            <li><a href="http://acmascis.org/blog/" target="_blank">acmASCIS' Blog</a></li>
+            
             <li><a href="http://anasmehassab.wordpress.com/" target="_blank">Anas Awad's T-Blog</a></li>
+            
+            <li><a href="http://ferasferas.wordpress.com/" target="_blank">Feras' Blog</a></li>
+            
             <li><a href="http://iamsamy.blogspot.com/" target="_blank">Mohamed Samy's thoughts</a></li>
+            
             <li><a href="http://mhesham.wordpress.com/" target="_blank">Muhammad Hesham's Blog</a></li>
-        </ul></li>
-</ul><!-- Blog Continer --><div class="container-fluid" id="container">
+            
+        </ul>
+    </li>
+</ul>
+      <!-- Blog Continer -->
+      <div class="container-fluid" id="container">
         <!-- Blog navbar Bar -->
         
         <div class="header" style="margin-bottom: 16px;">
@@ -60,7 +113,8 @@
     <div class="postbox">
     <h1><a class="post-title" href="#">Decorator Pattern</a></h1>
     
-    <hr><small>
+    <hr>
+    <small>
         Posted: July 09, 2011  |  
 
         
@@ -68,15 +122,16 @@
         
             More posts about
             
-                <a href="../../../categories/design-patterns.html"><span class="badge badge-info">Design Patterns</span></a>
+                <a href="../../../categories/Design%20Patterns.html"><span class="badge badge-info">Design Patterns</span></a>
             
-                <a href="../../../categories/oop.html"><span class="badge badge-info">OOP</span></a>
+                <a href="../../../categories/OOP.html"><span class="badge badge-info">OOP</span></a>
             
                 <a href="../../../categories/programming.html"><span class="badge badge-info">programming</span></a>
             
         
     </small>
-    <hr><h2>Pattern Name</h2>
+    <hr>
+    <h2>Pattern Name</h2>
 <p>Decorator Pattern</p>
 <h2>Classification</h2>
 <p>Structural Pattern</p>
@@ -90,36 +145,50 @@
 <p>You might find yourself while working on a project and in the need of adding/modifying responsibilities or behaviors to objects of a certain type. One way of approaching this problem is that we extend this type using inheritance and add the new behavior to it in its children. But what would happen when we want to add more than one responsibility for some objects while keeping others with only a single new responsibility? Then, we would have to implement all the combinations of these responsibilities and ending up with what can be called as a <strong>class explosion</strong>; as you’ll end up with a lot of classes, more time to debug and a lot of those long &amp; lonely nights of maintenance.</p>
 <p>An answer to this problem would be to <strong>extend</strong> <strong>the behavior without using inheritance</strong>. This can be achieved by using <strong>composition</strong> to wrap the components by the decorator and add new behavior/properties or modify already existing ones in the runtime. Using this approach we can avoid having to use inheritance and constrain ourselves with static (compile-time) extending to the objects and use instead <strong>dynamic (runtime)</strong> extending of those specific objects. Also it allows us to add the needed behavior according to the specific conditions that occur during the runtime; meaning that objects of the same type can end up being decorated differently and that the same object can be wrapped in more than one decorator.</p>
 <h4>Design principles behind this pattern:</h4>
-<ul><li><strong>Open-Closed Principle</strong> from SOLID Principles Classes should be <strong>open</strong> <strong>for extension</strong>, but <strong>closed for modification</strong>. One reason why this principle is important is that it prevents us from introducing bugs into code that has already been tested and debugged.</li>
-</ul><h4>Important Notes:</h4>
-<ul><li>The decorator pattern is used to extend behavior of objects during the runtime not classes.</li>
+<ul>
+<li><strong>Open-Closed Principle</strong> from SOLID Principles Classes should be <strong>open</strong> <strong>for extension</strong>, but <strong>closed for modification</strong>. One reason why this principle is important is that it prevents us from introducing bugs into code that has already been tested and debugged.</li>
+</ul>
+<h4>Important Notes:</h4>
+<ul>
+<li>The decorator pattern is used to extend behavior of objects during the runtime not classes.</li>
 <li>You can't apply the <strong>Open-Closed Principle</strong> to every part of your design, because it'll add complexity to the code and it'll take time and effort. You need to identify—comes with experience—the parts of the code that are most likely to change and apply the principle on them.</li>
 <li>Using decorators with code that relies on the component's <strong>concrete</strong> type will break that code. But if we only use them with code that depends on the <strong>abstract</strong> component's type, then the decorators will remain <strong>transparent</strong> to the client of the component.</li>
-</ul><h2>Applicability (from GoF’s Book)</h2>
-<ul><li>To add responsibilities to individual objects dynamically and transparently, that is, without affecting other objects. </li>
+</ul>
+<h2>Applicability (from GoF’s Book)</h2>
+<ul>
+<li>To add responsibilities to individual objects dynamically and transparently, that is, without affecting other objects. </li>
 <li>For responsibilities that can be withdrawn. </li>
 <li>When extension by subclassing is impractical. Sometimes a large number of independent extensions are possible and would produce an explosion of subclasses to support every combination. Or a class definition may be hidden or otherwise unavailable for subclassing. </li>
-</ul><h2>Structure</h2>
+</ul>
+<h2>Structure</h2>
 <p><img alt="Decorator Pattern Structure" src="http://amrelroumy.files.wordpress.com/2011/07/decorator_pattern1.png"></p>
 <p>You might ask yourself if the decorator pattern teaches us to favor composition over inheritance, then why does the <strong>DecoratorBase</strong> class extends the Object's super class? The answer is that the decorator is extending this class to gain the same interface as the object it will wrap, not to gain the behavior. Thus we extend the base class to get the interface but we're getting the behavior through composition of decorators with the base components as other decorators.</p>
 <h2>Participants</h2>
-<ul><li><strong>ComponentBase: </strong>Defines the basic behaviors/properties that would be implemented by the components that will be decorated. If we don’t want to define any actual functionality in it, you can use an interface instead of an abstract class.</li>
+<ul>
+<li><strong>ComponentBase: </strong>Defines the basic behaviors/properties that would be implemented by the components that will be decorated. If we don’t want to define any actual functionality in it, you can use an interface instead of an abstract class.</li>
 <li><strong>DecoratorBase: </strong>It is the abstract class for all the decorators. It inherits the basic interface of the components from the <strong>ConcreteBase</strong>, to allow the decorators to be used in place of the components. You’ll notice that it adds a constructor that accepts a <strong>Component</strong> of type <strong>ComponentBase; </strong>this is the Component to be wrapped.</li>
 <li><strong>ConcreteComponent: </strong>The actual components that will be wrapped.</li>
 <li><strong>ConcreteDecoratorA/</strong><strong>ConcreteDecoratorA: </strong>The decorators that wrap Components. They can introduce new behavior/properties like <strong>ConcreteDecoratorA </strong>or modify already existing ones like <strong>ConcretDecoratorB</strong>.</li>
-</ul><h2>Properties of decorators:</h2>
-<ul><li>They have the same supertype as the objects they decorate.</li>
+</ul>
+<h2>Properties of decorators:</h2>
+<ul>
+<li>They have the same supertype as the objects they decorate.</li>
 <li>You can use one or more decorators to wrap an object.</li>
 <li>The decorator adds its own behavior either before and/or after delegating to the object it decorates to do the rest of the job.</li>
 <li>Objects can be decorated at runtime.</li>
-</ul><h2>Consequences</h2>
+</ul>
+<h2>Consequences</h2>
 <h4>Advantages of using the decorator pattern:</h4>
-<ul><li>It allows us to add new behavior to existing code without the need to modify it (Following the Open-Closed Principle) or without having to use inheritance, thus avoiding inheritance’s rigidity and adding more flexibility to the code.</li>
+<ul>
+<li>It allows us to add new behavior to existing code without the need to modify it (Following the Open-Closed Principle) or without having to use inheritance, thus avoiding inheritance’s rigidity and adding more flexibility to the code.</li>
 <li>Avoids having classes with complicated and complex responsibilities high up in the class hierarchy. Instead we use simple classes that are customizable and whose responsibilities can be added during the runtime.</li>
-</ul><h4>One of the shortcomings of using the Decorator Pattern:</h4>
-<ul><li>Using this pattern in your design, you'll end up with a relatively large number of small objects that differ in the way they are assembled. This can be overwhelming to a developer trying to use the Decorator-based API, but is easy to those who understand them and are familiar with this design pattern.</li>
+</ul>
+<h4>One of the shortcomings of using the Decorator Pattern:</h4>
+<ul>
+<li>Using this pattern in your design, you'll end up with a relatively large number of small objects that differ in the way they are assembled. This can be overwhelming to a developer trying to use the Decorator-based API, but is easy to those who understand them and are familiar with this design pattern.</li>
 <li>Using this pattern can complicate the process of instantiating objects, that's why this pattern is used alongside the Factory and Builder patterns</li>
-</ul><h2>Implementation</h2>
+</ul>
+<h2>Implementation</h2>
 <div class="code"><pre><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">ComponentBase</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">abstract</span> <span class="k">void</span> <span class="nf">Operation</span><span class="p">();</span>
@@ -164,10 +233,14 @@
 
 
 <h2>Related Patterns (from GoF’s book)</h2>
-<ul><li><strong>Adapter</strong> : A decorator is different from an adapter in that a decorator only changes an object's responsibilities, not its interface; an adapter will give an object a completely new interface.</li>
+<ul>
+<li><strong>Adapter</strong> : A decorator is different from an adapter in that a decorator only changes an object's responsibilities, not its interface; an adapter will give an object a completely new interface.</li>
 <li><strong>Composite</strong> : A decorator can be viewed as a degenerate composite with only one component. However, a decorator adds additional responsibilities—it isn't intended for object aggregation.</li>
 <li><strong>Strategy </strong>: A decorator lets you change the skin of an object; a strategy lets you change the guts. These are two alternative ways of changing an object.</li>
-</ul><ul class="pager"><li class="previous">
+</ul>
+    <ul class="pager">
+    
+        <li class="previous">
             <a href="strategy-pattern.html">← Previous post</a>
         </li>
     
@@ -176,14 +249,18 @@
             <a href="factory-method.html">Next post →</a>
         </li>
     
-    </ul><div id="disqus_thread"></div>
-        <script type="text/javascript"> var disqus_shortname = 'amrelroumysblog'; var disqus_url = 'http://amrelroumy.github.io/posts/2011/07/decorator-pattern.html'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); </script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </ul>
+    
+        <div id="disqus_thread"></div>
+        <script type="text/javascript"> var disqus_shortname = 'amrelroumysblog'; var disqus_url = 'http://amrelroumy.github.io/posts/2011/07/decorator-pattern.html'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     
     </div>
 
           <!--End of body content-->
-          <hr><div class="footer"><small>© 2011-2013 <a href="mailto:amr.elroumy@gmail.com">Amr Elroumy</a><br>Some rights reserved (<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="license">CC BY-NC-SA 3.0</a>)<br>Powered by <a href="http://nikola.ralsina.com.ar" target="_blank">Nikola</a> - Original theme by <a href="http://thomaspark.me/" target="_blank">Thomas Park</a></small></div>
+          <hr>
+          <div class="footer"><small>© 2011-2013 <a href="mailto:amr.elroumy@gmail.com">Amr Elroumy</a><br>Some rights reserved (<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="license">CC BY-NC-SA 3.0</a>)<br>Powered by <a href="http://nikola.ralsina.com.ar" target="_blank">Nikola</a> - Original theme by <a href="http://thomaspark.me/" target="_blank">Thomas Park</a></small></div>
         </div>
       </div>
 
@@ -203,7 +280,9 @@
 <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="../../../assets/js/jquery-1.9.1.min.js" type="text/javascript"></script><script src="../../../assets/js/bootstrap.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">
+  <script src="../../../assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+  <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],
     displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ]},
@@ -213,7 +292,9 @@
         "font-size":  "120%"},
         scale: 120}
       });
-  </script><script>
+  </script>
+  
+  <script>
   (function() {
     var cx = '000224632386531530640:6f01ofvavgy';
     var gcse = document.createElement('script');
@@ -224,7 +305,13 @@
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(gcse, s);
   })();
-  </script><search></search><script src="../../../assets/js/mathjax.js" type="text/javascript"></script><script type="text/javascript">
+  </script>
+  <search></search>
+
+  <script src="../../../assets/js/mathjax.js" type="text/javascript"></script>
+
+  
+<script type="text/javascript">
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-33968631-1']);
@@ -238,4 +325,8 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script></body></html>
+</script>
+
+
+</body>
+</html>

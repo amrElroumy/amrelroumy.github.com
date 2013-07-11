@@ -1,0 +1,558 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="title" content="Move semantics and rvalue references in C++11 | Amr Elroumy's Blog">
+  <meta name="description" content="None">
+  <meta name="author" content="Amr Elroumy">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Move semantics and rvalue references in C++11 | Amr Elroumy's Blog</title>
+
+  <!-- Le favicon -->
+  <link rel="shortcut icon" href="../../../favicon.ico">
+
+  <!-- Le styles -->
+  <link rel="stylesheet" href="../../../assets/css/bootstrap.css">
+  <link rel="stylesheet" href="../../../assets/css/bootstrap-responsive.css">
+  <!-- <link rel="stylesheet" href="/assets/css/colorbox.css"> -->
+  <!-- <link rel="stylesheet" href="/assets/css/slides.css"> -->
+  <link rel="stylesheet" href="../../../assets/css/fonts.css">
+  <link rel="stylesheet" href="../../../assets/css/font-awesome.css">
+  <link rel="stylesheet" href="../../../assets/css/pygments.css">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../assets/css/component.css">
+
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+      <![endif]-->
+      
+      <!-- Le fonts -->
+      
+      <!-- <link href="http://fonts.googleapis.com/css?family=Aldrich|Lato:400,400italic" rel="stylesheet" type="text/css"> -->
+      <!-- <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|PT+Sans' rel='stylesheet' type='text/css'> -->
+      
+
+      
+      
+    </head>
+    <body>
+
+      
+      <ul id="vertical-menu" class="vertical-menu">
+    <li><a href="../../../" class="icon-logo" title="Home">Home</a></li>
+    <li><a href="../../../about.html" class="icon-user" title="About Me">About Me</a></li>
+    
+    <li><a href="../../../archive.html" class="icon-cabinet" title="Archive">Archive</a></li>
+    
+    <li><a href="../../../categories/index.html" class="icon-tags" title="Tags">Tags</a></li>
+    
+    <li>
+        <a href="http://feedburner.google.com/fb/a/mailverify?uri=AmrElroumysBlog&amp;loc=en_US" class="icon-envelope" title="Subscribe by Mail" onclick="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=AmrElroumysBlog&amp;loc=en_US', 'popupwindow', 'scrollbars=yes,width=660,height=600,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=no'); return false">Subscribe</a>
+    </li>
+    <li><a href="../../../rss.xml" class="icon-feed" title="RSS Feed">RSS</a></li>
+    
+    <li><a href="#" class="icon-pencil" title="Blog Roll">Blog Roll</a>
+        <ul class="vertical-submenu">
+            
+            <li><a href="http://abdelrahmanogail.wordpress.com/" target="_blank">Abdelrahman Elogeel's Blog</a></li>
+            
+            <li><a href="http://acmascis.org/blog/" target="_blank">acmASCIS' Blog</a></li>
+            
+            <li><a href="http://anasmehassab.wordpress.com/" target="_blank">Anas Awad's T-Blog</a></li>
+            
+            <li><a href="http://ferasferas.wordpress.com/" target="_blank">Feras' Blog</a></li>
+            
+            <li><a href="http://iamsamy.blogspot.com/" target="_blank">Mohamed Samy's thoughts</a></li>
+            
+            <li><a href="http://mhesham.wordpress.com/" target="_blank">Muhammad Hesham's Blog</a></li>
+            
+        </ul>
+    </li>
+</ul>
+      <!-- Blog Continer -->
+      <div class="container-fluid" id="container">
+        <!-- Blog navbar Bar -->
+        
+        <div class="header" style="margin-bottom: 16px;">
+  <h1 style="max-width: 800px;  margin: 0 auto;  padding-top: 36px;font-style: normal;font-weight: inherit;color: #999999;font-size: 20px;">Amr Elroumy's Blog</h1>
+  <h3 style="max-width: 800px;  margin: 0 auto;padding-top: 2px;font-style: normal;">Science, Programming &amp; Personal Encounters</h3>
+</div>
+<div style="
+    max-width: 77%;
+    margin: auto;
+">
+<div style="
+    width: 10.7%;
+    height: 5px;
+    background-color: #f6c99a;
+    display: inline;
+    float: left;
+"></div>
+<div style="
+    background-color: #bfdab3;
+    height: 5px;
+    display: inline;
+    float: left;
+    width: 78.3%;
+"></div>
+<div style="
+    width: 10.7%;      
+    height: 5px;      background-color: #f6c99a;      display: inline;      float: left;
+"></div>
+</div>
+        
+        <!-- End Blog navbar Bar -->
+
+        <div class="container">
+
+         <div class="content" style="max-width: 800px; margin: 0 auto; padding-top:70px;"> 
+          <!--Body content-->
+          
+    <div class="postbox">
+    <h1><a class="post-title" href="#">Move semantics and rvalue references in C++11</a></h1>
+    
+    <hr>
+    <small>
+        Posted: July 11, 2013  |  
+
+        
+
+        
+            More posts about
+            
+                <a href="../../../categories/C++.html"><span class="badge badge-info">C++</span></a>
+            
+                <a href="../../../categories/C++11.html"><span class="badge badge-info">C++11</span></a>
+            
+        
+    </small>
+    <hr>
+    <h3>Questions we want to answer in this post</h3>
+<ul>
+<li>Why do we need move semantics?</li>
+<li>What's the deal with rvalues, lvalues, and their references?</li>
+<li>How to make use of the move semantics?</li>
+<li>How do we force a move?</li>
+<li>What are other uses for rvalue references?</li>
+</ul>
+<!-- TEASER_END -->
+
+<h3>Why do we need move semantics?</h3>
+<p>To avoid the wasted space of temporary objects and the wasted time of copying the data.</p>
+<ul>
+<li>E.g. 1: Temporary objects created when assigning a result of a function to a local variable.</li>
+</ul>
+<div class="code"><pre><span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">StrVec</span><span class="p">;</span>
+<span class="n">StrVec</span> <span class="nf">populateStrVec</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">StrVec</span> <span class="n">sVctor</span><span class="p">;</span>
+    <span class="c1">// Fill the sVector with let's say 10,000 strings</span>
+    <span class="p">...</span>
+    <span class="k">return</span> <span class="n">sVector</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">StrVec</span> <span class="n">vs</span><span class="p">;</span>
+
+<span class="c1">// Copy the return value object to vt, then destroy return value object</span>
+<span class="c1">// And if we have a (really) naive compiler, it could actually copy the </span>
+<span class="c1">// sVector to a temp object which is then copied to the return object.</span>
+<span class="c1">// Both would be destroyed later on.</span>
+<span class="n">vs</span> <span class="o">=</span> <span class="n">createStrVec</span><span class="p">();</span>    
+
+<span class="c1">// A function that removes a substring from all the strings in a vector.</span>
+<span class="c1">// Reason it takes StrVec as const reference: </span>
+<span class="c1">// we don't want to modify the original vector</span>
+<span class="c1">// If it wasn't passed by reference we would have the blood of another</span>
+<span class="c1">// temp obj on our hands.</span>
+<span class="n">StrVec</span> <span class="nf">removeSubstr</span><span class="p">(</span><span class="k">const</span> <span class="n">StrVec</span><span class="o">&amp;</span> <span class="n">sVector</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">substring</span><span class="p">)</span>    
+<span class="p">{</span>
+    <span class="c1">// Remove all the instance of substring from sVector</span>
+    <span class="p">...</span>
+    <span class="k">return</span> <span class="n">sVector</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Copy return value object to vt, then destroy return value object</span>
+<span class="c1">// And if we have a (really) naive compiler, it could actually copy the </span>
+<span class="c1">// sVector to a temp object which is then copied to the return object.</span>
+<span class="c1">// Both would be destroyed later on.</span>
+<span class="n">StrVec</span> <span class="nf">filtered_vs</span><span class="p">(</span><span class="n">removeSubstr</span><span class="p">(</span><span class="n">vs</span><span class="p">));</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>E.g. 2: The operations of <code>std::vector</code> like <code>push_back()</code>, <code>insert()</code>, <code>emplace()</code>, etc. which eventually need to modify the capacity of vector and does this by copying its elements from the old memory block to the newly-allocated memory block. </p>
+</li>
+<li>
+<p>E.g. 3: The swap operation as we all know it depends on using a temporary object to exchange (by copying) data from one variable to another.</p>
+</li>
+</ul>
+<div class="code"><pre><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">T</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// Copy data from a to temp (we have 2 copies of a now)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>      <span class="c1">// Copy data from b to a (we have 2 copies of b now)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>   <span class="c1">// Copy data from temp to b (we have 2 copies of a now)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Moving provides most significance when we have objects that contain data allocated in separate memory and we want to do a deep copy. We no longer have to copy all the data to a newly allocated location. Instead, copying the main object and then moving the pointers/references to the new objects will suffice and will be much better memory- and performance-wise.  Performance-wise moving is never slower than copy, and it is often faster.</p>
+<h4>How is that true?</h4>
+<p>By comparing the copy and move operations after being carried out on a simple object <code>A</code> as illustrated in the following figure we notice that there are no differences between the move and the copy, both result in the same output; the object is copied to the new location.
+<img alt="Simple Object" src="../../../2013/07/move-simple-object.jpg"></p>
+<p>However, if we decide to raise the bar a few inches higher and perform the same operations on an object with data object allocated in separate memory, we notice that there is an improvement in which not everything is copied.
+<img alt="Complex Object" src="../../../2013/07/move-complex-object.jpg"></p>
+<hr>
+<p>In order to know exactly how does C++ compilers recognize move opportunities and how can we take advantage of them we need to familiarize ourselves with 2 terms: rvalues and lvalues.</p>
+<h3>What's the deal with rvalues, lvalues, and their references?</h3>
+<dl>
+<dt>lvalues - Left values</dt>
+<dd>An expression that represents data whose address can be taken, which can be a named object or dereferenced pointer.</dd>
+</dl>
+<p>Properties:</p>
+<ul>
+<li>An lvalue provides a (semi)permanent piece of memory. </li>
+<li>Can appear on the left side of an assignment statement.</li>
+</ul>
+<dl>
+<dt>rvalues - Right values</dt>
+<dd>An expression that is not an "lvalue". Alright, that was helpful!<br>
+But this is true, an expression is an rvalue if it results in a temporary object that can't be accessed by address. Such expressions can appear on the right side of an assignment statement but not the left. Other examples of rvalues include literals, such as 10.0, and expressions such as x + y. Also, function return values are rvalues, becuase they reside in a temporary memory location that doesn't necessarily persist even until the next statement.</dd>
+</dl>
+<div class="code"><pre><span class="kt">int</span> <span class="n">mInt1</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>          <span class="c1">// mInt is [lvalue]</span>
+<span class="kt">int</span> <span class="n">mInt2</span><span class="o">=</span> <span class="o">&amp;</span><span class="mi">4</span><span class="p">;</span>          <span class="c1">// Error: 4 is [rvalue] so we can't acquire its address</span>
+<span class="kt">int</span> <span class="n">mInt3</span> <span class="o">=</span> <span class="n">mInt1</span> <span class="o">*</span> <span class="mi">2</span>   <span class="c1">// Everything seems fine, assigning rvalue to lvalue</span>
+<span class="n">mInt</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>          <span class="c1">// Error: can't assign to rvalue</span>
+
+<span class="kt">int</span><span class="o">*</span> <span class="n">pInt</span><span class="p">;</span>              <span class="c1">// pInt is [lvalue]</span>
+
+<span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">bar</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str</span><span class="p">);</span>   <span class="c1">// str is [lvalue], f returns temporary object [rvalue]</span>
+<span class="n">bar</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>                       <span class="c1">// casting from const char* to std::string creates temp string [rvalue]</span>
+
+<span class="kt">int</span><span class="o">&amp;</span> <span class="n">foo</span><span class="p">();</span>             <span class="c1">// function returns reference to variable [lvalue]</span>
+<span class="n">foo</span><span class="p">()</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>             <span class="c1">// foo() is [lvalue]</span>
+
+<span class="kt">int</span> <span class="nf">foobar</span><span class="p">();</span>           <span class="c1">// function returns temporary int [rvalue]</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">foobar</span><span class="p">();</span>           <span class="c1">// foobar() is an [rvalue]</span>
+<span class="kt">int</span><span class="o">*</span> <span class="n">pInt2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">foobar</span><span class="p">();</span> <span class="c1">// Error: cannot take the address of an [rvalues]</span>
+</pre></div>
+
+
+<dl>
+<dt>lvalue refernces</dt>
+<dd>The traditional C++ reference–now called an lvalue reference–binds an identifier to an lvalue.</dd>
+</dl>
+<div class="code"><pre><span class="kt">int</span><span class="o">*</span> <span class="n">pInt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">;</span>
+<span class="kt">int</span><span class="o">&amp;</span> <span class="n">ref1</span> <span class="o">=</span> <span class="n">pInt</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">mInt</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span><span class="o">&amp;</span> <span class="n">ref2</span> <span class="o">=</span> <span class="n">mInt</span><span class="p">;</span>
+</pre></div>
+
+
+<dl>
+<dt>rvalue references</dt>
+<dd>C++11 introduces a second kind of reference, called an rvalue reference, declared by using <code>&amp;&amp;</code>, can bind to rvalues—that is, values that can appear on the right-hand side of an assignment expression but for which one cannot apply the address operator. However, binding an rvalue to an rvalue reference results in the value being stored in a location whose address can be taken. This binding of the data to particular addresses is what
+makes it possible to access the data through the rvalue references.</dd>
+</dl>
+<div class="code"><pre><span class="kt">int</span><span class="o">&amp;&amp;</span> <span class="n">r1</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+<span class="kt">int</span><span class="o">&amp;&amp;</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>       <span class="c1">// which is not allowed for int &amp;</span>
+<span class="kt">double</span><span class="o">&amp;&amp;</span> <span class="n">r3</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="p">);</span>
+</pre></div>
+
+
+<p>I think you had your fair share of introductions, you must be asking now what are those definitions actually useful for?!</p>
+<p>To answer this question, the rvalue reference was introduced mainly to help library designers provide more efficient implementations of certain operations. In fact, rvalue references solve at least two problems:</p>
+<ul>
+<li>Implementing move semantics</li>
+<li>Perfect forwarding</li>
+</ul>
+<h3>How to make use of the move semantics?</h3>
+<p>Value movement is safe when the source is an rvalue.
+Temporaries go away at statement’s end.
+Rvalue references identify objects that may be moved from.</p>
+<p>How can we distinguish between variables and unnamed temporaries? We use overloading. If there is an overload between ordinary lvalue reference and rvalue references then rvalues should prefer the new type and lvalues the ordinary reference</p>
+<h4>Summary of reference binding rules:</h4>
+<ul>
+<li>Lvalues may bind to lvalue references.</li>
+<li>Rvalues may bind to lvalue references to const.</li>
+<li>Rvalues may bind to rvalue references to non-const.</li>
+<li>Lvalues may not bind to rvalue references, otherwise lvalues could be accidentally modified</li>
+</ul>
+<div class="code"><pre><span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>         <span class="c1">// lvalue reference overload</span>
+<span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">);</span>        <span class="c1">// rvalue reference overload</span>
+
+<span class="n">X</span> <span class="n">x</span><span class="p">;</span>
+<span class="n">X</span> <span class="nf">foobar</span><span class="p">();</span>     <span class="c1">// Function declaration</span>
+
+<span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>             <span class="c1">// argument is lvalue: calls foo(X&amp;)</span>
+<span class="n">foo</span><span class="p">(</span><span class="n">foobar</span><span class="p">());</span>      <span class="c1">// argument is rvalue: calls foo(X&amp;&amp;)</span>
+</pre></div>
+
+
+<h4>Some considerations:</h4>
+<ul>
+<li>Implementing <code>void foo(X&amp;);</code> only works with lvalues, but fails to handle rvalues</li>
+<li>Implementing <code>void foo(const X&amp;);</code> works with both lvalues and rvalues, however we won't be able to distinguish between them.</li>
+<li>Implementing <code>void foo(X&amp;&amp;);</code> only works with rvalues.</li>
+</ul>
+<h4>Use-case - Widgets' Shop</h4>
+<p>We can definitely use this overloading technique for all our functions, but it isn't really necessary except for copy constructors and assignment operators; where all the temporary objects are being created and dealt with.</p>
+<div class="code"><pre><span class="k">struct</span> <span class="n">Part</span><span class="p">;</span>                    <span class="c1">// Type declaration of Part struct</span>
+
+<span class="k">class</span> <span class="nc">Widget</span> 
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="c1">// Default Constructor and Destructor declarations</span>
+    <span class="c1">// ...</span>
+
+    <span class="n">Widget</span><span class="p">(</span><span class="k">const</span> <span class="n">Widget</span><span class="o">&amp;</span><span class="p">);</span>          <span class="c1">// copy constructor</span>
+    <span class="n">Widget</span><span class="p">(</span><span class="n">Widget</span><span class="o">&amp;&amp;</span><span class="p">);</span>               <span class="c1">// move constructor</span>
+    <span class="n">Widget</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Widget</span><span class="o">&amp;</span><span class="p">);</span>   <span class="c1">// copy assignment operation</span>
+    <span class="n">Widget</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Widget</span><span class="o">&amp;&amp;</span><span class="p">);</span>        <span class="c1">// move assignment operation</span>
+<span class="nl">private:</span>
+    <span class="n">Part</span><span class="o">*</span> <span class="n">pParts</span><span class="p">;</span>                   <span class="c1">// Pointer to Parts</span>
+    <span class="kt">int</span> <span class="n">nItems</span><span class="p">;</span>                     <span class="c1">// Number of Parts</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>Now to the implementation of the move/copy constructors and assignment operators:</p>
+<div class="code"><pre><span class="c1">// Copy Constructor</span>
+<span class="c1">// Initializer list: initialize nItems from copyFromMe</span>
+<span class="n">Widget</span><span class="o">::</span><span class="n">Widget</span><span class="p">(</span><span class="k">const</span> <span class="n">Widget</span><span class="o">&amp;</span> <span class="n">copyFromMe</span><span class="p">)</span> <span class="o">:</span> <span class="n">nItems</span><span class="p">(</span><span class="n">copyFromMe</span><span class="p">.</span><span class="n">nItems</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">pParts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Part</span><span class="p">[</span><span class="n">nItems</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nItems</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span> <span class="n">pParts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">copyFromMe</span><span class="p">.</span><span class="n">pParts</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Move constructor</span>
+<span class="c1">// Initializer list: initialize nItems and pParts from moveFromMe</span>
+<span class="n">Widget</span><span class="o">::</span><span class="n">Widget</span><span class="p">(</span><span class="n">Widget</span><span class="o">&amp;&amp;</span> <span class="n">moveFromMe</span><span class="p">)</span><span class="o">:</span> <span class="n">nItems</span><span class="p">(</span><span class="n">moveFromMe</span><span class="p">.</span><span class="n">nItems</span><span class="p">),</span> <span class="n">pParts</span><span class="p">(</span><span class="n">moveFromMe</span><span class="p">.</span><span class="n">pParts</span><span class="p">)</span>
+<span class="p">{</span> 
+    <span class="c1">// Leave source in valid state</span>
+    <span class="n">moveFromMe</span><span class="p">.</span><span class="n">pParts</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>        
+    <span class="n">moveFromMe</span><span class="p">.</span><span class="n">nItems</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      
+<span class="p">}</span> 
+
+<span class="c1">// Copy Assignment</span>
+<span class="n">Widget</span><span class="o">&amp;</span> <span class="n">Widget</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Widget</span><span class="o">&amp;</span> <span class="n">copyFromMe</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">copyFromMe</span><span class="p">)</span>
+    <span class="p">{</span> <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="k">delete</span> <span class="p">[]</span><span class="n">pParts</span><span class="p">;</span>                <span class="c1">// Delete old data</span>
+
+    <span class="n">nItems</span> <span class="o">=</span> <span class="n">copyFromMe</span><span class="p">.</span><span class="n">nItems</span><span class="p">;</span>
+    <span class="n">pParts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Part</span><span class="p">[</span><span class="n">nItems</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nItems</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span> <span class="n">pParts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">copyFromMe</span><span class="p">.</span><span class="n">pParts</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="p">}</span>
+
+    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Move assignment</span>
+<span class="n">Widget</span><span class="o">&amp;</span> <span class="n">Widget</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Widget</span> <span class="o">&amp;&amp;</span> <span class="n">moveFromMe</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">moveFromMe</span><span class="p">)</span>
+    <span class="p">{</span> <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="k">delete</span> <span class="p">[]</span><span class="n">pParts</span><span class="p">;</span>                <span class="c1">// Delete old data</span>
+    <span class="n">pParts</span> <span class="o">=</span> <span class="n">moveFromMe</span><span class="p">.</span><span class="n">pParts</span><span class="p">;</span>     <span class="c1">// Take source's value</span>
+    <span class="n">nItems</span> <span class="o">=</span> <span class="n">moveFromMe</span><span class="p">.</span><span class="n">nItems</span><span class="p">;</span>
+
+    <span class="c1">// Leave source in valid state</span>
+    <span class="n">moveFromMe</span><span class="p">.</span><span class="n">pParts</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">moveFromMe</span><span class="p">.</span><span class="n">nItems</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h4>Why do we assign <code>nullptr</code> to <code>moveFromMe.pParts</code> in both move constructor and assignment operator?</h4>
+<p>Before the point of assignment, both <code>pParts</code> and <code>moveFromMe.pParts</code> pointed to the same data. It would be awkward when the destructor of the temporary object <code>moveFromMe</code> is called after the function terminates, as it releases the memory pointed at by <code>moveFromMe.pParts</code>. </p>
+<p>Also, a program shouldn’t call <code>delete</code> twice for the same address. To avoid this problem, the constructor then sets the original pointer to the null pointer because it is not an error to apply delete []to the null pointer. This action of changing the ownership is sometimes referred to as <strong><em>pilfering</em></strong> or <strong><em>appropriation</em></strong>.</p>
+<p>An example usage of our class to illustrate the used constructors and assignment operators:</p>
+<div class="code"><pre><span class="n">Widget</span> <span class="nf">createWidget</span><span class="p">();</span>      <span class="c1">// Factory function declaration</span>
+
+<span class="n">Widget</span> <span class="n">w1</span><span class="p">;</span>              
+<span class="n">Widget</span> <span class="n">w2</span> <span class="o">=</span> <span class="n">w1</span><span class="p">;</span>             <span class="c1">// lvalue src - matches Widget::Widget(const Widget&amp;) -&gt; Copy Constructor</span>
+
+<span class="n">Widget</span> <span class="nf">w3</span><span class="p">(</span><span class="n">createWidget</span><span class="p">());</span>  <span class="c1">// rvalue src - matches Widget::Widget(Widget&amp;&amp;) -&gt; Move Constructor</span>
+<span class="n">w1</span> <span class="o">=</span> <span class="n">w2</span><span class="p">;</span>                    <span class="c1">// lvalue src -&gt; Copy Assignment</span>
+<span class="n">w3</span> <span class="o">=</span> <span class="n">Widget</span><span class="p">();</span>              <span class="c1">// rvalue src -&gt; Move Assignment</span>
+</pre></div>
+
+
+<h3>How do we force a move?</h3>
+<ul>
+<li>E.g. 1: In the previously mentioned <code>swap()</code> function we see that there are no rvalues, consequently no move semantics are used by the compiler to optimize the copying processing.</li>
+</ul>
+<div class="code"><pre><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">T</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// Copy data from a to temp (we have 2 copies of a now)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>      <span class="c1">// Copy data from b to a (we have 2 copies of b now)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>   <span class="c1">// Copy data from temp to b (we have 2 copies of a now)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>However, we know that the move here is completely safe; we want to swap data from one variable to another and skip any temporary objects that might be created in the process. Fortunately, C++ in the spirit of not withholding any opportunities from programmers that prevent them from shooting themselves in the foot, allows us to use move semantics on lvalues as well. </p>
+<div class="code"><pre><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> 
+<span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> 
+<span class="p">{</span> 
+    <span class="n">T</span> <span class="n">tmp</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">b</span><span class="p">);</span> 
+    <span class="n">b</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+<span class="p">}</span> 
+</pre></div>
+
+
+<ul>
+<li>E.g. 2: Another usage of <code>std::move()</code> is in setters:</li>
+</ul>
+<div class="code"><pre><span class="k">class</span> <span class="nc">Widget</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="p">...</span>
+    <span class="kt">void</span> <span class="n">setName</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">newName</span><span class="p">)</span>
+    <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="n">newName</span><span class="p">;</span> <span class="p">}</span>                         <span class="c1">// copy param</span>
+    <span class="kt">void</span> <span class="n">setName</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&amp;</span> <span class="n">newName</span><span class="p">)</span>
+    <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">newName</span><span class="p">);</span> <span class="p">}</span>              <span class="c1">// move param</span>
+    <span class="kt">void</span> <span class="n">setCoords</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">newCoords</span><span class="p">)</span>
+    <span class="p">{</span> <span class="n">coordinates</span> <span class="o">=</span> <span class="n">newCoords</span><span class="p">;</span> <span class="p">}</span>                <span class="c1">// copy param</span>
+    <span class="kt">void</span> <span class="n">setCoords</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;&amp;</span> <span class="n">newCoords</span><span class="p">)</span>
+    <span class="p">{</span> <span class="n">coordinates</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">newCoords</span><span class="p">);</span> <span class="p">}</span>     <span class="c1">// move param</span>
+    <span class="p">...</span>
+<span class="nl">private:</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">coordinates</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>However, you should use this with caution unless you don't mind buying a new pair of shoes so often.</p>
+<h4>Important uses of <code>std::move()</code></h4>
+<ul>
+<li>Usually <code>std::move()</code> has positive effect on performance, as many standard algorithm utilize move semantics. E.g. Functions like <code>std::reverse()</code> and sorting algorithms that do in-place sorting, will become more efficient as they now are fully in-place; no temp objects will be created. </li>
+<li>Sometimes we have to use <code>std::move()</code> as there are types that are moveable but not copyable:<ul>
+<li><code>std::thread</code></li>
+<li><code>std::unique_pointer</code></li>
+<li><code>std::fstream</code></li>
+</ul>
+</li>
+</ul>
+<h4>So what's so special about <code>std::move()</code>?</h4>
+<p>It turns out that the implementation of <code>std::move()</code> is actually really simple, what it does is that it converts its argument to rvalue reference using a <code>static_cast</code>.</p>
+<p>We won't go in much depth, but an implementation of <code>std::move()</code> can be boiled down to something similar to:</p>
+<div class="code"><pre><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span> <span class="n">noexcept</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span> 
+</pre></div>
+
+
+<h3>What are other uses for rvalue references?</h3>
+<p>As you have noticed in the "not so few" code snippets, in which we declared constructors, assignment operators and setters to support move semantics, we had to write overloaded functions to properly handle copies and moves. This can be really inefficient, it will result in code bloat and increases the chance of introducing bugs.</p>
+<p>So we ask: "How do we solve this devious problem?", and <strong><em>Perfect forwarding</em></strong> comes to the rescue and saves the day, but that's just another tale for another post.</p>
+<h3>References</h3>
+<p>This post started as the notes I took while examining the following resources:</p>
+<ul>
+<li>An article by Alex Allain title <a href="http://www.cprogramming.com/c++11/rvalue-references-and-move-semantics-in-c++11.html"><strong>"Move semantics and rvalue references in C++11"</strong></a>.</li>
+<li>A talk given by Scott Meyers titled <a href="http://skillsmatter.com/podcast/home/move-semanticsperfect-forwarding-and-rvalue-references"><strong>"Move Semantics,Perfect Forwarding, and Rvalue references"</strong></a>.</li>
+</ul>
+    <ul class="pager">
+    
+        <li class="previous">
+            <a href="../06/concurrency-in-cpp-prologue.html">← Previous post</a>
+        </li>
+    
+    
+    </ul>
+    
+        <div id="disqus_thread"></div>
+        <script type="text/javascript"> var disqus_shortname = 'amrelroumysblog'; var disqus_url = 'http://amrelroumy.github.io/posts/2013/07/cpp-move-semantics-rvalues.html'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+    </div>
+
+          <!--End of body content-->
+          <hr>
+          <div class="footer"><small>© 2011-2013 <a href="mailto:amr.elroumy@gmail.com">Amr Elroumy</a><br>Some rights reserved (<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="license">CC BY-NC-SA 3.0</a>)<br>Powered by <a href="http://nikola.ralsina.com.ar" target="_blank">Nikola</a> - Original theme by <a href="http://thomaspark.me/" target="_blank">Thomas Park</a></small></div>
+        </div>
+      </div>
+
+   <!--    
+      <div class="row-fluid">
+        <div class="span12 site-footer">
+          ©2011-2012 <a href="/about">Amr Elroumy</a> <br />Powered by <a href="https://github.com/hyde/hyde" title="The beast under the hood" target="_blank">Hyde</a>
+        </div>
+      </div>
+       -->
+
+    </div>
+    <!-- End Blog Container -->
+
+    
+
+<!-- Le javascript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../../../assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ]},
+    displayAlign: 'center', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+      styles: {
+        "font-size":  "120%"},
+        scale: 120}
+      });
+  </script>
+  
+  <script>
+  (function() {
+    var cx = '000224632386531530640:6f01ofvavgy';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+    '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+  </script>
+  <search></search>
+
+  <script src="../../../assets/js/mathjax.js" type="text/javascript"></script>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33968631-1']);
+  _gaq.push(['_setDomainName', 'amrelroumy.github.io']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+</body>
+</html>

@@ -1,5 +1,4 @@
 /*  Overriding some bootstrap defaults */
-
 .container-fluid {
   max-width: 97%;
   margin: auto;
@@ -16,7 +15,7 @@
 
 p>img {
   display: block;
-  margin: 5px auto;
+  margin: 12px auto;
   border: 1px solid #FFF;
   border-radius: 4px;
   box-shadow: #999 0 0 5px;
