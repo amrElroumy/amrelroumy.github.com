@@ -166,7 +166,7 @@ foo(foobar()); 		// argument is rvalue: calls foo(X&&)
 - Implementing `void foo(const X&);` works with both lvalues and rvalues, however we won't be able to distinguish between them.
 - Implementing `void foo(X&&);` only works with rvalues.
 
-### Use-case - Widgets' Shop
+### Use case - Widgets' Shop
 We can definitely use this overloading technique for all our functions, but it isn't really necessary except for copy constructors and assignment operators; where all the temporary objects are being created and dealt with.
 
 ```cpp
@@ -338,5 +338,5 @@ So we ask: "How do we solve this devious problem?", and ***Perfect forwarding***
 ## References
 This post started as the notes I took while examining the following resources:
 
-- An article by Alex Allain title [**"Move semantics and rvalue references in C++11"**](http://www.cprogramming.com/c++11/rvalue-references-and-move-semantics-in-c++11.html).
+- An article by Alex Allain titled [**"Move semantics and rvalue references in C++11"**](http://www.cprogramming.com/c++11/rvalue-references-and-move-semantics-in-c++11.html).
 - A talk given by Scott Meyers titled [**"Move Semantics,Perfect Forwarding, and Rvalue references"**](http://skillsmatter.com/podcast/home/move-semanticsperfect-forwarding-and-rvalue-references).

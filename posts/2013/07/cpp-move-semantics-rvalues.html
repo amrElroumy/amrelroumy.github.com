@@ -299,7 +299,7 @@ Rvalue references identify objects that may be moved from.</p>
 <li>Implementing <code>void foo(const X&amp;);</code> works with both lvalues and rvalues, however we won't be able to distinguish between them.</li>
 <li>Implementing <code>void foo(X&amp;&amp;);</code> only works with rvalues.</li>
 </ul>
-<h4>Use-case - Widgets' Shop</h4>
+<h4>Use case - Widgets' Shop</h4>
 <p>We can definitely use this overloading technique for all our functions, but it isn't really necessary except for copy constructors and assignment operators; where all the temporary objects are being created and dealt with.</p>
 <div class="code"><pre><span class="k">struct</span> <span class="n">Part</span><span class="p">;</span>                    <span class="c1">// Type declaration of Part struct</span>
 
@@ -465,7 +465,7 @@ Rvalue references identify objects that may be moved from.</p>
 <h3>References</h3>
 <p>This post started as the notes I took while examining the following resources:</p>
 <ul>
-<li>An article by Alex Allain title <a href="http://www.cprogramming.com/c++11/rvalue-references-and-move-semantics-in-c++11.html"><strong>"Move semantics and rvalue references in C++11"</strong></a>.</li>
+<li>An article by Alex Allain titled <a href="http://www.cprogramming.com/c++11/rvalue-references-and-move-semantics-in-c++11.html"><strong>"Move semantics and rvalue references in C++11"</strong></a>.</li>
 <li>A talk given by Scott Meyers titled <a href="http://skillsmatter.com/podcast/home/move-semanticsperfect-forwarding-and-rvalue-references"><strong>"Move Semantics,Perfect Forwarding, and Rvalue references"</strong></a>.</li>
 </ul>
     <ul class="pager">
